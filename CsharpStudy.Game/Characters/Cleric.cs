@@ -54,7 +54,7 @@ public class Cleric : IComparable<Cleric>
         if (obj.GetType() != GetType()) return false;
         return Equals((Cleric)obj);
     }
-
+    
     public override int GetHashCode()
     {
         return Name.GetHashCode();
