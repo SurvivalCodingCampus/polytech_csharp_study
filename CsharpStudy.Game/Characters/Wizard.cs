@@ -9,6 +9,6 @@ public class Wizard : Character
 
     public override void Run()
     {
-        throw new NotImplementedException();
+        throw new NotImplementedException();         // 'Not Implemented' == '구현하지 않았음'
     }
 }
