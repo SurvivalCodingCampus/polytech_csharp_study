@@ -2,11 +2,12 @@ namespace CsharpStudy._2;
 
 public class Word
 {
-    private string word = "";
+    // 필드를 readonly로 두어 불변성을 높이고 생성자에서 ArgumentNullException으로 방어해 주세요.
+    private readonly string word;
 
     public Word(string w)
     {
-        word = w;
+        word = w ?? throw new ArgumentNullException(nameof(w));
     }
 
 
