@@ -8,5 +8,8 @@ class Program
         bool result = w.isVowel(3);
         Console.WriteLine(result);
 
+        bool result2 = w.isConsonant(3);
+        Console.WriteLine(result2);
+
     }
 }
