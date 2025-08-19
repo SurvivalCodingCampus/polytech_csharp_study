@@ -39,11 +39,11 @@ namespace CsharpStudy._2hakgi.Tests.Assignment
         [Test]
         public void IsVowel_Alphabet_Test()
         {
-            Word w = new Word("H@llo!");
+            Word w = new Word("H@@@o!");
 
             // 알파벳이 아닌 경우 예외
-            Assert.Throws<ArgumentException>(() => w.IsVowel(1)); // '@'
-            Assert.Throws<ArgumentException>(() => w.IsVowel(5)); // '!'
+            Assert.Throws<FormatException>(() => w.IsVowel(1)); // '@'
+            Assert.Throws<FormatException>(() => w.IsVowel(5)); // '!'
 
             // 알파벳 범위 내 정상 호출
             Assert.That(w.IsVowel(0), Is.False);    // 'H' -> 자음

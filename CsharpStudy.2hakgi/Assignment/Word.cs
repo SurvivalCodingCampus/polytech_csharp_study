@@ -20,13 +20,13 @@ public class Word
 
         // 알파벳인지 확인
         char c = _word[i];
-        if('a' <= c && c <= 'z' && 'A' <= c && c <= 'Z')
+        if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
         {
-            throw new ArgumentException("문자가 알파벳이 아닙니다.");
+            throw new FormatException("문자가 알파벳이 아닙니다.");
         }
-
+        
         // 소문자로 변경
-        c = char.ToLower(_word[i]); 
+        c = char.ToLower(c);
         
         // return
         return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
