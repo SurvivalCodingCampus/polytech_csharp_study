@@ -34,5 +34,8 @@ public class WordTest
 
         Assert.That(word.IsConsonant(-1), Is.False);
         Assert.That(word.IsConsonant(5), Is.False);
+        
+        Assert.That(word.IsVowel(-1), Is.False);
+        Assert.That(word.IsVowel(20), Is.False);
     }
 }
