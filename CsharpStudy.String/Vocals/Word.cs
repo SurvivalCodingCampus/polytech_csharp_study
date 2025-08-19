@@ -6,6 +6,7 @@ public class Word
 
     public Word(string value)
     {
+        ArgumentNullException.ThrowIfNull(value);       // Oh.
         word = value;
     }
 
