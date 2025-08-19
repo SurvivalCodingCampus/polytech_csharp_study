@@ -16,7 +16,7 @@ public class Word
 
     public bool IsVowel(int i)
     {
-        if (i < 0 || i > Text.Length)
+        if (i < 0 || i >= Text.Length)
         {
             throw new ArgumentOutOfRangeException($"0 이상 {Text.Length - 1}" +
                                                   $" 이하의 숫자를 입력하세요.");
