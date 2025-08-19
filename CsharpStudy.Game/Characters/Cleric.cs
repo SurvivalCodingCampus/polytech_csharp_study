@@ -10,6 +10,7 @@ public class Cleric : IComparable<Cleric>
 
     private int _hp;
 
+
     public int Hp
     {
         get { return _hp; }
@@ -19,6 +20,7 @@ public class Cleric : IComparable<Cleric>
             {
                 throw new ArgumentException("HP는 0보다 작을 수 없습니다.");
             }
+
             _hp = value;
         }
     }
@@ -43,7 +45,7 @@ public class Cleric : IComparable<Cleric>
         {
             throw new ArgumentException("null과 비교할 수 없다");
         }
-            
+
         return Name.CompareTo(other.Name);
     }
 
