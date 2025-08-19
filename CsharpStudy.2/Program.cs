@@ -8,13 +8,18 @@ class Program
 {
     static void Main(string[] args)
     {
-        Hero hero1 = new Hero(name: "홍길동");
+        Word w = new Word("Hello");
+        Console.WriteLine(w.IsVowel(1)); // true (e)
+        Console.WriteLine(w.IsVowel(0)); // false (H)
+        Console.WriteLine(w.IsVowel(4)); // true (o)
+        
+        /*Hero hero1 = new Hero(name: "홍길동");
         Hero hero2 = new Hero(name: "홍길동");
 
         Console.WriteLine(hero1 == hero2);
         Console.WriteLine(hero1.GetHashCode()==hero2.GetHashCode());
         Console.WriteLine(hero1.Equals(hero2));
-        Console.WriteLine(object.ReferenceEquals(hero1, hero2));
+        Console.WriteLine(object.ReferenceEquals(hero1, hero2));*/
     }
 
 
