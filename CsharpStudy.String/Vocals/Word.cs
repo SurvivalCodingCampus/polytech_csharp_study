@@ -7,16 +7,19 @@ public class Word
     public Word(string value)
     {
         if (value is null) throw new ArgumentException("You must provide at least a char for Word");
-        word = value;
+        text = value;
+        
+        // The way compliant with .NET Guideline
+        // if (value is null) throw new System.ArgumentNullException(nameof(value));
     }
 
-    public string word { get; }
+    public string text { get; }
 
     public char GetChar(int index)
     {
         ValidateIndex(index);
 
-        return word[index];
+        return text[index];
     }
 
     public bool IsVowel(int index)
@@ -33,6 +36,10 @@ public class Word
         
         // LINQ Expression?
         // return _vowels.Any(vowel => targetCharacter == vowel);
+        
+        // SHORTEST WAY
+        // true when exists, false when doesn't.
+        // return System.Array.IndexOf(_vowels, c) >= 0;
     }
 
     public bool IsConsonant(int index)
@@ -50,6 +57,6 @@ public class Word
 
     private void ValidateIndex(int index)
     {
-        if (index < 0 || index >= word.Length) throw new IndexOutOfRangeException("Index out of range");
+        if (index < 0 || index >= text.Length) throw new System.ArgumentOutOfRangeException(nameof(index), "Index out of range");
     }
 }

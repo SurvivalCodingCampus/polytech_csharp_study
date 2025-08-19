@@ -31,13 +31,13 @@ public class WordTest
     public void Out_Of_Range_Test()
     {
         Word word = new Word("This is a word");
-        Assert.Throws<IndexOutOfRangeException>(() => word.GetChar(99999));
+        Assert.Throws<ArgumentOutOfRangeException>(() => word.GetChar(99999));
     }
     
     [Test]
     public void Non_Letter_Test()
     {
         Word word = new Word("This is a word");
-        Assert.That(false, Is.EqualTo(word.IsConsonant(4))); // Whitespace; false
+        Assert.That(word.IsConsonant(4), Is.False); // Whitespace; false
     }
 }
