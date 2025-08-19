@@ -12,7 +12,7 @@ public class Word
     public bool IsVowel(int i)
     {
         string vowel = "aeiou";
-        return vowel.IndexOf(_word.ElementAt(i)) > -1;
+        return vowel.IndexOf(_word.ToLower().ElementAt(i)) > -1;
     }
 
     public bool IsConsonant(int i)
