@@ -2,17 +2,17 @@ namespace CsharpStudy.String.Vocals;
 
 public class Word
 {
-    private readonly char[] _vowels = new[] { 'a', 'e', 'i', 'o', 'u' };
+    private readonly char[] _vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
 
     public Word(string value)
     {
-        ArgumentNullException.ThrowIfNull(value);       // Oh.
+        if (value is null) throw new ArgumentException("You must provide at least a char for Word");
         word = value;
     }
 
     public string word { get; }
 
-    public char GetChar(int index = 0)
+    public char GetChar(int index)
     {
         ValidateIndex(index);
 
@@ -30,6 +30,9 @@ public class Word
                 return true;
 
         return false;
+        
+        // LINQ Expression?
+        // return _vowels.Any(vowel => targetCharacter == vowel);
     }
 
     public bool IsConsonant(int index)
@@ -47,6 +50,6 @@ public class Word
 
     private void ValidateIndex(int index)
     {
-        if (index < 0 || index >= word.Length) throw new System.ArgumentOutOfRangeException(nameof(index), "Index out of range");
+        if (index < 0 || index >= word.Length) throw new IndexOutOfRangeException("Index out of range");
     }
 }

@@ -14,8 +14,7 @@ public class WordTest
     {
         Word word = new Word("This is a word");
         int index = 3;          // 's', Consonant.
-
-        Console.WriteLine(word.GetChar(index));
+        
         Assert.That(word.IsVowel(index), Is.False);
     }
     
@@ -24,18 +23,17 @@ public class WordTest
     {
         Word word = new Word("This is a word");
         int index = 3;          // 's', Consonant.
-
-        Console.WriteLine(word.GetChar(index));
+    
         Assert.That(word.IsConsonant(index), Is.True);
     }
-
+    
     [Test]
     public void Out_Of_Range_Test()
     {
         Word word = new Word("This is a word");
-        Assert.Throws<ArgumentOutOfRangeException>(() => word.GetChar(99999));
+        Assert.Throws<IndexOutOfRangeException>(() => word.GetChar(99999));
     }
-
+    
     [Test]
     public void Non_Letter_Test()
     {
