@@ -11,7 +11,7 @@ class Program
     {
         Word word = new Word("String");
         int length = (word.Text.Length + 1);
-        Console.Write($"1 이상 {word.Text.Length} 이하의 숫자를 입력하세요");
+        Console.Write($"1 이상 {word.Text.Length} 이하의 숫자를 입력하세요 : ");
 
         string? line = Console.ReadLine(); // 콘솔 입력 = 문자열로 들어옴 + null 값 포함
         // 유효성 검사 / out : 메서드에 매개변수 전달시, 해당 매개변수가 참조로 전달되로고 지정 키워드
