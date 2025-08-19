@@ -8,7 +8,7 @@ public class Word
     {
         word = w.ToLower();
     }
-
+    
     public bool IsVowel(int i)
     {
         // i가 0보다 작거나 단어의 길이보다 크거나 같으면 false 
