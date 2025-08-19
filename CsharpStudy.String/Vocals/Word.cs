@@ -2,41 +2,50 @@ namespace CsharpStudy.String.Vocals;
 
 public class Word
 {
-    private char[] _vowels =  new char[] { 'a', 'e', 'i', 'o', 'u' };
-    public string word { get; }
+    private readonly char[] _vowels = new[] { 'a', 'e', 'i', 'o', 'u' };
 
     public Word(string value)
     {
-        this.word = value;
+        word = value;
     }
 
-    public char GetChar(int index)
+    public string word { get; }
+
+    public char GetChar(int index = 0)
     {
-        Index_VerificationCheck(index);
-        
+        ValidateIndex(index);
+
         return word[index];
     }
 
     public bool IsVowel(int index)
     {
-        Index_VerificationCheck(index);
-        
-        char targetCharacter = word[index];
-        foreach (char vowel in _vowels)
-        {
-            if (targetCharacter == vowel) return true;
-        }
-        
+        var c = GetChar(index);
+        if (!char.IsLetter(c)) return false;        // No whitespace or mark
+
+        var targetCharacter = c;
+        foreach (var vowel in _vowels)
+            if (targetCharacter == vowel)           // Or targetCharacter.Equals(vowel)
+                return true;
+
         return false;
     }
-    
+
     public bool IsConsonant(int index)
     {
-        return !IsVowel(index);
+        var c = GetChar(index);
+        if (!char.IsLetter(c)) return false;        // No whitespace or mark
+
+        var targetCharacter = c;
+        foreach (var vowel in _vowels)
+            if (targetCharacter == vowel)
+                return false;
+
+        return true;
     }
 
-    private void Index_VerificationCheck(int index)
+    private void ValidateIndex(int index)
     {
-        if (index < 0 || index >= word.Length) throw new IndexOutOfRangeException("Index out of range");
+        if (index < 0 || index >= word.Length) throw new System.ArgumentOutOfRangeException(nameof(index), "Index out of range");
     }
 }
