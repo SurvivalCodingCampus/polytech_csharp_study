@@ -6,5 +6,6 @@ class Program
     {
         string s1 = "HELLO";
         Console.WriteLine(s1.Replace("LL", "XX"));
+        Console.WriteLine("여기가 왜");
     }
 }
