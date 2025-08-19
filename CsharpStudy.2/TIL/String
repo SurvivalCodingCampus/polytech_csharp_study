@@ -54,15 +54,15 @@
     
     ```csharp
     String s1 = "HELLO";
-    Console.WriteLine(s1.Substring(0,2);  // 결과 : HE
-    Console.WriteLine(s1.Substring(2);  // 결과 : LLO (인덱스 2부터 끝까지)
+    Console.WriteLine(s1.Substring(0,2));  // 결과 : HE
+    Console.WriteLine(s1.Substring(2));  // 결과 : LLO (인덱스 2부터 끝까지)
     ```
     
 - 일부 치환
     
     ```csharp
     String s1 = "HELLO";
-    Console.WriteLine(s1.Replace("LL","XX");  // 결과 : HEXXO
+    Console.WriteLine(s1.Replace("LL","XX"));  // 결과 : HEXXO
     ```
     
 - 분리
@@ -72,7 +72,7 @@
     String[] splitNumbers = s1.Split(',');
     foreach (string s in splitNumbers)
     {
-    	Console.WriteLine(s1.Replace(s);  // 결과 : 1, 2, 3 (각 줄)
+    	Console.WriteLine(s.Trim());  // 결과 : 1 / 2 / 3 (각 줄)
     }
     ```
     
@@ -80,7 +80,7 @@
     
     ```csharp
     String s1 = "HELLO";
-    Console.WriteLine(s1.Replace(s1.ToLower());
+    Console.WriteLine(s1.ToLower());
     ```
     
 - 길이
@@ -98,10 +98,10 @@
     string s4 = "hello";
     
     // 문자열이 null, 빈 문자열, 또는 공백만으로 이루어져있는지
-    Console.WriteLine(s1.Replace(string.IsNullOrEmpty(s1));  // 결과 : True
-    Console.WriteLine(s2.Replace(string.IsNullOrEmpty(s2));  // 결과 : True
-    Console.WriteLine(s3.Replace(string.IsNullOrEmpty(s3));  // 결과 : false (공백문자가 있기 때문)
-    Console.WriteLine(s4.Replace(string.IsNullOrEmpty(s4));  // 결과 : false
+    Console.WriteLine(string.IsNullOrEmpty(s1));         // 결과 : True
+    Console.WriteLine(string.IsNullOrEmpty(s2));         // 결과 : True
+    Console.WriteLine(string.IsNullOrWhiteSpace(s3));    // 결과 : True (공백만으로 구성)
+    Console.WriteLine(string.IsNullOrEmpty(s4));         // 결과 : False
     ```
     
 - 검색
@@ -123,7 +123,7 @@
     Console.WriteLine(s1.ToLower());  // 결과 : java and javascript
     Console.WriteLine(s1.ToUpper());  // 결과 : JAVA AND JAVASCRIPT
     Console.WriteLine(s1.Trim());  // 결과 : Java and JavaScript (좌우 공백 제거)
-    Console.WriteLine(s1.Replace("and", "or");  // 결과 : Java or JavaScript
+    Console.WriteLine(s1.Replace("and", "or"));  // 결과 : Java or JavaScript
     ```
     
 
@@ -145,9 +145,9 @@ pic.Translate(15, 25);  // Mutator
     - **원본 상태는 그대로 두고, 새로운 결과만 반환**.
         
         ```csharp
-        string greeting = “Hello”;
+        string greeting = "Hello";
         
-        Console.WriteLine(greeting.Replace(“H”, “J”));  // Jello
+        Console.WriteLine(greeting.Replace("H", "J"));  // Jello
         Console.WriteLine(greeting);  // Hello
         ```
         
@@ -155,25 +155,27 @@ pic.Translate(15, 25);  // Mutator
     - 객체의 **내부 상태를 직접 변경**
         
         ```csharp
-        Rectangle box = Rectangle(5, 10, 60, 40);
+        var box = new Rectangle(5, 10, 60, 40);
         
-        Console.WriteLine(box.x);  // 5
-        Console.WriteLine(box.width);  // 60
+        Console.WriteLine(box.X);  // 5
+        Console.WriteLine(box.Width);  // 60
         
-        box.translate(25, 40);
+        box.Offset(25, 40);
         
-        Console.WriteLine(box.x);  //30
-        Console.WriteLine(box.width);  // 60
+        Console.WriteLine(box.X);  //30
+        Console.WriteLine(box.Width);  // 60
         ```
         
 - String 복사하기
     
     ```csharp
-    string greeting1 = “Hello, World!”;
+    string greeting1 = "Hello, World!";
     string greeting2 = greeting1;
     
     greeting2.ToUpper();
-    
+
+
+    // 기대값(Accessor: 원본 불변, 반환값을 저장하지 않아 변화 없음)    
     greeting1 = ?  // "Hello, World!"
     greeting2 = ?  // "Hello, World!"
     ```
