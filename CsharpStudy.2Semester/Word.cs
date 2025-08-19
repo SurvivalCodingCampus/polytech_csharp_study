@@ -16,6 +16,12 @@ public class Word
 
     public bool IsVowel(int i)
     {
+        if (i < 0 || i > Text.Length)
+        {
+            throw new ArgumentOutOfRangeException($"0 이상 {Text.Length-1}" +
+                                                  $" 이하의 숫자를 입력하세요.");
+        }
+        
         // word[i]가 'a'와 같은지 확인
         string lowerResult = Text.ToLower();
 
