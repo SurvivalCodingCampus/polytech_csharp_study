@@ -19,4 +19,14 @@ public class Word
         
         return word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u';
     }
+    
+    public bool IsConsonant(int i)
+    {
+        if (i < 0 || i >= word.Length)
+        {
+            return false;
+        }
+        
+        return word[i] != 'a' && word[i] != 'e' && word[i] != 'i' && word[i] != 'o' && word[i] != 'u';
+    }
 }
