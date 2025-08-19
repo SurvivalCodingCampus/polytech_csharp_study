@@ -16,4 +16,10 @@ public class Word
         // return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
         return "aeiou".Contains(c);  // 모음 중에 포함되어있는지 확인
     }
+    
+    public bool IsConsonant(int i)
+    {
+        char c = char.ToLower(word[i]);
+        return char.IsLetter(c) && !IsVowel(i);  // 문자이면서 자음이 아닌 것
+    }
 }
