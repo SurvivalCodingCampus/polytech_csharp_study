@@ -1,0 +1,63 @@
+## TODAY NOTE C# [문자열]  [ 25.08.19 ]
+
+### String과 StringBuilder의 차이점
+**String**
+- 불변객체(Immutable) : string은 한 번 생성되면 수정할 수 없는 불변 객체
+- string pool에 저장되어 있는 값을 찾아서 꺼내 씀
+- 문자열을 변경하는 것 처럼 보여도, 실제로는 `새로운 문자열 객체가 생성`됨
+- 문자열을 많이 수정하면 `메모리 낭비, 성능 저하` 생김
+
+**StringBuilder**
+- 가변 객체(Mutable) : stringbuilder는 문자열을 수정할 수 있는 가변 객체
+- 문자열 연결, 삽입, 삭제 같은 작업시 기존 메모리를 재사용함
+- 문자열을 많이 바꾸는 경우 효율적
+
+
+### 해시코드(GetHashCode())
+- 객체를 식별하기 위해 만든 정수 값 반환
+- `Dictionary`, `HashSet` 같은 해시 기반 자료구조에서 검색 속도를 빠르게 하기 위해 사용
+- "주소값"이 아니라, 일종의 요약값(고유 번호 같은 것)
+- 해시코드가 다르다 == 인스턴스가 서로 다른 주소를 가짐
+
+### ToSting() 
+- 객체를 문자열로 바꿔 보여줌
+- 숫자, DateTime, enum, Guid 등은 값을 의미 있게 문자열로 반환
+
+* 문자열 리터럴 = 코드에 직접 적은 고정 문자열  > string s = "Hello";
+* CLR(Common Language Runtime) : .NET의 실행 엔진(런타임)
+
+----------------------------------------------------------------------------------------------------
+
+**[예시1] 같은 리터럴은 같은 객체를 공유**
+string str1 = "hello"
+string str2 = "hello"
+Console.WriteLine(object.ReferenceEquals(str1, str2));
+// 결과값 : True
+[ "hello" 문자열이 string pool에 등록 > `같은 리터럴이면 같은 힙의 객체 공유` ]
+
+**[예시2] new로 만들면 새 객체 (기본은 풀에 없음)**
+string str1 = "hello";
+string str3 = new sting(new char[] {'h', 'e', 'l', 'l', 'o'});
+Console.WriteLine(object.ReferenceEquals(str1, str3));
+// 결과값 : False
+[ `new`를 쓰면 string pool을 거치지 않고 바로 새 힙 객체 생성 -> 값은 같지만, 참조(메모리)위치 다름 ]
+
+**[예시3] 컴파일타임 상수 결합은 풀 공유**
+string str1 = "hello";
+string str4 = "hel" + "lo";
+Console.WriteLine(object.ReferenceEquals(str1, str4));
+// 결과값 : True
+[ `"hel" + "lo"`는 `런타임x` -> `컴파일타임`에 컴파일러가 미리 "hello"의 리터럴로 치환 -> 풀 공유 ]
+
+**[예시4] 런타임 결합은 새 객체 (기본은 풀에 없음)**
+string str1 = "hello";
+string str5 = "hel" + GetLo();
+Console.WriteLine(object.ReferenceEquals(str1, st5));
+public static string GetLo(){return "lo";}
+// 결과값 : False
+[ 메서드 호출 컴파일러가 결과를 상수로 확정x -> `런타임` -> 힙에 새 객체 생성 ]
+
+[요약]
+- 문자열 리터럴/컴파일타임 상수 → intern pool에 등록, 같은 리터럴은 같은 힙 객체 공유
+- new / 런타임 결합 / StringBuilder.ToString() → 새 힙 객체 (기본은 intern 안 됨)
+- 변수에는 객체가 아니라 ‘참조’ 가 저장됨 (로컬이면 보통 스택에 그 참조값이 올라감)
