@@ -3,18 +3,24 @@
 public class Word
 {
     private string word = "";
+    private int size = 0;
+
     public Word(string word)
     {
         this.word = word;
+        size = word.Length;
     }
 
-    public bool isVowel(int i)
+    public bool IsVowel(int i)
     {
-        return word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u';;
+        if (i > size || i < 0) return false;
+        return word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u';
+        ;
     }
 
-    public bool isConsonant(int i)
+    public bool IsConsonant(int i)
     {
-        return !(word[i] == 'a' || word[i] == 'e' || word[i] == 'i'  || word[i] == 'o' || word[i] == 'u');
+        if (i > size || i < 0) return false;
+        return !(word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u');
     }
 }

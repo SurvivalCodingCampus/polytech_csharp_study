@@ -12,17 +12,27 @@ public class WordTest
     {
         Word word = new Word("abc");
 
-        Assert.That(word.isVowel(0),Is.True);
-        Assert.That(word.isVowel(1),Is.False);
-        Assert.That(word.isVowel(2),Is.False);
+        Assert.That(word.IsVowel(0), Is.True);
+        Assert.That(word.IsVowel(1), Is.False);
+        Assert.That(word.IsVowel(2), Is.False);
     }
+
     [Test]
     public void 자음확인()
     {
         Word word = new Word("abc");
 
-        Assert.That(word.isConsonant(0),Is.False);
-        Assert.That(word.isConsonant(1),Is.True);
-        Assert.That(word.isConsonant(2),Is.True);
+        Assert.That(word.IsConsonant(0), Is.False);
+        Assert.That(word.IsConsonant(1), Is.True);
+        Assert.That(word.IsConsonant(2), Is.True);
+    }
+
+    [Test]
+    public void 범위초과_확인()
+    {
+        Word word = new Word("abc");
+
+        Assert.That(word.IsConsonant(-1), Is.False);
+        Assert.That(word.IsConsonant(5), Is.False);
     }
 }
