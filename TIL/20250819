@@ -1,0 +1,100 @@
+# 20250819수업내용정리
+
+문자열 처리(일부 떼어내기)
+"HELLO" -> "HE"
+string s1 = "HELLO";
+Console.WriteLine(s1.Substring(0,2)); -> Output: HE
+문자열의 0번째 인덱스붜 시작하여 시작 위치로부터 2개의 문자를 가져온다.
+
+Console.WirteLine(s1Ssubstring(2)); -> Output: LLo
+문자열의 2번째 인덱스(세번재 문자)부터 시작한다.
+
+문자열 처리(일부 치환)
+"HELLO" -> "HEXXO"
+string s1 = "HELLO";
+Console.WriteLine(s1.Replace("LL", "XX");
+Replace() 메서드는 문자열 내의 특정 부분을 다른 문자열로 모두 바꾸어 새로운 문자열을 반환.
+
+문자열 처리(분리)
+"1,2,3" -> ["1", "2", "3"]
+string s1 = "1,2,3";
+string[] splitNumbers = s1.Split(','); 
+Split는 콤마를 기준으로 분리
+string[] splitNumbers는 나뉜 문자열들이 string타입의 배열로 저장
+foreach(string s in splitNumbers)
+{
+  Console.WriteLine(s);
+}
+foreach반복문을 사용
+
+문자열 처리(대소문자 변경)
+"HELLO" -> hello
+string s1 = "HELLO";
+Console.WriteLine(s1.Tolower());
+ToLower()는 문자열의 모든 문자를 소문자로 변환
+
+문자열 처리(길이)
+string greeting = "Hello, world!";
+int length = greeting.Length;
+
+string emptystring = "";
+int emptyLength = emtystring.Length
+
+.Length -> 문자열의 길이를 정수형 변수로 저장
+
+string s1 = null;
+string s2 = "";
+string s3 = " "; -> 공백문자열
+string s4 = "hello";
+
+Console.WriteLine(string.InNullOrEmpty(s1)); -> true
+Console.WriteLine(string.InNullOrEmpty(s2)); -> true
+Console.WriteLine(string.InNullOrEmpty(s3)); -> flase
+Console.WriteLine(string.InNullOrEmpty(s4)); -> flase
+IsNullOrEmpty -> null상태이거나 빈문자열(문자열의 길이가 0)이라면 true, 그렇지 않다면 false를 반환
+
+string s1 = null;
+string s2 = "";
+string s3 = "    "; -> 공백문자열
+string s4 = "  \t\n "; -> 공백, 탭, 개행 문자
+string s5 = "hello";
+
+Console.WriteLine(string.IsNullOrWhiteSpace(s1)); -> true
+Console.WriteLine(string.IsNullOrWhiteSpace(s2)); -> true
+Console.WriteLine(string.IsNullOrWhiteSpace(s3)); -> true
+Console.WriteLine(string.IsNullOrWhiteSpace(s4)); -> true
+Console.WriteLine(string.IsNullOrWhiteSpace(s5)); -> false
+
+IsNullOrWhiteSpace -> 문자열이 null이거나, 비어 있거나, 공백 문자로만 이루어져 있는지 확인하는 데 사용되는 메서드.
+
+문자열 처리(검색)
+string s1 = "Java and JavaScript";
+Console.WriteLine(s1.Contains("Java")); -> ture
+Console.WriteLine(s1.EndsWith("Java")); -> false
+Console.WriteLine(s1.IndexOf("Java")); -> 0
+Console.WriteLine(s1.LastIndexOf("Java")); -> p 
+
+Contains -> 특정문자열이나 문자가 다른 문자열 안에 포함되어 있는지 확인
+EndsWith -> 문자열이 특정 문자열로 끝나는지 확인
+IndexOf -> 특정 문자열이나 문자가 다른 문자열 안에 처음으로 등장하는 위치(인덱스)를 찾음, 찾으면 해당 위치의 정수 인덱스를 반환하고, 찾니 못하면 -1을 반환
+LastIndexOf -> 특정 문자열이나 문자가 다른 문자열 안에 마지막으로 등장하는 위치를 찾음 문자열 끝에서부터 시작
+
+문자열 처리(변환)
+string s1 = "  Java and JavaScript  ";
+Console.WriteLine(s1.ToLower()); -> java and javascript
+Console.WriteLine(s1.ToUpper()); -> JAVA AND JAVASCRIPT
+Console.WriteLine(s1.Trim()); -> Java and JavaScript(좌우공백제거)
+Console.WriteLine(s1.Replace("and", "or")); -> Java or JavaScript
+
+ToLower -> 문자열의 모든 문자를 소문자로 변환
+ToUpper -> 문자열의 모든 문자를 대문자로 변환
+Trim -> 문자열의 시작과 끝에 있는 모든 공백 문자를 제거
+Replace -> 특정 문자열이나 문자를 다른 문자열로 모두 치환
+
+문자열 결함 방법
+1. +연산
+2. String interpolation
+3. StringBuilder
+
++연산자는 연산이 느린데 string 인스턴스는 불변의 객체이기 때문, 문자열을 결합할 때마다 새로운 string 객체가 생성되므로, 반복적인 결합 작업은 성능 저하를 유발
+string은 변경할 때마다 새로운 객체를 생성, StringBuilder은 기존 객체를 수정
