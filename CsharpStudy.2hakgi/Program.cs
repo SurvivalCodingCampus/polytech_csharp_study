@@ -1,11 +1,16 @@
-﻿namespace CsharpStudy._2hakgi;
+﻿using System.Runtime.CompilerServices;
+
+namespace CsharpStudy._2hakgi;
 
 class Program
 {
     static void Main(string[] args)
     {
-        string s1 = "HELLO";
-        Console.WriteLine(s1.Replace("LL", "XX"));
-        Console.WriteLine("여기가 왜");
+        Word word = new Word("goodle");
+
+        Console.WriteLine(word.IsVowel(2));
+        Console.WriteLine(word.IsVowel(0));
+        Console.WriteLine(word.IsConsonant(0));
+        Console.WriteLine(word.IsConsonant(2));
     }
 }
