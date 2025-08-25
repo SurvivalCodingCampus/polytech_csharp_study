@@ -2,9 +2,8 @@
 
 class Program
 {
-    static void Main(string[] args)
+   /* static void Main(string[] args)
     {
-        
         //동적생성
         string s1 = "HELLO";
         Console.WriteLine(s1.GetHashCode());
@@ -12,5 +11,5 @@ class Program
         Console.WriteLine(s1.GetHashCode());
         
         Console.WriteLine(s1.Replace("LL", "XX"));
-    }
+    }*/
 }
