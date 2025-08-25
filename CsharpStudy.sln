@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Asset", "Csharp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Game.Tests", "CsharpStudy.Game.Tests\CsharpStudy.Game.Tests.csproj", "{97540938-4341-4E9C-956B-65C9E01B51F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.2hakgi", "CsharpStudy.2hakgi\CsharpStudy.2hakgi.csproj", "{E2C35F9D-D291-47CC-A518-F24BFBE8F141}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.2hakgi.Tests", "CsharpStudy.2hakgi.Tests\CsharpStudy.2hakgi.Tests.csproj", "{2A645E38-F611-4773-9BBA-D7094B928F63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{97540938-4341-4E9C-956B-65C9E01B51F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97540938-4341-4E9C-956B-65C9E01B51F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97540938-4341-4E9C-956B-65C9E01B51F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2C35F9D-D291-47CC-A518-F24BFBE8F141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2C35F9D-D291-47CC-A518-F24BFBE8F141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2C35F9D-D291-47CC-A518-F24BFBE8F141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2C35F9D-D291-47CC-A518-F24BFBE8F141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A645E38-F611-4773-9BBA-D7094B928F63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A645E38-F611-4773-9BBA-D7094B928F63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A645E38-F611-4773-9BBA-D7094B928F63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A645E38-F611-4773-9BBA-D7094B928F63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
