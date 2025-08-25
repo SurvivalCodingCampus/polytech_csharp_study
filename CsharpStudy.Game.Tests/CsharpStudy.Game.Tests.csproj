@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CaharpStudy.2hakgi\CaharpStudy.2hakgi.csproj" />
     <ProjectReference Include="..\CsharpStudy.Game\CsharpStudy.Game.csproj" />
   </ItemGroup>
   
