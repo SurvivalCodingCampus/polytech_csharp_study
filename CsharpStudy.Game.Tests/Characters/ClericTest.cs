@@ -14,5 +14,6 @@ public class ClericTest
         Cleric cleric = new Cleric("홍길동");
         // cleric.Hp = -1;
         Assert.Throws<ArgumentException>(() => cleric.Hp = -1);
+        
     }
 }

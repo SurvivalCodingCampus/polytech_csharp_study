@@ -8,7 +8,7 @@ class Program
     {
         Console.WriteLine("Hello, World!");
         Console.WriteLine(Cleric.MaxHp);
-        
+
         Cleric.SetRandomMoney();
 
         Cleric cleric1 = new Cleric("홍길동1");
@@ -42,7 +42,7 @@ class Program
         string hong2 = "홍길동";
         Console.WriteLine(hong1.GetHashCode());
         Console.WriteLine(hong2.GetHashCode());
-        
+
         Console.WriteLine(cleric1.ToString());
         Console.WriteLine(cleric1);
 
@@ -55,20 +55,19 @@ class Program
         List<string> menus = ["메뉴1", "메뉴3", "메뉴2"];
         // 오름차순
         menus.Sort();
-        
+
         // 내림차순
         menus.Sort((a, b) => a.CompareTo(b) * -1);
-        
+
         foreach (var menu in menus)
         {
-            Console.WriteLine(menu);            
+            Console.WriteLine(menu);
         }
-
-        // 터졌음
+        
         clerics.Sort();
         foreach (var cleric in clerics)
         {
-            Console.WriteLine(cleric);            
+            Console.WriteLine(cleric);
         }
 
         Character character = new Wizard();
@@ -78,7 +77,7 @@ class Program
         {
             wizard.Fireball();
         }
-        
+
         // Wizard wizard2 = (Wizard) character;
         Wizard? wizard2 = character as Wizard;
 
