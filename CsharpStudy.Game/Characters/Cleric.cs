@@ -2,15 +2,15 @@ namespace CsharpStudy.Game.Characters;
 
 public class Cleric : IComparable<Cleric>
 {
-    // 컴파일타임 상수
+    // Compiling-time variables; No static member here.
     public const int MaxHp = 50;
     public const int MaxMp = 10;
 
-    public string Name { get; }
+    public string Name { get; } // Read-only.
 
     private int _hp;
 
-    public int Hp
+    public int Hp // Property with redefined getter and setter
     {
         get { return _hp; }
         set
@@ -23,9 +23,9 @@ public class Cleric : IComparable<Cleric>
         }
     }
 
-    public int Mp { get; set; }
+    public int Mp { get; set; } // Property
 
-    public Cleric(string name, int hp = MaxHp, int mp = MaxMp)
+    public Cleric(string name, int hp = MaxHp, int mp = MaxMp) // Constructor
     {
         Name = name;
         Hp = hp;
@@ -37,7 +37,7 @@ public class Cleric : IComparable<Cleric>
         return Name == other.Name;
     }
 
-    public int CompareTo(Cleric? other)
+    public int CompareTo(Cleric? other) // the interface 'IComparable<T>' is needed.
     {
         if (other == null)
         {
@@ -49,20 +49,20 @@ public class Cleric : IComparable<Cleric>
 
     public override bool Equals(object? obj)
     {
-        if (obj is null) return false;
-        if (ReferenceEquals(this, obj)) return true;
-        if (obj.GetType() != GetType()) return false;
-        return Equals((Cleric)obj);
+        if (obj is null) return false;                  // Is null?
+        if (ReferenceEquals(this, obj)) return true;    // Is this and obj pointing the same?
+        if (obj.GetType() != GetType()) return false;   // Is obj's type NOT same with this'?
+        return Equals((Cleric)obj);                     // Go to the protected one.
     }
 
     public override int GetHashCode()
     {
-        return Name.GetHashCode();
+        return Name.GetHashCode();                      // this GetHashCode() is From 'Object' class.
     }
 
     public static void SetRandomMoney()
     {
-        // 코드 있다고 치고
+        // Your codes here..
     }
 
     public override string ToString()

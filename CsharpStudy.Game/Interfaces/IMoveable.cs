@@ -1,6 +1,6 @@
 namespace CsharpStudy.Game.Interfaces;
 
-public interface IMoveable
+public interface IMoveable      // Interface
 {
-    public void Move();
+    void Move();         // Implementation later.
 }
