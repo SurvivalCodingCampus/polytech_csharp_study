@@ -26,12 +26,12 @@ public class Word
     {
         var c = GetChar(index);
         if (!char.IsLetter(c)) return false;        // No whitespace or mark
-
-        var targetCharacter = c;
+        
         foreach (var vowel in _vowels)
-            if (targetCharacter == vowel)           // Or targetCharacter.Equals(vowel)
+        {
+            if (c == vowel) // Or targetCharacter.Equals(vowel)
                 return true;
-
+        }
         return false;
         
         // LINQ Expression?
@@ -47,11 +47,11 @@ public class Word
         var c = GetChar(index);
         if (!char.IsLetter(c)) return false;        // No whitespace or mark
 
-        var targetCharacter = c;
         foreach (var vowel in _vowels)
-            if (targetCharacter == vowel)
+        {
+            if (c == vowel)
                 return false;
-
+        }
         return true;
     }
 
