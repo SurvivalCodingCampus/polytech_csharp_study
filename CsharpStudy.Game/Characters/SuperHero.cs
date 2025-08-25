@@ -1,9 +1,21 @@
-﻿namespace CsharpStudy.Game.Characters;
+using CsharpStudy.Game.Interfaces;
 
-public class SuperHero : Character
+namespace CsharpStudy.Game.Characters;
+
+public class SuperHero : Character, IAttackable, IMoveable
 {
     public override void Run()
     {
-        
+        throw new NotImplementedException();
+    }
+
+    public void Attack()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Move()
+    {
+        throw new NotImplementedException();
     }
 }

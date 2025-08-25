@@ -1,14 +1,14 @@
-﻿namespace CsharpStudy.Game.Characters;
-public class Cleric
+namespace CsharpStudy.Game.Characters;
+
+public class Cleric : IComparable<Cleric>
 {
-    // 컴파일 상수
+    // 컴파일타임 상수
     public const int MaxHp = 50;
     public const int MaxMp = 10;
 
-    private int _hp;
     public string Name { get; }
-    //public int Hp { get; set; }
-    public int Mp { get; set; }
+
+    private int _hp;
 
     public int Hp
     {
@@ -17,15 +17,34 @@ public class Cleric
         {
             if (value < 0)
             {
-                throw new ArgumentException("Hp cannot be less than 0");
+                throw new ArgumentException("HP는 0보다 작을 수 없습니다.");
             }
             _hp = value;
         }
     }
 
+    public int Mp { get; set; }
+
+    public Cleric(string name, int hp = MaxHp, int mp = MaxMp)
+    {
+        Name = name;
+        Hp = hp;
+        Mp = mp;
+    }
+
     protected bool Equals(Cleric other)
     {
         return Name == other.Name;
+    }
+
+    public int CompareTo(Cleric? other)
+    {
+        if (other == null)
+        {
+            throw new ArgumentException("null과 비교할 수 없다");
+        }
+            
+        return Name.CompareTo(other.Name);
     }
 
     public override bool Equals(object? obj)
@@ -41,23 +60,13 @@ public class Cleric
         return Name.GetHashCode();
     }
 
-    public override string ToString()
-    {
-        return $"{nameof(_hp)}: {_hp}, {nameof(Name)}: {Name}, {nameof(Mp)}: {Mp}, {nameof(Hp)}: {Hp}";
-    }
-
-    public Cleric(string name, int hp = MaxHp, int mp = MaxMp)
-    {
-        Name = name;
-        Hp = hp;
-        Mp = mp;
-    }
-
-    // 런타임 상수
-    // public static int MaxMp = 10;
-
     public static void SetRandomMoney()
     {
-        Random random = new Random();
+        // 코드 있다고 치고
+    }
+
+    public override string ToString()
+    {
+        return $"{nameof(_hp)}: {_hp}, {nameof(Name)}: {Name}, {nameof(Hp)}: {Hp}, {nameof(Mp)}: {Mp}";
     }
 }
