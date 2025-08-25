@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.2Season", "Csha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.2Season.Tests", "CsharpStudy.2Season.Tests\CsharpStudy.2Season.Tests.csproj", "{4D4F1AF7-6320-492F-911F-BCD4B2419BD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy_Debug", "CsharpStudy_Debug\CsharpStudy_Debug.csproj", "{C7FA64BF-640A-4BE2-9D4D-9733C7D170D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{4D4F1AF7-6320-492F-911F-BCD4B2419BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D4F1AF7-6320-492F-911F-BCD4B2419BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D4F1AF7-6320-492F-911F-BCD4B2419BD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7FA64BF-640A-4BE2-9D4D-9733C7D170D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7FA64BF-640A-4BE2-9D4D-9733C7D170D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7FA64BF-640A-4BE2-9D4D-9733C7D170D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7FA64BF-640A-4BE2-9D4D-9733C7D170D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
