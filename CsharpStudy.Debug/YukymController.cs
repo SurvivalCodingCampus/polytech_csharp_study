@@ -2,7 +2,7 @@ using CsharpStudy.Debug;
 
 public class YukymController
 {
-    string nowDate = DateTime.Now.ToString("yyyy-mm-dd");
+    string nowDate = DateTime.Now.ToString("yyyy-MM-dd");
 
     private string nowTime;
 
@@ -29,7 +29,7 @@ public class YukymController
             } else if (month == "11" || month == "12") {
                 return "경오6국";
             }
-            return nowTime;
+            return timeDataOne.First().Ty1;
         }
         else
         {
