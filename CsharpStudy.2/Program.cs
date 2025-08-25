@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CsharpStudy._2;
 
-class Program
+/*class Program
 {
     static void Main(string[] args)
     {
@@ -19,7 +19,7 @@ class Program
         Console.WriteLine(hero1 == hero2);
         Console.WriteLine(hero1.GetHashCode()==hero2.GetHashCode());
         Console.WriteLine(hero1.Equals(hero2));
-        Console.WriteLine(object.ReferenceEquals(hero1, hero2));*/
+        Console.WriteLine(object.ReferenceEquals(hero1, hero2));
     }
 
 
@@ -60,4 +60,4 @@ class Program
         //Console.WriteLine(s1 + " World");
         //Console.WriteLine($"{s1} World");
     }
-}
+}*/
