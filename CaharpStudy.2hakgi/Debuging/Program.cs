@@ -8,6 +8,7 @@ public class Program
 
         Console.WriteLine($"GetTyA() 결과: {controller.GetTyA()}");
         Console.WriteLine($"GetTyB() 결과: {controller.GetTyB()}");
+        
     }
     
 }
