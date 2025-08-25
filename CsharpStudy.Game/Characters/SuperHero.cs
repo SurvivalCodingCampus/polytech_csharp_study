@@ -1,6 +1,7 @@
+using CsharpStudy.Game.Characters;
 using CsharpStudy.Game.Interfaces;
 
-namespace CsharpStudy.Game.Charaters;
+namespace CsharpStudy.Game.Characters;
 
 public class SuperHero : Character, IAttackable, IMoveable
 {

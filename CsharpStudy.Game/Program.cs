@@ -1,4 +1,4 @@
-﻿using CsharpStudy.Game.Charaters;
+﻿using CsharpStudy.Game.Characters;
 
 namespace CsharpStudy.Game;
 
