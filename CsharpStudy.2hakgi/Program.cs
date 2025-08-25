@@ -5,13 +5,13 @@ namespace CsharpStudy._2hakgi;
 
 class Program
 {
-    static void Main(string[] args)
-    {
-        string greeting = "Hello";
-
-        Console.WriteLine(greeting.Replace("H", "J"));
-        Console.WriteLine(greeting);
-    }
+    // static void Main(string[] args)
+    // {
+    //     string greeting = "Hello";
+    //
+    //     Console.WriteLine(greeting.Replace("H", "J"));
+    //     Console.WriteLine(greeting);
+    // }
 
     private const string sss = "lo";
     private static string sss2 = "lo";
@@ -35,8 +35,8 @@ class Program
 
     static void Instance()
     {
-        Hero hero1 = new Hero(name: "홍길동");
-        Hero hero2 = new Hero(name: "홍길동");
+        Hero hero1 = new Hero(name: "홍길동", 100);
+        Hero hero2 = new Hero(name: "홍길동", 100);
 
         Console.WriteLine(hero1 == hero2);
         Console.WriteLine(hero1.GetHashCode() == hero2.GetHashCode());

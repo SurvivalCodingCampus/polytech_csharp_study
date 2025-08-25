@@ -3,10 +3,12 @@ namespace CsharpStudy._2hakgi;
 public class Hero
 {
     public string Name { get; set; }
+    public int Hp { get; set; }
 
-    public Hero(string name)
+    public Hero(string name, int hp)
     {
         Name = name;
+        Hp = hp;
     }
 
     protected bool Equals(Hero other)
