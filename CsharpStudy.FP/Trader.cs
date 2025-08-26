@@ -26,9 +26,9 @@ public class Transaction
     }
 }
 
-public class Data
+public class MainClass
 {
-    public static List<Transaction> Transactions = new List<Transaction>
+    public static List<Transaction> transactions = new List<Transaction>
     {
         new Transaction(new Trader("Brian", "Cambridge"), 2011, 300),
         new Transaction(new Trader("Raoul", "Cambridge"), 2012, 1000),
@@ -37,4 +37,10 @@ public class Data
         new Transaction(new Trader("Mario", "Milan"), 2012, 700),
         new Transaction(new Trader("Alan", "Cambridge"), 2012, 950)
     };
+
+    public static void Main(string[] args)
+    {
+        // 여기에 푸세요
+    }
 }
+
