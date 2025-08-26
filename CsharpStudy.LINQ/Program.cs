@@ -26,7 +26,7 @@ public class Transaction
 
 public class MainClass
 {
-    public static List<Transaction> transactions = new List<Transaction>
+    private static List<Transaction> _transactions = new List<Transaction>
     {
         new Transaction(new Trader("Brian", "Cambridge"), 2011, 300),
         new Transaction(new Trader("Raoul", "Cambridge"), 2012, 1000),
@@ -35,6 +35,8 @@ public class MainClass
         new Transaction(new Trader("Mario", "Milan"), 2012, 700),
         new Transaction(new Trader("Alan", "Cambridge"), 2012, 950)
     };
+
+    public static List<Transaction> transactions => _transactions;
 
     public static void Main(string[] args)
     {
