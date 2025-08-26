@@ -1,4 +1,4 @@
-﻿namespace CsharpStudy.Debug;
+namespace CsharpStudy.Debug;
 
 public class YukymTimeModel
 {
