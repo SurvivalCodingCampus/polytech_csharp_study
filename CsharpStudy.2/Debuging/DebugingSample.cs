@@ -2,7 +2,7 @@ namespace CsharpStudy._2.Debuging;
 
 public class DebugingSample
 {
-    static void Main(string[] args)
+    /*static void Main(string[] args)
     {
         var heroes = new List<Hero>();
         
@@ -28,5 +28,5 @@ public class DebugingSample
         Console.WriteLine(heroes.Count);
         heroes.Add(newHero);
         Console.WriteLine(heroes.Count);
-    }
+    }*/
 }
