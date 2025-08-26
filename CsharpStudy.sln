@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Game.Tests", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.2hakgi", "CsharpStudy.2hakgi\CsharpStudy.2hakgi.csproj", "{BB721C0E-1BBF-4FA9-B829-7CCC4511B8F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Debug", "CsharpStudy.Debug\CsharpStudy.Debug.csproj", "{EFD2F9A7-FC37-403C-858B-4310025046DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{BB721C0E-1BBF-4FA9-B829-7CCC4511B8F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB721C0E-1BBF-4FA9-B829-7CCC4511B8F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB721C0E-1BBF-4FA9-B829-7CCC4511B8F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFD2F9A7-FC37-403C-858B-4310025046DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFD2F9A7-FC37-403C-858B-4310025046DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFD2F9A7-FC37-403C-858B-4310025046DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFD2F9A7-FC37-403C-858B-4310025046DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
