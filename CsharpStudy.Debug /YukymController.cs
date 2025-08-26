@@ -56,7 +56,7 @@ public class YukymController
 
         DateTime nowTime = DateTime.Now; // nowTime =  날짜+시간 변수에 저장 
 
-        if (nowTime.Hour >= 0 && nowTime.Hour < 2) // Hour : 0-23시  > && > '이면서'로 변경 
+        if (nowTime.Hour >= 0 && nowTime.Hour < 2) // Hour : 0-23시  > && > '이면서'로 변경 > 이건 '디버깅'
         {
             return timeDataOne.First().Ty1; // 0-1시  > 
         }
@@ -80,7 +80,7 @@ public class YukymController
         {
             return timeDataOne.First().Ty6;
         }
-        // else if (nowTime.Hour >= 14 || nowTime.Hour < 16) // 14 -16 사이가 비어 있어서 추가
+        // else if (nowTime.Hour >= 14 || nowTime.Hour < 16) // 14 -16 사이가 비어 있어서 추가 > 이건 '리팩토링' 
         // {
         //     return timeDataOne.First().Ty7; // Ty7 추가 
         // }
