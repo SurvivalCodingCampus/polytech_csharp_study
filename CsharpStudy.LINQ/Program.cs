@@ -116,7 +116,7 @@ public class MainClass
 
         Console.WriteLine("======");
 
-        Console.WriteLine("7. Show minimum transaction value among all traders'");
+        Console.WriteLine("8. Show minimum transaction value among all traders'");
         
         // Show Minimum Transaction Value, From All Transaction
         Console.WriteLine(
