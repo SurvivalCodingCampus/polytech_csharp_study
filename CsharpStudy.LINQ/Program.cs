@@ -22,6 +22,12 @@ public class Transaction
         Year = year;
         Value = value;
     }
+
+    public override string ToString()
+    {
+        // return base.ToString();
+        return $"Trader: {Trader.Name} || City: {Trader.City} || Year: {Year} || Value: {Value}";
+    }
 }
 
 public class MainClass
@@ -40,6 +46,8 @@ public class MainClass
 
     public static void Main(string[] args)
     {
+        Console.WriteLine("1. Show names from all transactions of 2011 ordered by value-ascending");
+        
         // Year == 2011, (All Transactions,) Show Name, Ordered By Value-Ascending,
         transactions.Where(transaction => transaction.Year == 2011)
             .OrderBy(transaction => transaction.Value)
@@ -48,6 +56,8 @@ public class MainClass
             .ForEach(Console.WriteLine);
 
         Console.WriteLine("======");
+
+        Console.WriteLine("2. Show all unique city where traders are participated");
         
         // From Traders, All City, Show City, No Same Output
         transactions.Select(transaction => transaction.Trader.City)
@@ -56,6 +66,8 @@ public class MainClass
             .ForEach(Console.WriteLine);
         
         Console.WriteLine("======");
+        
+        Console.WriteLine("3. Show traders' names of Cambridge ordered by alphabet-ascending");
         
         // All Traders, Only In Cambridge, Show Name, Ordered By Name-Ascending
         transactions.Where(transaction => transaction.Trader.City == "Cambridge")
@@ -67,6 +79,8 @@ public class MainClass
         
         Console.WriteLine("======");
         
+        Console.WriteLine("4. Show traders' names ordered by alphabet-ascending");
+        
         // All Traders, Show Name, Ordered By Alphabet-Ascending
         transactions.Select(transaction => transaction.Trader.Name)
             .ToHashSet()
@@ -76,17 +90,23 @@ public class MainClass
 
         Console.WriteLine("======");
         
-        // Is there a trader in Milan?
+        Console.WriteLine("5. Are there traders in Milan?");
+        
+        // Are there traders in Milan?
         Console.WriteLine(transactions.Any(transaction => transaction.Trader.City == "Milan"));
         
         Console.WriteLine("======");
         
+        Console.WriteLine("6. Show all transaction value of traders in Cambridge");
+        
         // Show All Transaction 'Value', From Trader, Only Where In Cambridge
         transactions.Where(transaction => transaction.Trader.City == "Cambridge")
             .ToList()
-            .ForEach(transaction => Console.WriteLine(transaction.Value));
+            .ForEach(transaction => Console.WriteLine(transaction.ToString()));
         
         Console.WriteLine("======");
+        
+        Console.WriteLine("7. Show maximum transaction value among all traders'");
         
         // Show Maximum Transaction Value, From All Transaction
         Console.WriteLine(
@@ -95,6 +115,8 @@ public class MainClass
             );
 
         Console.WriteLine("======");
+
+        Console.WriteLine("7. Show minimum transaction value among all traders'");
         
         // Show Minimum Transaction Value, From All Transaction
         Console.WriteLine(
