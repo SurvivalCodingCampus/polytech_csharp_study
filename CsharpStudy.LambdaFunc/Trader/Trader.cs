@@ -60,5 +60,21 @@ public class MainClass
             .ToList()
             .ForEach(Console.WriteLine); // ForEach는 리턴없음
     }
+    //--------------------------------------------------------------
+    // 3. 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오.
+
+    public static void CambridgeTradersExample()
+    {
+        transactions
+            .Where(t => t.Trader.City == "Cambridge")
+            .Select(t => t.Trader.Name)
+            .Aggregate(new List<string>(), (acc, name) => {
+                if (!acc.Any(n => n == name)) acc.Add(name);
+                return acc;
+            })
+            .OrderBy(n => n)
+            .ToList()
+            .ForEach(Console.WriteLine);
+    }
 }
 
