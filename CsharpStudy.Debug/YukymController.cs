@@ -2,15 +2,13 @@ using CsharpStudy.Debug;
 
 public class YukymController
 {
-    string nowDate = DateTime.Now.ToString("2025-08-25");
-    
-    
+    string nowDate = DateTime.Now.ToString("yyyy-MM-dd");
+
     private string nowTime;
 
     public string GetTyA()
     {
         List<YukymTimeModel> timeDataOne = _GetTimeDataOne(nowDate);
-        
 
         if (timeDataOne.Any())
         {
@@ -31,7 +29,7 @@ public class YukymController
             } else if (month == "11" || month == "12") {
                 return "경오6국";
             }
-            return month;
+            return nowTime;
         }
         else
         {
