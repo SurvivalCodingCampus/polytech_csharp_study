@@ -33,22 +33,3 @@ public class Transaction
         return $"{nameof(Trader)}: {Trader}, {nameof(Year)}: {Year}, {nameof(Value)}: {Value}";
     }
 }
-
-public class MainClass
-{
-    public static List<Transaction> transactions = new List<Transaction>
-    {
-        new Transaction(new Trader("Brian", "Cambridge"), 2011, 300),
-        new Transaction(new Trader("Raoul", "Cambridge"), 2012, 1000),
-        new Transaction(new Trader("Raoul", "Cambridge"), 2011, 400),
-        new Transaction(new Trader("Mario", "Milan"), 2012, 710),
-        new Transaction(new Trader("Mario", "Milan"), 2012, 700),
-        new Transaction(new Trader("Alan", "Cambridge"), 2012, 950)
-    };
-
-    public static int Main(string[] args)
-    {
-   
-        return 0;
-    }
-}

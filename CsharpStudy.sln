@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Debug", "Csharp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.FP", "CsharpStudy.FP\CsharpStudy.FP.csproj", "{6604F5DF-F9DA-4B47-96B6-988D01E757C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.FP.Tests", "CsharpStudy.FP.Tests\CsharpStudy.FP.Tests.csproj", "{52827ADD-7D6D-4330-9D84-951377E32595}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{6604F5DF-F9DA-4B47-96B6-988D01E757C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6604F5DF-F9DA-4B47-96B6-988D01E757C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6604F5DF-F9DA-4B47-96B6-988D01E757C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52827ADD-7D6D-4330-9D84-951377E32595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52827ADD-7D6D-4330-9D84-951377E32595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52827ADD-7D6D-4330-9D84-951377E32595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52827ADD-7D6D-4330-9D84-951377E32595}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
