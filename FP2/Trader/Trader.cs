@@ -61,9 +61,9 @@ public class MainClass
         Console.WriteLine("3번");
         // 3. 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오
         transactions.Where(transaction => transaction.Trader.City == "Cambridge")
-            .OrderBy(transaction => transaction.Trader.Name)
             .Select(transaction => transaction.Trader.Name)
             .ToHashSet()
+            .OrderBy(transaction => transaction)
             .ToList()
             .ForEach(Console.WriteLine);
             
