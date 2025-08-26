@@ -18,6 +18,20 @@ ex) 값, 인스턴스, 함수
 - 메서드를 참조할 수 있도록 하는 타입
 - 안전한 함수 포인터
 
+```cpp
+public delegate void OnClick();  // 선언
+
+static void Main(string[] args)
+    {
+	      OnClick onClick = () =>
+        {
+            Console.WriteLine("클릭되었습니다.");
+        };  // 함수 동작 정의
+        
+        onClick();  // 얘가 진짜 실행
+     }
+```
+
 **4. 함수를 값으로 전달하는 예**
 
 **5. 메서드와 함수의 차이**
@@ -28,6 +42,10 @@ ex) 값, 인스턴스, 함수
 **6. 람다**
 
 - 함수 내용을 바로바로 정의해서 사용하고 싶다.
+
+```cpp
+Func<int, string> myFunc = (age) => $"나는 {age}살입니다.";
+```
 
 **7. 익명함수**
 
