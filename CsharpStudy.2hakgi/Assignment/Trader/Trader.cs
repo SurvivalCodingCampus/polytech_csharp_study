@@ -42,26 +42,55 @@ public class MainClass
 
     public static void Main(string[] args)
     {
-        // 1. 2011년에 일어난 모든 트랜잭션을 찾아 가격 기준 오름차순으로 정리하여 이름을 나열하시오
+        // 1. 
+        Console.WriteLine("1. 2011년에 일어난 모든 트랜잭션을 찾아 가격 기준 오름차순으로 정리하여 이름을 나열하시오");
         transactions.Where(transaction => transaction.Year == 2011)
             .OrderBy(transaction => transaction.Value)
             .Select(transaction => transaction.Trader.Name)
             .ToList()
             .ForEach(Console.WriteLine);
 
-        // 2. 거래자가 근무하는 모든 도시를 중복 없이 나열하시오
+        // 2. 
+        Console.WriteLine("2. 거래자가 근무하는 모든 도시를 중복 없이 나열하시오");
+        transactions.Select(t => t.Trader.City)
+            .ToHashSet()
+            .ToList()
+            .ForEach(Console.WriteLine);
 
-        // 3. 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오
+        // 3. 
+        Console.WriteLine("3. 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오");
+        transactions.Where(t => t.Trader.City == "Cambridge")
+            .OrderBy(t => t.Trader.Name)
+            .Select(t => t.Trader.Name)
+            .ToList()
+            .ForEach(Console.WriteLine);
 
-        // 4. 모든 거래자의 이름을 알파벳순으로 정렬하여 나열하시오
+        // 4. 
+        Console.WriteLine("4. 모든 거래자의 이름을 알파벳순으로 정렬하여 나열하시오");
+        transactions.OrderBy(t => t.Trader.Name)
+            .Select(t => t.Trader.Name)
+            .ToList()
+            .ForEach(Console.WriteLine);
 
-        // 5. 밀라노에 거래자가 있는가?
+        // 5.
+        Console.WriteLine("5. 밀라노에 거래자가 있는가?");
+        Console.WriteLine(transactions.Any(t => t.Trader.City == "Milan"));
+        
+        // 6.
+        Console.WriteLine("6. 케임브리지에 거주하는 거래자의 모든 트랙잭션값을 출력하시오");
+        transactions.Where(t => t.Trader.City == "Cambridge")
+            .Select(t => t.Value)
+            .ToList()
+            .ForEach(Console.WriteLine);
+        
 
-        // 6. 케임브리지에 거주하는 거래자의 모든 트랙잭션값을 출력하시오
-
-        // 7. 전체 트랜잭션 중 최대값은 얼마인가?
-
-        // 8. 전체 트랜잭션 중 최소값은 얼마인가?
+        // 7. 
+        Console.WriteLine("7. 전체 트랜잭션 중 최대값은 얼마인가?");
+        Console.WriteLine(transactions.Select(t => t.Value).Aggregate(Math.Max));
+        
+        // 8.
+        Console.WriteLine("8. 전체 트랜잭션 중 최소값은 얼마인가?");
+        Console.WriteLine(transactions.Select(t => t.Value).Aggregate(Math.Min));
 
     }
 }
