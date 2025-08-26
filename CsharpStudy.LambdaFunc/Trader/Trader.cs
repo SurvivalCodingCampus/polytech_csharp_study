@@ -48,5 +48,17 @@ public class MainClass
             .ToList()
             .ForEach(Console.WriteLine);
     }
+    
+    //-------------------------------------------------------------
+    // 2. 거래자가 근무하는 모든 도시를 중복 없이 나열하시오.
+    public static void RunCityExample()
+    {
+        transactions.Select(t => t.Trader.City)
+            .GroupBy(city => city) // 각 그룹은 같은 도시 (중복 제거 역할)
+            .Select(g => g.Key)
+            .OrderBy(city => city)
+            .ToList()
+            .ForEach(Console.WriteLine); // ForEach는 리턴없음
+    }
 }
 
