@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.2hakgi", "Cshar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Debug", "CsharpStudy.Debug\CsharpStudy.Debug.csproj", "{EFD2F9A7-FC37-403C-858B-4310025046DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.FP", "CsharpStudy.FP\CsharpStudy.FP.csproj", "{6604F5DF-F9DA-4B47-96B6-988D01E757C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{EFD2F9A7-FC37-403C-858B-4310025046DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFD2F9A7-FC37-403C-858B-4310025046DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFD2F9A7-FC37-403C-858B-4310025046DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6604F5DF-F9DA-4B47-96B6-988D01E757C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6604F5DF-F9DA-4B47-96B6-988D01E757C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6604F5DF-F9DA-4B47-96B6-988D01E757C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6604F5DF-F9DA-4B47-96B6-988D01E757C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
