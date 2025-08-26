@@ -1,4 +1,4 @@
-namespace CsharpStudy.Game.Charaters;
+namespace CsharpStudy.Game.Characters;
 
 public class Cleric
 {

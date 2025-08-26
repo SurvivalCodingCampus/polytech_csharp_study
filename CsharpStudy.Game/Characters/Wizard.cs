@@ -1,3 +1,5 @@
+using CsharpStudy.Game.Characters;
+
 namespace CsharpStudy.Game.Characters;
 
 public class Wizard : Character

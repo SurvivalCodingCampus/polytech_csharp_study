@@ -1,4 +1,4 @@
-using CsharpStudy.Game.Charaters;
+using CsharpStudy.Game.Characters;
 using JetBrains.Annotations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
