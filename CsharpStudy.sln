@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.2Semester", "Cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Debug", "CsharpStudy.Debug \CsharpStudy.Debug.csproj", "{AE23587B-9A83-40DB-BD30-7A8B50843376}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.FP", "CsharpStudy.FP\CsharpStudy.FP.csproj", "{2D75FBA9-D4FF-435A-90BA-BC9A01CD7E0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FP2", "FP2\FP2.csproj", "{951EB6AC-A434-4E88-A642-52BDBDCC1BBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{AE23587B-9A83-40DB-BD30-7A8B50843376}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE23587B-9A83-40DB-BD30-7A8B50843376}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE23587B-9A83-40DB-BD30-7A8B50843376}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D75FBA9-D4FF-435A-90BA-BC9A01CD7E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D75FBA9-D4FF-435A-90BA-BC9A01CD7E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D75FBA9-D4FF-435A-90BA-BC9A01CD7E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D75FBA9-D4FF-435A-90BA-BC9A01CD7E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{951EB6AC-A434-4E88-A642-52BDBDCC1BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{951EB6AC-A434-4E88-A642-52BDBDCC1BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{951EB6AC-A434-4E88-A642-52BDBDCC1BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{951EB6AC-A434-4E88-A642-52BDBDCC1BBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
