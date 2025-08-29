@@ -14,5 +14,8 @@ class Program
         
         Console.WriteLine("연습문제3");
         MainClass.CambridgeTradersExample();
+        
+        Console.WriteLine("연습문제4");
+        MainClass.TraderNamesExample();
     }
 }

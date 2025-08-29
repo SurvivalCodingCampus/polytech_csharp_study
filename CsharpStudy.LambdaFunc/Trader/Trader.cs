@@ -75,6 +75,18 @@ public class MainClass
             .OrderBy(n => n)
             .ToList()
             .ForEach(Console.WriteLine);
+        
+    }
+    //-----------------------------------------------------------
+    //4. 모든 거래자의 이름을 알파벳순으로 정렬하여 나열하시오
+
+    public static void TraderNamesExample()
+    {
+        transactions
+            .Select(t => t.Trader.Name)    // 이름만 추출
+            .OrderBy(n => n)               // 알파벳순 정렬
+            .ToList()
+            .ForEach(Console.WriteLine);   // 출력
     }
 }
 
