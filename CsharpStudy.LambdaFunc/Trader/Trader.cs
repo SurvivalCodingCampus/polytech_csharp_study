@@ -88,5 +88,18 @@ public class MainClass
             .ToList()
             .ForEach(Console.WriteLine);   // 출력
     }
+    //-----------------------------------------------------------
+    //5. 밀라노에 거래자가 있는가?
+    
+    public static void MilanTraderExample()
+    {
+        transactions
+            .Where(t => t.Trader.City == "Milan")   // Milan 거래자만 고르기
+            .Select(t => t.Trader.Name)             // 이름만 추출
+            .OrderBy(n => n)                        // 알파벳순 정렬
+            .ToList()
+            .ForEach(Console.WriteLine);            // 출력
+    }
+    
 }
 

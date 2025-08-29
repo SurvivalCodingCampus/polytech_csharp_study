@@ -17,5 +17,8 @@ class Program
         
         Console.WriteLine("연습문제4");
         MainClass.TraderNamesExample();
+        
+        Console.WriteLine("연습문제5");
+        MainClass.MilanTraderExample();
     }
 }
