@@ -23,5 +23,8 @@ class Program
         
         Console.WriteLine("연습문제6");
         MainClass.CambridgeValuesExample();
+        
+        Console.WriteLine("연습문제6");
+        MainClass.MaxValueExample();
     }
 }

@@ -110,7 +110,16 @@ public class MainClass
             .ToList()
             .ForEach(Console.WriteLine);     
     }
-    
+    //-----------------------------------------------------------
+    //7. 전체 트랜잭션 중 최대값은 얼마인가?
+    public static void MaxValueExample()
+    {
+        Console.WriteLine(
+            transactions
+                .Select(t => t.Value)   // 모든 값만 추출
+                .Max()                  // 최대값 계산
+        );
+    }
     
     
 }
