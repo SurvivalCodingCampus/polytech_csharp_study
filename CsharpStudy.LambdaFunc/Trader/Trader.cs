@@ -120,7 +120,15 @@ public class MainClass
                 .Max()                  // 최대값 계산
         );
     }
-    
-    
+    //-----------------------------------------------------------
+    //8. 전체 트랜잭션 중 최소값은 얼마인가?
+    public static void MinValueExample()
+    {
+        Console.WriteLine(
+            transactions
+                .Select(t => t.Value)   // 모든 값만 추출
+                .Min()                  // 최소값 계산
+        );
+    }
 }
 
