@@ -20,5 +20,8 @@ class Program
         
         Console.WriteLine("연습문제5");
         MainClass.MilanTraderExample();
+        
+        Console.WriteLine("연습문제6");
+        MainClass.CambridgeValuesExample();
     }
 }

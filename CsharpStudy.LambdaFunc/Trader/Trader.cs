@@ -100,6 +100,18 @@ public class MainClass
             .ToList()
             .ForEach(Console.WriteLine);            // 출력
     }
+    //-----------------------------------------------------------
+    //6. 케임브리지에 거주하는 거래자의 모든 트랙잭션값을 출력하시요.
+    public static void CambridgeValuesExample()
+    {
+        transactions
+            .Where(t => t.Trader.City == "Cambridge")  // 케임브리지 거래자만
+            .Select(t => t.Value)                      // 트랜잭션 값만 추출
+            .ToList()
+            .ForEach(Console.WriteLine);     
+    }
+    
+    
     
 }
 
