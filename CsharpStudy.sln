@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.2ndSemester", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.2ndSemester.Tests", "CsharpStudy.2ndSemester.Tests\CsharpStudy.2ndSemester.Tests.csproj", "{ACCFDFC2-5DFA-4784-A0EE-4DDD0F99258F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Func", "CsharpStudy.Func\CsharpStudy.Func.csproj", "{75285604-6C0D-4E1F-83A4-A5620BE1F5A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.FP2", "CsharpStudy.FP2\CsharpStudy.FP2.csproj", "{3598D2FD-9D46-450C-94FA-757D07A1B737}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +40,13 @@ Global
 		{ACCFDFC2-5DFA-4784-A0EE-4DDD0F99258F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACCFDFC2-5DFA-4784-A0EE-4DDD0F99258F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACCFDFC2-5DFA-4784-A0EE-4DDD0F99258F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75285604-6C0D-4E1F-83A4-A5620BE1F5A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75285604-6C0D-4E1F-83A4-A5620BE1F5A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75285604-6C0D-4E1F-83A4-A5620BE1F5A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75285604-6C0D-4E1F-83A4-A5620BE1F5A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3598D2FD-9D46-450C-94FA-757D07A1B737}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3598D2FD-9D46-450C-94FA-757D07A1B737}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3598D2FD-9D46-450C-94FA-757D07A1B737}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3598D2FD-9D46-450C-94FA-757D07A1B737}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
