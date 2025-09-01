@@ -97,5 +97,10 @@ public class MainClass
         int min = transactions.Min(transaction => transaction.Value);
         Console.WriteLine(min);
     }
+
+    /*public class MyException : Exception
+    {
+        public MyException(string? message) : base(message)
+    }*/
 }
 
