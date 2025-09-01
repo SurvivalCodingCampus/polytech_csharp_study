@@ -37,7 +37,7 @@ String은 변경 불가능한 자료형이고, StringBuilder는 변경 가능한
  
  
  ---------------
- 26/08/29
+ 25/08/29
  
  * 람다식과 함수
  - Where는 조건을 걸어 원하는 데이터만 골라내는 함수
@@ -46,3 +46,27 @@ String은 변경 불가능한 자료형이고, StringBuilder는 변경 가능한
  - ForEach는 컬렉션의 모든 요소를 순회하며 동작을 수행하는 함수
  - Aggregate는 컬렉션을 누적 처리하여 하나의 결과로 줄이는 함수
  - Any는 조건을 만족하는 요소가 하나라도 있는지 확인하는 함수
+ 
+ 
+ ---------------
+ 25/09/01
+ 
+ * 예외 (Exception)
+ - 프로그램 실행 중 발생할 수 있는 오류 상황을 처리하는 방법
+ - try { 실행 코드 } catch (Exception e) { 예외 처리 }
+ - finally 블록은 무조건 실행되는 코드
+ - throw 키워드로 임의로 예외 발생 가능
+ - 사용자 정의 예외 클래스도 작성 가능 (Exception 상속)
+ 
+ 
+ * 에러 종류
+ - Syntax Error : 문법 오류 (컴파일 시 발견)
+ - Runtime Error : 실행 중 발생 (예외 처리 대상)
+ - Logic Error : 논리적 오류, 결과가 의도와 다름
+ 
+ 
+ * 파일 조작 (System.IO)
+ - File.WriteAllText(path, text) : 파일에 내용 쓰기 (덮어씀)
+ - File.ReadAllText(path) : 파일 전체 읽기
+ - File.Copy(src, dest, true) : 파일 복사
+ - File.Delete(path) : 파일 삭제

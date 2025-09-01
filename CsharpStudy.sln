@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.LambdaFunc", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Exception", "CsharpStudy.Exception\CsharpStudy.Exception.csproj", "{059BCE75-8831-4593-9057-55366469FEED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.File", "CsharpStudy.File\CsharpStudy.File.csproj", "{1CBBA994-CA97-45D9-A6BF-F75FA7CE6AC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{059BCE75-8831-4593-9057-55366469FEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{059BCE75-8831-4593-9057-55366469FEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{059BCE75-8831-4593-9057-55366469FEED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CBBA994-CA97-45D9-A6BF-F75FA7CE6AC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CBBA994-CA97-45D9-A6BF-F75FA7CE6AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CBBA994-CA97-45D9-A6BF-F75FA7CE6AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CBBA994-CA97-45D9-A6BF-F75FA7CE6AC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
