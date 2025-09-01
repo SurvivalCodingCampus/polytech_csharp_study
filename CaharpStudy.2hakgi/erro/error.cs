@@ -2,7 +2,7 @@ namespace CaharpStudy._2hakgi.erro;
 
 public class error
 {
-    /*static void Main(String[] args)
+   /* static void Main(String[] args)
     {
         var numString = "10.5";
         double num = double.Parse(numString);
