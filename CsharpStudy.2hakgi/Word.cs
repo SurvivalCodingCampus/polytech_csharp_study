@@ -2,7 +2,7 @@ namespace CsharpStudy._2hakgi;
 
 public class Word
 {
-    private string _word;
+    private readonly string _word;
 
     public Word(string word)
     {
@@ -11,7 +11,7 @@ public class Word
 
     public bool IsVowel(int i)
     {
-        string vowel = "aeiou";
+        var vowel = "aeiou";
         return vowel.IndexOf(_word.ToLower().ElementAt(i)) > -1;
     }
 

@@ -6,24 +6,7 @@ public class Cleric : IComparable<Cleric>
     public const int MaxHp = 50;
     public const int MaxMp = 10;
 
-    public string Name { get; }
-
     private int _hp;
-
-    public int Hp
-    {
-        get { return _hp; }
-        set
-        {
-            if (value < 0)
-            {
-                throw new ArgumentException("HP는 0보다 작을 수 없습니다.");
-            }
-            _hp = value;
-        }
-    }
-
-    public int Mp { get; set; }
 
     public Cleric(string name, int hp = MaxHp, int mp = MaxMp)
     {
@@ -32,19 +15,30 @@ public class Cleric : IComparable<Cleric>
         Mp = mp;
     }
 
-    protected bool Equals(Cleric other)
+    public string Name { get; }
+
+    public int Hp
     {
-        return Name == other.Name;
+        get => _hp;
+        set
+        {
+            if (value < 0) throw new ArgumentException("HP는 0보다 작을 수 없습니다.");
+            _hp = value;
+        }
     }
+
+    public int Mp { get; set; }
 
     public int CompareTo(Cleric? other)
     {
-        if (other == null)
-        {
-            throw new ArgumentException("null과 비교할 수 없다");
-        }
-            
+        if (other == null) throw new ArgumentException("null과 비교할 수 없다");
+
         return Name.CompareTo(other.Name);
+    }
+
+    protected bool Equals(Cleric other)
+    {
+        return Name == other.Name;
     }
 
     public override bool Equals(object? obj)
@@ -54,7 +48,7 @@ public class Cleric : IComparable<Cleric>
         if (obj.GetType() != GetType()) return false;
         return Equals((Cleric)obj);
     }
-    
+
     public override int GetHashCode()
     {
         return Name.GetHashCode();
