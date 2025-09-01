@@ -46,6 +46,60 @@ public class MainClass
             .Select(transaction => transaction.Trader.Name)
             .ToList()
             .ForEach(Console.WriteLine);
-            
+
+
+        // null safety :
+        List<string> transactions2 = new List<string>();
+        string? nullableFirst = transactions2.FirstOrDefault();
+
+        // string first = "기본값";
+        // if (nullableFirst != null)
+        // {
+        //     first = nullableFirst;
+        // }
+        
+        string first = nullableFirst ?? "기본값";
+        Console.WriteLine(first);
+
+        transactions2.Max();
+
+        // 글자수가 짝수인지
+        bool isEven = first.IsEven();
+
+        try
+        {
+            List<string> items = new List<string>();
+            string result = items.First();
+        }
+        catch (InvalidOperationException e)
+        {
+            // Console.WriteLine(e.Message);
+            throw new MyException();       // 다른 예외로 바꿔서
+        }
+        catch (ArgumentException e)
+        {
+        
+        }
+        catch (Exception e)
+        {
+            // throw;  // 현재 예외 그대로
+            throw new MyException("이건 뭐야? 2");       // 다른 예외로 바꿔서
+        }
+    }
+}
+
+public class MyException : Exception
+{
+    public MyException(string? message = null) : base(message ?? "알 수 없는 에러가 발생했습니다")
+    {
+    }
+}
+
+// 확장 함수
+public static class StringExtensions
+{
+    public static bool IsEven(this string str)
+    {
+        return str.Length % 2 == 0;
     }
 }
