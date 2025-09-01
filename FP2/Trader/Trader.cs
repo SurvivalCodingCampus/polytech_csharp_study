@@ -65,6 +65,33 @@ public class MainClass
 
         // 글자수가 짝수인지
         bool isEven = first.IsEven();
+
+        try
+        {
+            List<string> items = new List<string>();
+            string result = items.First();
+        }
+        catch (InvalidOperationException e)
+        {
+            // Console.WriteLine(e.Message);
+            throw new MyException();       // 다른 예외로 바꿔서
+        }
+        catch (ArgumentException e)
+        {
+        
+        }
+        catch (Exception e)
+        {
+            // throw;  // 현재 예외 그대로
+            throw new MyException("이건 뭐야? 2");       // 다른 예외로 바꿔서
+        }
+    }
+}
+
+public class MyException : Exception
+{
+    public MyException(string? message = null) : base(message ?? "알 수 없는 에러가 발생했습니다")
+    {
     }
 }
 
