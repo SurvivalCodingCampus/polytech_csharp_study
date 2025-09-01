@@ -1,0 +1,15 @@
+2025_0901
+
+String상속안됨, 불변 
+기능을 넣을 순 있다. runtime에 기능이 들어 있는것 처럼 사용할수 있다.
+
+기능을 확장하는것은 상속입니다. 
+
+exception의 꼭대기에는 exception 클래스가 있기떄문에 모든 exception을 잡을수 있다.
+터질수 있는 부분은 try로 묶는다.
+
+throw  현재 예외 그대로 내보내는것 
+Throw new 
+
+finally 무조건 실행되는 코드 
+base = super ?? 자식이 부모한테 접근하는 키워드
