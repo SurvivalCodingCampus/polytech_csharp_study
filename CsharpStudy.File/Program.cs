@@ -4,8 +4,17 @@ class Program : IFileCopier
 {
     public void CopyFile(string sourceFilePath, string destinationFilePath)
     {
-        string text = System.IO.File.ReadAllText(sourceFilePath);
-        System.IO.File.WriteAllText(destinationFilePath, text);
+        try
+        {
+            string text = System.IO.File.ReadAllText(sourceFilePath);
+            System.IO.File.WriteAllText(destinationFilePath, text);
+            Console.WriteLine("파일 복사 성공");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("파일 복사 실패");
+            throw;
+        }
     }
 
     static void Main(string[] args)
