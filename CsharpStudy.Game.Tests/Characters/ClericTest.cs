@@ -2,7 +2,7 @@ using CsharpStudy.Game.Characters;
 using JetBrains.Annotations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace CsharpStudy.Game.Tests.Charaters;
+namespace CsharpStudy.Game.Tests.Characters;
 
 [TestClass]
 [TestSubject(typeof(Cleric))]
