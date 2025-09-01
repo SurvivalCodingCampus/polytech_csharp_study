@@ -1,0 +1,44 @@
+## TODAY NOTE C# [예외처리 / 파일조작]  [ 25.09.01 ]
+
+### 널 처리와 안전성
+
+- C#에서 널러블(Nullable) 타입은 `?` 기호를 사용하여 표현됨
+- 널 조건 연산자(`??`)를 사용하여 널일 경우 기본값 제공 가능
+- 예: `값 ?? 기본값` 형태로 사용하면 값이 널일 경우 기본값이 반환됨
+- 널 안전성(null-safety) 코드를 작성할 때 이러한 문법이 유용함
+
+### 확장 메소드(Extension Methods)
+
+- 기존 클래스를 수정하지 않고 새 기능을 추가할 수 있는 방법
+- `static class`와 `this` 키워드를 사용하여 구현
+- 예시: `public static bool IsEven(this string str)` 형태로 문자열에 새 기능 추가
+- LINQ의 Max, First 등의 메소드도 확장 메소드로 구현되어 있음
+- 확장 메소드는 인터페이스에도 적용 가능함
+
+### LINQ 고차 함수
+
+- Where: 조건에 맞는 요소만 필터링
+- Max: 최대값을 찾는 함수
+- Aggregate: 컬렉션의 요소들을 하나로 합치는 함수
+- OrderBy/OrderByDescending: 정렬 기능
+- First: 첫 번째 요소를 가져오는 함수 (데이터가 없으면 예외 발생)
+- 이런 함수들은 리액티브 프로그래밍에서 더 다양하게 사용됨
+- [RX.NET](http://RX.NET) 라이브러리를 통해 더 많은 기능 사용 가능
+
+### 예외 처리
+
+- 예외의 종류: 문법 에러(syntax error), 런타임 에러(runtime error), 논리 에러(logic error)
+- try-catch 문을 사용한 예외 처리 방법
+- 다양한 예외 타입에 따른 처리 방법 (특정 예외만 캐치)
+- throw를 사용한 예외 전파 방법
+- finally 블록을 사용해 무조건 실행되어야 하는 코드 작성
+- 사용자 정의 예외 클래스 생성 방법
+
+### 파일 조작
+
+- 파일 처리의 기본 순서: 열기, 읽기/쓰기, 닫기
+- File.WriteAllText(): 텍스트 파일 쓰기
+- File.AppendAllText(): 텍스트 파일에 내용 추가
+- File.ReadAllText(): 텍스트 파일 전체 읽기
+- File.ReadAllLines(): 텍스트 파일을 줄 단위로 읽기
+- 대용량 파일 처리를 위한 버퍼링 개념 소개
