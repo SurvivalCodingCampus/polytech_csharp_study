@@ -22,8 +22,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.ExceptionProble
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.FileProblem01", "CsharpStudy.FileProblem01\CsharpStudy.FileProblem01.csproj", "{F75BF894-E8DB-44E5-B4F4-69D1BD0584BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.FileProblem01.Tests", "CsharpStudy.FileProblem01.Tests\CsharpStudy.FileProblem01.Tests.csproj", "{8410AB3F-CA35-4B86-909C-B20709E7891F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,9 +72,5 @@ Global
 		{F75BF894-E8DB-44E5-B4F4-69D1BD0584BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F75BF894-E8DB-44E5-B4F4-69D1BD0584BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F75BF894-E8DB-44E5-B4F4-69D1BD0584BB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8410AB3F-CA35-4B86-909C-B20709E7891F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8410AB3F-CA35-4B86-909C-B20709E7891F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8410AB3F-CA35-4B86-909C-B20709E7891F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8410AB3F-CA35-4B86-909C-B20709E7891F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
