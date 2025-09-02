@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CsharpStudy.2hakgi\CsharpStudy.2hakgi.csproj" />
+    <ProjectReference Include="..\CsharpStudy.Data\CsharpStudy.Data.csproj" />
   </ItemGroup>
   
 </Project>
