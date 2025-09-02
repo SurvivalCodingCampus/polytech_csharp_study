@@ -46,73 +46,60 @@ public class MainClass
             .Select(transaction => transaction.Trader.Name)
             .ToList()
             .ForEach(Console.WriteLine);
+
+
+        // null safety :
+        List<string> transactions2 = new List<string>();
+        string? nullableFirst = transactions2.FirstOrDefault();
+
+        // string first = "기본값";
+        // if (nullableFirst != null)
+        // {
+        //     first = nullableFirst;
+        // }
         
-        Console.WriteLine("2번--------");
-       List<string> names= transactions.Select(transaction => transaction.Trader.Name)
-           .ToHashSet()
-           .ToList();
-       
-       foreach (var name in names)
-       {
-           Console.WriteLine(name);
-       }
-       
-       Console.WriteLine("3번--------");
-       List<string> cambrigeNames = transactions.Where(transaction => transaction.Trader.City == "Cambridge")
-           .Select(transaction => transaction.Trader.Name)
-           .OrderBy(name => name)
-           .ToList();
-       foreach (var name in cambrigeNames)
-       {
-           Console.WriteLine(name);
-       }
-       Console.WriteLine("4번--------");
-       List<string> everyname = transactions.Select(transaction => transaction.Trader.Name)
-           .OrderBy(name => name)
-           .ToList();
-       foreach (var name in everyname)
-       {
-           Console.WriteLine(name);
-       }
-       
-       Console.WriteLine("5번--------");
-       bool milan = transactions.Any(transaction => transaction.Trader.City == "Milan");
-       Console.WriteLine(milan);
-       
-       Console.WriteLine("6번--------");
-       List<int> cambridgean =  transactions.Where(transaction => transaction.Trader.City == "Cambridge")
-           .Select(transaction => transaction.Value)
-           .ToList();
-       foreach (var value in cambridgean)
-       {
-           Console.WriteLine(value);
-       }
+        string first = nullableFirst ?? "기본값";
+        Console.WriteLine(first);
 
-       Console.WriteLine("7번--------");
-       //List<int> maxResult = transactions.Select(transaction => transaction.Value).ToList();
-       //int max = maxResult.Max();
-       //Console.WriteLine(max);
-       int maxResult= transactions.Select(transaction => transaction.Value)
-           .Aggregate((e, v) => Math.Max(e , v));
-       
-       Console.WriteLine(maxResult);
-       
-       Console.WriteLine("8번--------");
-       //int min = maxResult.Min();
-       //Console.WriteLine(min);
-       int minResult = transactions.Select(transaction => transaction.Value)
-           .Aggregate((e, v) => Math.Min(e, v));
-       
-       Console.WriteLine(minResult);
+        transactions2.Max();
 
+        // 글자수가 짝수인지
+        bool isEven = first.IsEven();
 
+        try
+        {
+            List<string> items = new List<string>();
+            string result = items.First();
+        }
+        catch (InvalidOperationException e)
+        {
+            // Console.WriteLine(e.Message);
+            throw new MyException();       // 다른 예외로 바꿔서
+        }
+        catch (ArgumentException e)
+        {
+        
+        }
+        catch (Exception e)
+        {
+            // throw;  // 현재 예외 그대로
+            throw new MyException("이건 뭐야? 2");       // 다른 예외로 바꿔서
+        }
+    }
+}
 
+public class MyException : Exception
+{
+    public MyException(string? message = null) : base(message ?? "알 수 없는 에러가 발생했습니다")
+    {
+    }
+}
 
-
-
-
-
-
-
+// 확장 함수
+public static class StringExtensions
+{
+    public static bool IsEven(this string str)
+    {
+        return str.Length % 2 == 0;
     }
 }
