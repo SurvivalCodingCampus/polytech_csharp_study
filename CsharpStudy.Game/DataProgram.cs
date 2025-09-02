@@ -1,6 +1,6 @@
 ﻿namespace CsharpStudy.Game;
 
-class Program
+class DataProgram
 {
     static void Main(string[] args)
     {

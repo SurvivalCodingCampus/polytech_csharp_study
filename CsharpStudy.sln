@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exception", "Exception\Exce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystem", "FileSystem\FileSystem.csproj", "{1D32FD80-6B1E-44AA-8BD2-02914866D421}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Data", "CsharpStudy.Data\CsharpStudy.Data.csproj", "{62656AC0-8994-4705-B9D4-6F1ECF7EF43A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{1D32FD80-6B1E-44AA-8BD2-02914866D421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D32FD80-6B1E-44AA-8BD2-02914866D421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D32FD80-6B1E-44AA-8BD2-02914866D421}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62656AC0-8994-4705-B9D4-6F1ECF7EF43A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62656AC0-8994-4705-B9D4-6F1ECF7EF43A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62656AC0-8994-4705-B9D4-6F1ECF7EF43A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62656AC0-8994-4705-B9D4-6F1ECF7EF43A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

@@ -8,12 +8,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4-beta1" />
     <PackageReference Include="NUnit" Version="4.4.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="5.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CsharpStudy.2hakgi\CsharpStudy.2hakgi.csproj" />
+    <ProjectReference Include="..\CsharpStudy.Data\CsharpStudy.Data.csproj" />
     <ProjectReference Include="..\CsharpStudy.Game\CsharpStudy.Game.csproj" />
     <ProjectReference Include="..\FileSystem\FileSystem.csproj" />
   </ItemGroup>
