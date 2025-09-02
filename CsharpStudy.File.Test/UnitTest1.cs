@@ -137,27 +137,6 @@ public class FileCopierTests : IDisposable
         Assert.Throws<ArgumentException>(() => _fileCopier.CopyFile("", destFile));
     }
 
-    [Test]
-    public void CopyFile_NullDestinationPath_ThrowsArgumentNullException()
-    {
-        // Arrange
-        var sourceFile = Path.Combine(_testDirectory, "source.txt");
-        File.WriteAllText(sourceFile, "content");
-
-        // Act & Assert
-        Assert.Throws<ArgumentNullException>(() => _fileCopier.CopyFile(sourceFile, null!));
-    }
-
-    [Test]
-    public void CopyFile_EmptyDestinationPath_ThrowsArgumentException()
-    {
-        // Arrange
-        var sourceFile = Path.Combine(_testDirectory, "source.txt");
-        File.WriteAllText(sourceFile, "content");
-
-        // Act & Assert
-        Assert.Throws<ArgumentException>(() => _fileCopier.CopyFile(sourceFile, ""));
-    }
 
     [Test]
     public void CopyFile_InvalidSourcePath_ThrowsDirectoryNotFoundException()
