@@ -1,4 +1,9 @@
-﻿namespace FP;
+﻿using System;
+using System.Collections.Generic;
+
+namespace FP;
+
+public delegate void OnClick();
 
 class Program
 {
@@ -51,5 +56,11 @@ class Program
     int f(int x)
     {
         return 2 * x + 3;
+    }
+    
+    public void SetOnClick(OnClick clickHandler)
+    {
+        Console.WriteLine("SetOnClick 호출됨.");
+        clickHandler(); // 전달받은 대리자를 실행
     }
 }
