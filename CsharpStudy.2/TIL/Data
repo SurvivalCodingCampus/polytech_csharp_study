@@ -1,0 +1,105 @@
+### 여러가지 데이터 형식
+
+- CSV 형식
+    - 데이터를 콤마로 나눈 형식
+        
+        ```csharp
+        String str = "홍길동, 한석봉, 심사임당";
+        ```
+        
+- 프로퍼티 형식의 파일 읽기
+    - Properties 클래스를 사용하여 키(key)와 값(value)의 쌍으로 읽고 쓰기가 가능
+- XML 형식
+    - <> 태그를 활용한 기술 방식
+    - 포함관계를 기술할 수 있음
+    
+    ```xml
+    <note>
+    	<to>Tove</to>
+    	<from>Jani</from>
+    	<heading>Reminder</heading>
+    	<body>Don't forget me this weekend!</body>
+    </note>
+    ```
+    
+    - DOM Parser, SAX Parsar 등을 통해 파서를 제작할 필요가 있음
+- JSON 형식
+    - 네트워크 통신에서 가장 많이 사용되고 있음
+    - XML에 비해 적은 용량
+    - [ ]로 리스트, { }로 객체를 표현
+    - 키(key) : 값(vlaue) 형태
+    
+    ```json
+    {
+    	"이름" : "홍길동",
+    	"나이" : 25,
+    	"성별" : "여",
+    	"주소" : "서울특별시 양천구 목동",
+    	"특기" : ["농구", "도술"],
+    	"가족관계" : {"#" : 2, "아버지": "홍판서", "어머니": "춘섬"},
+    	"회사" : "경기 수원시 팔달구 우만동"
+    }
+    ```
+    
+    - `Dictionary<string, object>`와 똑같이 생김
+
+---
+
+- 컴퓨터 세계에서 직렬화의 의미
+    - 데이터 구조나 객체 상태를 저장하고 나중에 재구성할 수 있는 포맷으로 변화하는 과정
+    - 객체를 파일의 형태 등으로 저장하거나, 통신하기 쉬운 포맷으로 변환하는 과정을 의미
+    - 클래스 내부의 필드에 다른 클래스가 있다면 모두 **직렬화 처리**를 해줘야 함.
+- **직렬화**
+    - 주로 서버와 Json으로 통신을 할 것이기 때문에 Json 직렬화를 기본으로 한다
+    - 직렬화 : 클래스 → Json
+    - 역직렬화 : Json → 클래스
+    - C#과 Unity에서는 주로 Newtonsoft.Json 패키지를 사용한다.
+    
+    ```csharp
+    public class User
+    {
+        public string Name { get; }
+        public string Email { get; }
+        
+        public User(string name, string email)
+        {
+            Name = name;
+            Email = email;
+        }
+    
+        public static void Main()
+        {
+            User user = new User("John", "Doe");
+            string jsonString = JsonConvert.SerializeObject(user);
+    
+            Console.WriteLine(jsonString);
+        }
+    }
+    ```
+    
+    ```json
+    {
+    "name": "John Simth"
+    "Email": "john@example.com"
+    }
+    ```
+    
+- **역직렬화**
+    - Json을 객체로 역직렬화
+    
+    ```csharp
+        public static void Main()
+        {
+            User user = new User("John", "Doe");
+            // 직렬화
+            string jsonString = JsonConvert.SerializeObject(user);
+            // 역직렬화
+            User? loadedUser = JsonConvert.DeserializeObject<User>(jsonString);
+        }
+    ```
+    
+- 직렬화 불가능한 경우
+    - `static` 멤버
+    - 순환참조
+    - `private / internal` 멤버
+    - `private setter` 만 있는 멤버
