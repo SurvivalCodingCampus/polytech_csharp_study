@@ -1,4 +1,6 @@
-﻿namespace CsharpStudy.Exception;
+﻿using CsharpStudy.Exception.Extentions;
+
+namespace CsharpStudy.Exception;
 
 class Program
 {
@@ -9,9 +11,9 @@ class Program
 
     static void PracticeProblem_1()
     {
-        var numString = "10.5";
+        var numString = "10".TryParseInt();
 
-        int num = int.Parse(numString);
+        Console.WriteLine(numString);
     }
 
     static void PracticeProblem_2()
