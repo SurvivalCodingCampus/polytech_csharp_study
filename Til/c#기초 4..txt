@@ -1,0 +1,21 @@
+c#기초 4.
+
+1) 예외 처리 코드
+
+try{ 에러 발생 가능성 있는 코드 } >> 메서드 대입 가능
+catch(Exception e)
+{ 예외가 발생했을 때 실행될 코드 }
+
+특정 조건에만 예외 발생 시키고 싶으면 catch() 이후에 when 사용
+
+finally >> 나중에 꼭 해야하는 처리에 대한 코드 묶음
+
+
+2) file 정보 수정 및 조작
+
+text 파일 쓰기
+>> File.WriteAllText("텍스트파일명.txt", contents: )
+
+내용 더하기
+>> File.AppendAllText()
+
