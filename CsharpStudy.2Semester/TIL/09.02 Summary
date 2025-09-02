@@ -1,0 +1,51 @@
+## TODAY NOTE C# [여러가지 데이터 형식과 JSON 직렬화 핵심 정리]  [ 25.09.02 ]
+
+### 데이터 형식 개요
+
+- CSV(Comma-Separated Values) 형식은 콤마로 구분된 값들을 저장하며 Excel에서 쉽게 열 수 있음
+- 속성(Property) 파일은 키-값 쌍으로 구성되어 가독성이 좋음
+- XML은 태그를 사용하여 데이터 계층 구조를 표현하지만 파싱하기 복잡함
+- JSON은 중괄호와 키-값 쌍을 사용하며 XML보다 용량이 적고 파싱이 쉬움
+
+### 직렬화와 역직렬화
+
+- 직렬화(Serialization)는 객체 상태를 저장하거나 전송할 수 있는 형식으로 변환하는 과정
+- 역직렬화(Deserialization)는 저장된 데이터를 다시 객체로 복원하는 과정
+- 유니티에서 SerializeField 속성을 사용할 때 내부적으로 직렬화/역직렬화 과정이 일어남
+- 객체 내부에 다른 객체가 포함된 경우 모두 직렬화되어야 함
+
+### JSON 직렬화 구현
+
+- Newtonsoft.Json 라이브러리를 사용하면 C#에서 JSON 직렬화/역직렬화 작업이 간단해짐
+- 패키지 매니저를 통해 Newtonsoft.Json 설치 가능
+- JsonConvert.SerializeObject()로 객체를 JSON 문자열로 변환
+- JsonConvert.DeserializeObject<T>()로 JSON 문자열을 다시 객체로 변환
+- 직렬화가 불가능한 경우: static 필드, 순환 참조, private 멤버(getter/setter 없는)
+
+### 공공 API 활용
+
+- 공공데이터 포털에서 CSV, JSON, XML 형식으로 데이터 제공
+- 지하철 실시간 도착 정보와 같은 공공 API를 사용하여 데이터 활용 가능
+- API 사용을 위해 인증키가 필요하며 명세서를 통해 데이터 구조 이해 필요
+
+------------------------------수업 과정 중 복습할 내용 ------------------------------------
+
+
+1. Newtonsoft.Json을 활용한 자동화
+Newtonsoft.Json 라이브러리의 핵심 클래스인 JsonConvert를 사용하여 직렬화/역직렬화 과정을 한 줄의 코드로 자동화하는 방법을 익힘
+
+직렬화: JsonConvert.SerializeObject(object)
+
+역직렬화: JsonConvert.DeserializeObject<Type>(jsonString)
+
+2. 객체 간 의존성과 인스턴스 생성
+- Department 클래스가 Employee 객체를 속성으로 가지는 것처럼, 클래스 간에 의존성이 있을 경우 인스턴스를 생성할 때는
+  피참조 객체(Employee)를 먼저 생성하고 이를 참조하는 객체(Department)를 생성해야 함
+  
+3. 테스트 코드 작성
+- 단위 테스트를 통한 기능 검증
+- 성공 케이스와 실패 케이스 모두 테스트 필요
+- 예외 테스트 방법: Assert.Throws와 Assert.Catch의 차이점
+    - Throws: 정확한 예외 타입만 검증
+    - Catch: 상속 관계에 있는 예외도 포함하여 더 넓은 범위 검증
+- 테스트 후 생성된 파일 정리 (TearDown)
