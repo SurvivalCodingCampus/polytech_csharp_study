@@ -4,7 +4,7 @@ namespace CsharpStudy.Game;
 
 class Program
 {
-    /*static void Main(string[] args)
+    static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
         Console.WriteLine(Cleric.MaxHp);
@@ -85,5 +85,5 @@ class Program
         string? nullableString = null;
         string nonNullableString = "null";
 
-    }*/
+    }
 }
