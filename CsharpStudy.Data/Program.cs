@@ -1,27 +1,61 @@
-﻿using CsharpStudy._2;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace CsharpStudy.Data;
+
+class Sword
+{
+    public string Name { get; set; }
+
+    public Sword(string name)
+    {
+        Name = name;
+    }
+}
+
+class Hero
+{
+    public string Name { get; set; }
+    public int Hp { get; set; }
+    public int Mp { get; set; }
+    public List<string> Items { get; set; } = new List<string>();
+    public Sword? Sword { get; set; }
+    
+    public Hero(string name, int hp, int mp)
+    {
+        Name = name;
+        Hp = hp;
+        Mp = mp;
+    }
+
+    public override string ToString()
+    {
+        return $"{nameof(Name)}: {Name}, {nameof(Hp)}: {Hp}, {nameof(Mp)}: {Mp}";
+    }
+}
 
 class Program
 {
     static void Main(string[] args)
     {
-        
+        JsonSerialization();
+        JsonDeserialization();
     }
-    
-
 
     static void JsonSerialization()
     {
         // 직렬화
         Hero hero = new Hero("홍길동", 100, 50);
+        hero.Items.Add("물약");
+        hero.Items.Add("반창고");
+        hero.Sword = new Sword("불의 검");
+        
         string jsonString = JsonConvert.SerializeObject(hero);
         Console.WriteLine(hero);
         Console.WriteLine(jsonString);
-        File.WriteAllText("hero.json" , jsonString);
+        File.WriteAllText("hero.json", jsonString);
     }
-    static void JsonDeSerialization()
+    
+    static void JsonDeserialization()
     {
         // 역직렬화
         string jsonString = File.ReadAllText("hero.json");
@@ -32,39 +66,40 @@ class Program
     static void PropertyParser()
     {
         Dictionary<string, object> heroes = new Dictionary<string, object>();
+        
         string[] heroesArray = File.ReadAllLines("hero.properties");
-
-        foreach (string hero in heroesArray)
+        
+        foreach (var hero in heroesArray)
         {
-            string key = hero.Split('=')[0];
-            string value = hero.Split('=')[1];
+            string key = hero.Split("=")[0];
+            string value = hero.Split("=")[1];    
             heroes.Add(key, value);
         }
 
-        foreach (var hero in heroes)
+        foreach (var keyValuePair in heroes)
         {
-            Console.WriteLine(hero.Key);
-        }
+            Console.WriteLine(keyValuePair.Key + " : " + keyValuePair.Value);
+        }   
     }
-    static void CsvParse()
+    
+    static void CsvParser()
     {
         // 이름, hp, mp
         // CSV
-        // string hero = "영웅, 100, 50";
-        
-        // File.WriteAllText("hero.csv",hero);
-       
+        // string hero = "영웅,100,50";
+        // File.WriteAllText("hero.csv", hero);
+
         List<Hero> heroes = File.ReadAllLines("hero.csv")
             .Skip(1)
             .Select(line =>
             {
-                string name = line.Split(',')[0];
-                int hp = int.Parse(line.Split(',')[1]);
-                int mp = int.Parse(line.Split(',')[2]);
+                string name = line.Split(",")[0];
+                int hp = int.Parse(line.Split(",")[1]);
+                int mp = int.Parse(line.Split(",")[2]);
                 return new Hero(name, hp, mp);
             })
             .ToList();
-            
-            heroes.ForEach(Console.WriteLine);
+        
+        heroes.ForEach(Console.WriteLine);   
     }
 }
