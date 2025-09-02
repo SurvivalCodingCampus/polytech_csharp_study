@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.FileIO", "Cshar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.FileIO.Tests", "CsharpStudy.FileIO.Tests\CsharpStudy.FileIO.Tests.csproj", "{B9C84D5D-2B84-47D6-826E-6A92F4802266}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.MyData", "CsharpStudy.MyData\CsharpStudy.MyData.csproj", "{AEE57BE8-91A9-4A99-9C26-31EBFD732AA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{B9C84D5D-2B84-47D6-826E-6A92F4802266}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9C84D5D-2B84-47D6-826E-6A92F4802266}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9C84D5D-2B84-47D6-826E-6A92F4802266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEE57BE8-91A9-4A99-9C26-31EBFD732AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE57BE8-91A9-4A99-9C26-31EBFD732AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE57BE8-91A9-4A99-9C26-31EBFD732AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE57BE8-91A9-4A99-9C26-31EBFD732AA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

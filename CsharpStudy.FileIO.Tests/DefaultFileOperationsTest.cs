@@ -73,7 +73,7 @@ public class DefaultFileOperationsTest
         var invalidPath = Path.Combine(_workDir, "Invalid_Location.txt");
         var dfo = new DefaultFileOperations();
 
-        Assert.Catch<FileNotFoundException>(() => dfo.CopyFile(invalidPath, _destinationTextPath));
+        Assert.Throws<FileNotFoundException>(() => dfo.CopyFile(invalidPath, _destinationTextPath));
     }
 
     [TearDown]
