@@ -14,7 +14,7 @@ class Program
             Console.WriteLine(num);
         }
 
-        catch (System.Exception e)
+        catch (FormatException e)
         {
             int num = 0;
             Console.WriteLine(num);
