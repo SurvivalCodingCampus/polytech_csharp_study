@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Debug", "Csharp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FP2", "FP2\FP2.csproj", "{6A371D59-F683-40BA-AAE2-83814B80C036}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exception", "Exception\Exception.csproj", "{20CE6423-98E1-4E7B-990D-784F1CBCE133}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystem", "FileSystem\FileSystem.csproj", "{1D32FD80-6B1E-44AA-8BD2-02914866D421}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +46,14 @@ Global
 		{6A371D59-F683-40BA-AAE2-83814B80C036}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A371D59-F683-40BA-AAE2-83814B80C036}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A371D59-F683-40BA-AAE2-83814B80C036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20CE6423-98E1-4E7B-990D-784F1CBCE133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20CE6423-98E1-4E7B-990D-784F1CBCE133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20CE6423-98E1-4E7B-990D-784F1CBCE133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20CE6423-98E1-4E7B-990D-784F1CBCE133}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D32FD80-6B1E-44AA-8BD2-02914866D421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D32FD80-6B1E-44AA-8BD2-02914866D421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D32FD80-6B1E-44AA-8BD2-02914866D421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D32FD80-6B1E-44AA-8BD2-02914866D421}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
