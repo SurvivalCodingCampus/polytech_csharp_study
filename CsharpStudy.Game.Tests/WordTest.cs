@@ -17,6 +17,7 @@ public class WordTest
         Assert.That(word.IsVowel(0).Equals(true)); // 'a'
         Assert.That(word.IsConsonant(0).Equals(false)); // 'a'
     }
+
     [Test]
     public void 모음_자음_메서드_대문자_테스트()
     {
@@ -27,5 +28,4 @@ public class WordTest
         Assert.That(word.IsVowel(0).Equals(true)); // 'a'
         Assert.That(word.IsConsonant(0).Equals(false)); // 'a'
     }
-
 }
