@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Exception", "Cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.File", "CsharpStudy.File\CsharpStudy.File.csproj", "{1CBBA994-CA97-45D9-A6BF-F75FA7CE6AC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Data", "CsharpStudy.Data\CsharpStudy.Data.csproj", "{C33C3558-7214-49FC-BB55-6C000CDC285E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{1CBBA994-CA97-45D9-A6BF-F75FA7CE6AC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1CBBA994-CA97-45D9-A6BF-F75FA7CE6AC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1CBBA994-CA97-45D9-A6BF-F75FA7CE6AC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C33C3558-7214-49FC-BB55-6C000CDC285E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C33C3558-7214-49FC-BB55-6C000CDC285E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C33C3558-7214-49FC-BB55-6C000CDC285E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C33C3558-7214-49FC-BB55-6C000CDC285E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
