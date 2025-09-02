@@ -4,7 +4,14 @@ namespace CsharpStudy.File.Exam1;
 
 public class ExceptionExam
 {
-    static void Main(string[] args)
+    // static void Main(string[] args)
+    // {
+    //     const string numString = "10.5";
+    //     int value = numString.TryParseInt() ?? 0;
+    //     Console.WriteLine(value);
+    // }
+
+    static void Solution3()
     {
         const string numString = "10.5";
         int value = numString.TryParseInt() ?? 0;
