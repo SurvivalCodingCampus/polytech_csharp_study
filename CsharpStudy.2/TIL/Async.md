@@ -224,7 +224,7 @@
                 try
                 {
                     Console.WriteLine("GetData: 데이터 가져오기 시도");
-                    var data = await _getDataFromIPA(); // 비동기 작업 대기
+                    var data = await _getDataFromAPI(); // 비동기 작업 대기
                     Console.WriteLine("GetData: 데이터 가져오기 성공!");
                     return data;
                 }
