@@ -21,14 +21,14 @@ public class DefaultFileOperations : IFileCopier
         }
     }
 
-    public static void Main(String[] args)
+    /*public static void Main(String[] args)
     {
         IFileCopier fileCopier = new DefaultFileOperations();
         string source = "text.txt";
         string destination = "test.txt";
         fileCopier.CopyFile(source, destination);
   
-    }
+    }*/
     
     
 }
