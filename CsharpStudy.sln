@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.File", "CsharpS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Data", "CsharpStudy.Data\CsharpStudy.Data.csproj", "{2593E90E-BD02-4115-88FD-8D686048D0DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStdy.Async", "CsharpStdy.Async\CsharpStdy.Async.csproj", "{2ACF2697-58C7-47E9-B46C-054719FCA70D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{2593E90E-BD02-4115-88FD-8D686048D0DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2593E90E-BD02-4115-88FD-8D686048D0DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2593E90E-BD02-4115-88FD-8D686048D0DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ACF2697-58C7-47E9-B46C-054719FCA70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ACF2697-58C7-47E9-B46C-054719FCA70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ACF2697-58C7-47E9-B46C-054719FCA70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ACF2697-58C7-47E9-B46C-054719FCA70D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
