@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.FP", "..\polyte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FP2", "FP2\FP2.csproj", "{5CE454AE-F0F0-43A8-8949-CB166C616F3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asynchronous", "Asynchronous\Asynchronous.csproj", "{2FD09890-9688-4A3E-B51A-964C910AD860}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{5CE454AE-F0F0-43A8-8949-CB166C616F3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CE454AE-F0F0-43A8-8949-CB166C616F3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CE454AE-F0F0-43A8-8949-CB166C616F3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD09890-9688-4A3E-B51A-964C910AD860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD09890-9688-4A3E-B51A-964C910AD860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD09890-9688-4A3E-B51A-964C910AD860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD09890-9688-4A3E-B51A-964C910AD860}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
