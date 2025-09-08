@@ -18,8 +18,8 @@
 - 대용량 파일 쓰기를 위한 비동기 방식으로 쓰기
 
     ```csharp
-    File.WriteAllText("hero.json", jsonString)
-    	.ContinueWith(task => { Console.WriteLine("파일복사 완료")});
+    File.WriteAllTextAsync("hero.json", jsonString)
+        .ContinueWith(task => { Console.WriteLine("파일쓰기 완료"); });
     ```
 
 
