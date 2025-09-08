@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Data", "CsharpS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.JsonSerialization", "CsharpStudy.JsonSerialization\CsharpStudy.JsonSerialization.csproj", "{DFEA32CE-A2D2-4C51-AD0E-0EB485B2F7BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Async", "CsharpStudy.Async\CsharpStudy.Async.csproj", "{2FDE3EDE-E158-423C-8EBB-A58383C3636B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,9 @@ Global
 		{DFEA32CE-A2D2-4C51-AD0E-0EB485B2F7BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFEA32CE-A2D2-4C51-AD0E-0EB485B2F7BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFEA32CE-A2D2-4C51-AD0E-0EB485B2F7BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FDE3EDE-E158-423C-8EBB-A58383C3636B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FDE3EDE-E158-423C-8EBB-A58383C3636B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FDE3EDE-E158-423C-8EBB-A58383C3636B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FDE3EDE-E158-423C-8EBB-A58383C3636B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
