@@ -79,7 +79,7 @@
 - 콜백 함수 사용 (`delegate` 또는 `event`로 구현)
 
     ```csharp
-        public class AsyncExam()
+        public class AsyncExam
         {
             public void FetchData(Action<string> onSuccess)
             {
