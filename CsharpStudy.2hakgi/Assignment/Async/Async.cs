@@ -6,13 +6,15 @@ public class Async
     {
         for (int i = 0; i < repeatCnt; i++)
         {
-            await Task.Delay(seconds * 1000);
             Console.WriteLine($"{DateTime.Now:HH:mm:ss} {sound}");
+            if (i < repeatCnt - 1)
+            {
+                await Task.Delay(seconds * 1000);
+            }
         }
     }
     static async Task Main(string[] args)
     {
-        // Async 과제
         List<Task> birdList = new List<Task>();
         birdList.Add(Bird("꾸우",1,4));
         birdList.Add(Bird("까악",2,4));
