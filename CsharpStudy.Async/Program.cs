@@ -44,24 +44,10 @@ class Program
         return 5;
     }
 
-    static async Task Main(string[] args)
+    /*static async Task Main(string[] args)
     {
-        List<Task<int>> list = new List<Task<int>>();
-        
-        list.Add(GetInt1());
-        Console.WriteLine("1초");
-        list.Add(GetInt2());
-        Console.WriteLine("2초");
-        list.Add(GetInt3());
-        Console.WriteLine("3초");
-        list.Add(GetInt4());
-        Console.WriteLine("4초");
-        list.Add(GetInt5());
-        Console.WriteLine("5초");
-        
-        await Task.WhenAll(list);
-        Console.WriteLine("모든 작업 완료");
-    }
+
+    }*/
     
     static async Task AsyncExam(string[] args)
     {
