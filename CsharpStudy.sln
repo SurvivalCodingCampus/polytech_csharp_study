@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Data", "CsharpS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Async", "CsharpStudy.Async\CsharpStudy.Async.csproj", "{667C27AF-9F0C-4CAB-958A-79A3046AF9B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.DataResource", "CsharpStudy.DataResource\CsharpStudy.DataResource.csproj", "{6CF33914-29E5-4291-AC68-7E795EBE1609}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,9 @@ Global
 		{667C27AF-9F0C-4CAB-958A-79A3046AF9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{667C27AF-9F0C-4CAB-958A-79A3046AF9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{667C27AF-9F0C-4CAB-958A-79A3046AF9B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CF33914-29E5-4291-AC68-7E795EBE1609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CF33914-29E5-4291-AC68-7E795EBE1609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CF33914-29E5-4291-AC68-7E795EBE1609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CF33914-29E5-4291-AC68-7E795EBE1609}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
