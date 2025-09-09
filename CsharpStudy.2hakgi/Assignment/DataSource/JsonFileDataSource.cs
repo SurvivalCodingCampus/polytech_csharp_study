@@ -18,7 +18,6 @@ public class JsonFileDataSource : IDataSource
 
         // 최종 JSON 파일 경로
         _filePath = Path.Combine(projectRoot, "Assignment/DataSource" , fileName);
-        Console.WriteLine(_filePath);
     }
 
     // DataSource에서 await를 사용하고 있으니까 async
@@ -29,11 +28,6 @@ public class JsonFileDataSource : IDataSource
         {
             string text = await System.IO.File.ReadAllTextAsync(_filePath);
             people = JsonSerializer.Deserialize<List<Person>>(text);
-
-            foreach (var p in people)
-            {
-                Console.WriteLine(p.Name);
-            }
         }
         catch (FileNotFoundException)
         {
