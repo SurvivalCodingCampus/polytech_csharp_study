@@ -6,9 +6,9 @@ public class Parrot : Bird
     {
         for (var i = 0; i < 4; i++)
         {
+            Console.WriteLine($"({TimeElapsed}ms) 앵무 꾸우");
             await Task.Delay(1000);
             TimeElapsed += 1000;
-            Console.WriteLine($"({TimeElapsed}ms) 앵무 꾸우");
         }
         
     }
