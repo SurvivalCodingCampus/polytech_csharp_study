@@ -4,6 +4,6 @@ public interface IDataSource
 { 
     abstract Task<List<Person>> GetPeopleAsync();
 
-    abstract Task SavePeopleAsync(Person [] people);
+    abstract Task SavePeopleAsync(List<Person> people);
 
 }
