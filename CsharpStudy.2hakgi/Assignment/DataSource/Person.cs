@@ -2,5 +2,7 @@ namespace CsharpStudy._2hakgi.Assignment.DataSource;
 
 public class Person
 {
-    
+    public string Name { get; set; }
+    public int Age { get; set; }
+
 }
