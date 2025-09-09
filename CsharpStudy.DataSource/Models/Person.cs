@@ -2,30 +2,18 @@ namespace CsharpStudy.DataSource;
 
 public class Person
 {
-    public string Name
-    {
-        get => _name; 
-        set => _name = value;
-    }
-
-    public int Age
-    {
-        get => _age; 
-        set => _age = value < 0 ? 0 : value;
-    }
-    
-    private string _name;
-    private int _age;
+    public string Name { get; }
+    public int Age { get; }
 
     public Person(string name, int age)
     {
-        _name = name;
-        _age = age;
+        Name = name;
+        Age = age;
     }
 
     protected bool Equals(Person other)
     {
-        return _name == other._name && _age == other._age;
+        return Name == other.Name && Age == other.Age;
     }
 
     public override bool Equals(object? obj)
@@ -38,6 +26,6 @@ public class Person
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(_name, _age);
+        return HashCode.Combine(Name, Age);
     }
 }

@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CsharpStudy.DataSource\CsharpStudy.DataSource.csproj" />
     <ProjectReference Include="..\CsharpStudy.Data\CsharpStudy.Data.csproj" />
   </ItemGroup>
   

@@ -12,7 +12,7 @@ public class JsonFileDataSource : IDataSource
             throw new ArgumentNullException(nameof(filePath));
 
         if (!File.Exists(filePath))
-            File.Create(filePath);
+            File.Create(filePath).Close();
         _filePath = filePath;
     }
 
