@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CsharpStudy.Asynchronous.Entities;
@@ -35,11 +36,11 @@ public class ProgramTest
     {
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
-        var tasks = new List<Task<int>>
+        var tasks = new List<Bird>
         {
-            parrot.CallsAsync(), crow.CallsAsync(), sparrow.CallsAsync()
+            parrot, crow, sparrow
         };
-        await Task.WhenAll(tasks);
+        await Task.WhenAll(tasks.Select(bird => bird.CallsAsync()));
         stopwatch.Stop();
         
         Assert.That(stopwatch.ElapsedMilliseconds, Is.LessThanOrEqualTo(13000));
@@ -48,7 +49,7 @@ public class ProgramTest
     [Test]
     public void TASKS_WERE_CANCELLED_AT_4998MS()
     {
-        var tasks = new List<Task<int>>
+        var tasks = new List<Task>
         {
             parrot.CallsAsync(), crow.CallsAsync(), sparrow.CallsAsync(),
             Bird.ProvideTimeoutWithToken(token)
@@ -62,7 +63,7 @@ public class ProgramTest
     [Test]
     public void TASKS_WERE_TIMEDOUT_AFTER_5000MS()
     {
-        var tasks = new List<Task<int>>
+        var tasks = new List<Task>
         {
             parrot.CallsAsync(), crow.CallsAsync(), sparrow.CallsAsync(),
             Bird.ProvideTimeoutWithToken(token) // throw timeout after 5000ms

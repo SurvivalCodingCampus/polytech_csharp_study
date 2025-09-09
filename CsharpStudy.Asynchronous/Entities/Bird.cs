@@ -4,14 +4,14 @@ namespace CsharpStudy.Asynchronous.Entities;
 
 public abstract class Bird
 {
-    public virtual async Task<int> CallsAsync()
+    protected int TimeElapsed = 0;
+    public virtual async Task CallsAsync()
     {
         await Task.Delay(0);
         Console.WriteLine("(대략 새가 우는 소리) (0ms)");
-        return 1;
     }
     
-    public static async Task<int> ProvideTimeoutWithToken(CancellationToken token)
+    public static async Task ProvideTimeoutWithToken(CancellationToken token)
     {
         try
         {
@@ -29,6 +29,5 @@ public abstract class Bird
             throw;
         }
 
-        return 200; // unreachable
     }
 }

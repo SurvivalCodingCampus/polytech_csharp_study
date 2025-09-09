@@ -11,12 +11,12 @@ class Program
         var crow =  new Crow();
         var sparrow = new Sparrow();
 
-        var tasks = new List<Task<int>>()
+        var tasks = new List<Bird>()
         {
-            parrot.CallsAsync(), crow.CallsAsync(), sparrow.CallsAsync()
+            parrot, crow, sparrow
         };
         // var results = await Task.WhenAll(tasks);
-        await Task.WhenAll(tasks);
+        await Task.WhenAll(tasks.Select(bird => bird.CallsAsync()));
     }
     
     static async Task Main(string[] args)
