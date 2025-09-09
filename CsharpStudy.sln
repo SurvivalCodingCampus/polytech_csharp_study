@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSystem", "FileSystem\Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Data", "CsharpStudy.Data\CsharpStudy.Data.csproj", "{62656AC0-8994-4705-B9D4-6F1ECF7EF43A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.be", "CsharpStudy.be\CsharpStudy.be.csproj", "{7DB47738-9939-48D7-BD7E-3A378466B8D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{62656AC0-8994-4705-B9D4-6F1ECF7EF43A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62656AC0-8994-4705-B9D4-6F1ECF7EF43A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62656AC0-8994-4705-B9D4-6F1ECF7EF43A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DB47738-9939-48D7-BD7E-3A378466B8D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DB47738-9939-48D7-BD7E-3A378466B8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DB47738-9939-48D7-BD7E-3A378466B8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DB47738-9939-48D7-BD7E-3A378466B8D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
