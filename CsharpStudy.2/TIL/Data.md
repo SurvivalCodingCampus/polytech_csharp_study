@@ -79,7 +79,7 @@
     
     ```json
     {
-    "name": "John Simth"
+    "name": "John Simth",
     "Email": "john@example.com"
     }
     ```
