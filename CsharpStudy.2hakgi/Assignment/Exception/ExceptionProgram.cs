@@ -2,6 +2,7 @@ namespace CsharpStudy._2hakgi.Assignment.Exception;
 
 public class ExceptionProgram
 {
+    /*
     static void Main(string[] args)
     {
         var numString = "10.5";
@@ -18,4 +19,5 @@ public class ExceptionProgram
         Console.WriteLine(num);
         
     }
+    */
 }
