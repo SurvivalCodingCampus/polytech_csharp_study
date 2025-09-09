@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Async.Problem",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Async.Bird.Techer", "CsharpStudy.Async.Bird.Techer\CsharpStudy.Async.Bird.Techer.csproj", "{408B5E6A-4457-476A-8B52-ABA41F9C79EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.DataSource.Json.Problem", "CsharpStudy.DataSource.Json.Problem\CsharpStudy.DataSource.Json.Problem.csproj", "{D657B363-C05D-4F9E-B8FD-310ED550A581}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -120,5 +122,9 @@ Global
 		{408B5E6A-4457-476A-8B52-ABA41F9C79EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{408B5E6A-4457-476A-8B52-ABA41F9C79EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{408B5E6A-4457-476A-8B52-ABA41F9C79EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D657B363-C05D-4F9E-B8FD-310ED550A581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D657B363-C05D-4F9E-B8FD-310ED550A581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D657B363-C05D-4F9E-B8FD-310ED550A581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D657B363-C05D-4F9E-B8FD-310ED550A581}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
