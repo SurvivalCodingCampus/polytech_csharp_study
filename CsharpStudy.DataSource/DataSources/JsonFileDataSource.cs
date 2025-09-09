@@ -22,7 +22,7 @@ public class JsonFileDataSource :  IDataSource
         
         try
         {
-            fromJson = File.ReadAllText("people.json");
+            fromJson = await File.ReadAllTextAsync("people.json");
         }
         catch (FileNotFoundException e)
         {
@@ -31,15 +31,14 @@ public class JsonFileDataSource :  IDataSource
             Console.WriteLine("people.json not found; people.json is newly created.");
         }
         
-        people = JsonConvert.DeserializeObject<List<Person>>(fromJson) ?? new();
-        return await Task.FromResult(people);
+        return JsonConvert.DeserializeObject<List<Person>>(fromJson) ?? new();
     }
 
     // : Serialization
     public async Task SavePeopleAsync(List<Person> people)
     {
         var toJson = JsonConvert.SerializeObject(people);
-        await Task.Run(() => File.WriteAllText("people.json", toJson));
+        await File.WriteAllTextAsync("people.json", toJson);
     }
 
     public void PrintPeople(List<Person> people)
