@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonSerialization", "JsonSerialization\JsonSerialization.csproj", "{73EE37CC-2B11-471F-B1D0-88F965F6ABDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Async", "Async\Async.csproj", "{D1B8F3C9-3469-409D-97C4-E8FDF7CD43F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{73EE37CC-2B11-471F-B1D0-88F965F6ABDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73EE37CC-2B11-471F-B1D0-88F965F6ABDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73EE37CC-2B11-471F-B1D0-88F965F6ABDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B8F3C9-3469-409D-97C4-E8FDF7CD43F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B8F3C9-3469-409D-97C4-E8FDF7CD43F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B8F3C9-3469-409D-97C4-E8FDF7CD43F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B8F3C9-3469-409D-97C4-E8FDF7CD43F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

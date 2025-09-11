@@ -34,11 +34,11 @@ class Hero
 
 class Program
 {
-    static void Main(string[] args)
+    /*static void Main(string[] args)
     {
         JsonSerializtion();
         JsonDeserialztion();
-    }
+    }*/
 
     static void JsonSerializtion()
     {

@@ -2,7 +2,7 @@
 
 class Program
 {
-    static void Main(string[] args)
+    /*static void Main(string[] args)
     {
         string text = "안녕 홍길동\n";
             
@@ -17,5 +17,5 @@ class Program
                 .Aggregate((a,b)=>a+b);
             Console.WriteLine(totalText);
             
-    }
+    }*/
 }
