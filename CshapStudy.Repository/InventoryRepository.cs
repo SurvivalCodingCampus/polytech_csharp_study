@@ -3,7 +3,7 @@
 namespace CshapStudy.Repository;
 using CshapStudy.Repository;
 
-public class InventoryRepository : IInvetoryRepository
+public class InventoryRepository : IInventoryRepository
 {
     public IItemDataSource itemDataSource {get; set;}
     public int MaxSlot { get;}
