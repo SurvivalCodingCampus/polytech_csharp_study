@@ -27,7 +27,7 @@ class birdProgram
     }
     public async Task<string> bird_3()
     {
-        await Task.Delay(4000);
+        await Task.Delay(3000);
         return "짹짹";
     }
 
