@@ -7,6 +7,7 @@ public class InventoryRepository: IInventoryRepository
     public IItemDataSource ItemDataSource { get; set; }
     public int MaxSlot { get; set; }    // 인벤토리 최대 슬롯 수 
     public int MaxStack { get; set; }   // 아이템당 최대 갯수
+    private List<Item> _items;
 
     public InventoryRepository(IItemDataSource dataSource, int maxSlot, int maxStack)
     {
@@ -18,6 +19,7 @@ public class InventoryRepository: IInventoryRepository
     public Task<List<Item>> GetItemsAsync()
     {
         // 모든 아이템 목록을 비동기적으로 가져오는 메서드.
+        //_itmes = ItemDataSource.LoadAllItemsAsync();
         throw new NotImplementedException();
     }
 
