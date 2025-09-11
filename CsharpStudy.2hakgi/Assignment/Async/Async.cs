@@ -13,6 +13,7 @@ public class Async
             }
         }
     }
+    /*
     static async Task Main(string[] args)
     {
         List<Task> birdList = new List<Task>();
@@ -23,4 +24,5 @@ public class Async
         await Task.WhenAll(birdList);
         Console.WriteLine($"{DateTime.Now:HH:mm:ss} 완료");
     }
+    */
 }
