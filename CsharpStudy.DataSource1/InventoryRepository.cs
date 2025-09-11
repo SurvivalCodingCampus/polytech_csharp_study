@@ -2,29 +2,51 @@ namespace CsharpStudy.DataSource1;
 
 public class InventoryRepository : IInventoryRepository
 {
-    private JsonFileItemData  _jsonFileItem;
+    private IItemDataSource _itemDataSource;
     private int MaxSlot { get; set; }
     private int MaxStack { get; set; }
 
-    public InventoryRepository(JsonFileItemData jsonFileItem, int maxSlot, int maxStack)
+    public InventoryRepository(IItemDataSource itemDataSource, int maxSlot, int maxStack)
     {
-        _jsonFileItem = jsonFileItem;
+        _itemDataSource = itemDataSource;
         MaxSlot = maxSlot;
         MaxStack = maxStack;
     }
     
-    public Task<List<Item>> GetItemsAsync()
+    public async Task<List<Item>> GetItemsAsync()
     {
-        throw new NotImplementedException();
+        return await _itemDataSource.LoadAllItemsAsync();
     }
 
-    public Task<Item> GetItemByIdAsync(int itemId)
+    public async Task<Item?> GetItemByIdAsync(int itemId)
     {
-        throw new NotImplementedException();
+        List<Item> itemList = await GetItemsAsync();
+        return itemList.FirstOrDefault(x => x.id == itemId);
     }
 
-    public Task<bool> AddItemAsync(Item item)
+    public async Task<bool> AddItemAsync(Item item)
     {
-        throw new NotImplementedException();
+        List<Item> itemList = await GetItemsAsync();
+        Item? addItem = await GetItemByIdAsync(item.id);
+
+        if (addItem == null)
+        {
+            if (itemList.Count >= MaxSlot)
+            {
+                return false;
+            }
+            itemList.Add(item);
+            await _itemDataSource.SaveAllItemAsync(itemList);
+            return true;
+        }
+
+        if (addItem.count + item.count > MaxStack)
+        {
+            return false;
+        }
+        
+        addItem.count += item.count;
+        await _itemDataSource.SaveAllItemAsync(itemList);
+        return true;
     }
 }

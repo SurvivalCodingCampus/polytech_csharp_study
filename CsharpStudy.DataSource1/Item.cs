@@ -2,11 +2,11 @@ namespace CsharpStudy.DataSource1;
 
 public class Item
 {
-    public string id{ get; set; }
+    public int id{ get; set; }
     public string name{ get; set; }
-    public string count{ get; set; }
+    public int count{ get; set; }
     
-    public Item(string id, string name, string count)
+    public Item(int id, string name, int count)
     {
         this.id = id;
         this.name = name;
