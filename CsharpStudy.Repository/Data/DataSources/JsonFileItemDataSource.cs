@@ -1,4 +1,4 @@
-namespace CsharpStudy._2hakgi.Assignment.Model_Repository.Data.DataSources;
+namespace Csharp.Repository.Data.DataSources;
 
 public class JsonFileItemDataSource
 {

@@ -1,6 +1,7 @@
-using CsharpStudy._2hakgi.Assignment.Model_Repository.Models;
+using Csharp.Repository.Data.DataSources;
+using Csharp.Repository.Models;
 
-namespace CsharpStudy._2hakgi.Assignment.Model_Repository.Data.DataSources;
+namespace Csharp.Repository.Data.Repagitories;
 
 public class InventoryRepository: IInventoryRepository
 {

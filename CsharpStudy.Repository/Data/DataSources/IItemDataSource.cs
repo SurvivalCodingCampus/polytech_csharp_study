@@ -1,5 +1,6 @@
-using CsharpStudy._2hakgi.Assignment.Model_Repository.Models;
-namespace CsharpStudy._2hakgi.Assignment.Model_Repository.Data.DataSources;
+using Csharp.Repository.Models;
+
+namespace Csharp.Repository.Data.DataSources;
 
 public interface IItemDataSource
 {
