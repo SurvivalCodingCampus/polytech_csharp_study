@@ -2,6 +2,7 @@ namespace CsharpStudy._2hakgi.Assignment.DataSource;
 
 public class DataSource
 {
+    /*
     static async Task Main(string[] args)
     {
         IDataSource dataSource = new JsonFileDataSource("people.json");
@@ -26,4 +27,5 @@ public class DataSource
             Console.WriteLine("\n이민준 삭제 후 저장 완료.");
         }
     }
+    */
 }
