@@ -39,5 +39,29 @@ public class InventoryRepositoryTest
         
     }
 
+    [Test]
+    public async Task Test_Add_New_Item()
+    {
+        // Given: 인벤토리에 "Potion" 아이템이 없습니다. maxSlot에는 여유가 있습니다.
+        var mockDataSource = new MockItemDataSource();
+        var initialItems = new List<Item>
+        {
+            new Item(1, "Sword", 1),
+        };
+        await mockDataSource.SaveAllItemsAsync(initialItems);
+        InventoryRepository repository = new InventoryRepository(mockDataSource, 10, 10);
+        
+        // When: "Potion" 아이템을 인벤토리에 추가합니다.
+        Item additem = new Item(2, "Potion", 2);
+        await repository.AddItemAsync(additem);
+        
+        // Then: 인벤토리의 총 아이템 종류 수가 3개로 늘어나고, "Potion"이 목록에 있어야 합니다.
+        var loadItems = await repository.GetItemsAsync();
+        Assert.That(loadItems.Count, Is.EqualTo(2));
+        
+        var potion = repository.GetItemByIdAsync(2);
+        Assert.That(potion, Is.Not.Null);
+    }
+
 
 }
