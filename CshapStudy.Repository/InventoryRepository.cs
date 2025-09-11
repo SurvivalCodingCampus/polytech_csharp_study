@@ -5,22 +5,22 @@ using CshapStudy.Repository;
 
 public class InventoryRepository : IInventoryRepository
 {
-    public IItemDataSource itemDataSource {get; set;}
-    public int MaxSlot { get;}
-    public int MaxStock { get; set; }
+    public IItemDataSource ItemDataSource {get; private set;}
+    public int MaxSlot { get; private set; }
+    public int MaxStock { get; private set; }
 
     private List<Item> _items = new List<Item>();
     
     public InventoryRepository(IItemDataSource itemDataSource, int maxSlot, int maxStock)
     {
-        this.itemDataSource = itemDataSource;
+        this.ItemDataSource = itemDataSource;
         MaxSlot = maxSlot;
         MaxStock = maxStock;
     }
 
     public async Task<List<Item>> GetItemsAsync()
     {
-        return _items = await itemDataSource.LoadAllItemAsync();
+        return _items = await ItemDataSource.LoadAllItemAsync();
     }
     
     // async : 비동기
@@ -57,10 +57,11 @@ public class InventoryRepository : IInventoryRepository
                 item.Count = MaxStock;
                 
             }
+
             _items.Insert(_items.IndexOf(tmpItem), item);
         }
         
-        await itemDataSource.SaveAllItemsAsync(_items);
+        await ItemDataSource.SaveAllItemsAsync(_items);
         return true;
     }
 }
