@@ -5,8 +5,8 @@ namespace CsharpStudy._2hakgi.Assignment.Model_Repository.Data.DataSources;
 public class MockItemDataSource: IItemDataSource
 {
     private List<Item> _items = [
-        new Item(1, "Sword", 10),
-        new Item(2, "Shield", 10)
+        new Item(1, "Sword", 1),
+        new Item(2, "Shield", 1)
     ];
 
     public async Task<List<Item>> LoadAllItemsAsync()
@@ -19,6 +19,6 @@ public class MockItemDataSource: IItemDataSource
 
     public async Task SaveAllItemsAsync(List<Item> items)
     {
-        throw new NotImplementedException();
+        _items = items;
     }
 }
