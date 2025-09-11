@@ -2,9 +2,9 @@ namespace CsharpStudy.Repository.Models;
 
 public class Item
 {
-    private int Id { get; set; }
-    private string Name { get; set; }
-    private int Count { get; set; }
+    public int Id { get; private set; }
+    public string Name { get; private set; }
+    public int Count { get; set; }
 
     public Item(int id, string name, int count)
     {
