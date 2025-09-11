@@ -49,17 +49,50 @@ public class InventoryRepository : IInventoryRepository
         
         var inventory = await dataSource.LoadAllItemsAsync();
         
-        // 아이템 리스트 개수가 maxSlot 보다 작을 때만 아이템 추가 가능
-        if (inventory.Count < maxSlot)
+        Item? existingItem = null;
+        foreach (var inventoryItem in inventory)
         {
-            inventory.Add(item);
-            await dataSource.SaveAllItemsAsync(inventory);
-            return true;
+            if (inventoryItem.Id == item.Id)
+            {
+                existingItem = inventoryItem;
+                break;
+            }
         }
+        
+        // 아이템이 이미 존재하는 경우
+        if (existingItem != null)
+        {
+            // 있던 개수랑 추가하는 개수의 합이 max보다 작으면 추가
+            if (existingItem.Count + item.Count <= maxStack)
+            {
+                existingItem.Count += item.Count;
+                await dataSource.SaveAllItemsAsync(inventory);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        // 새로운 아이템인 경우
         else
         {
-            return false;
+            
+            // 아이템 리스트 개수가 max 보다 작을 때만 아이템 추가 가능 + 추가하는 개수가 max보다 작을 때
+            if (inventory.Count < maxSlot && item.Count <= maxStack)
+            {
+                inventory.Add(item);
+                await dataSource.SaveAllItemsAsync(inventory);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+        
+        
+   
         
     }
 }
