@@ -110,5 +110,28 @@ public class InventoryRepositoryTest
         var potion = await repository.GetItemByIdAsync(3);
         Assert.That(potion, Is.Null);
     }
+    
+    [Test]
+    public async Task Add_Existing_Items_Fail()
+    {
+        // Given: "Potion" 아이템이 인벤토리에 99개 있습니다. "Potion"의 maxStack은 99입니다
+        var mockDataSource = new MockItemDataSource();
+        var initialItems = new List<Item>
+        {
+            new Item(1, "Potion", 99),
+        };
+        await mockDataSource.SaveAllItemsAsync(initialItems);
+        InventoryRepository repository = new InventoryRepository(mockDataSource, 10, 99);
+        
+        // When: "Potion" 아이템을 다시 1개 추가하려 시도합니다.
+        Item additem = new Item(1, "Potion", 1);
+        var result = await repository.AddItemAsync(additem);
+        
+        // Then: AddItemAsync 메서드는 false를 반환해야 하며, "Potion"의 개수는 여전히 99개여야 합니다.
+        Assert.That(result, Is.False);
+        
+        var potion = await repository.GetItemByIdAsync(1);
+        Assert.That(potion.Count, Is.EqualTo(99));
+    }
 
 }
