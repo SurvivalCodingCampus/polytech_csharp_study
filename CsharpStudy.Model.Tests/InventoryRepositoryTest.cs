@@ -56,4 +56,28 @@ public class InventoryRepositoryTest
         Assert.That(items.Any(item => item.Name == "Potion"));
     }
     
+    
+    [Test] // Test03
+    public async Task IncreaseSwordCount()
+    {
+        // Given: Sword 아이템이 1개 있고, maxStack = 20
+        var ds = new MockItemDataSource();
+        await ds.SaveAllItemsAsync(new List<Item>
+        {
+            new Item { Id = 1, Name = "Sword", Count = 1}
+        });
+
+        var repo = new InventoryRepository(ds, maxSlot: 10, maxStack: 20);
+
+        // When: Sword 아이템을 다시 1개 추가
+        var sword = new Item { Id = 1, Name = "Sword", Count = 1};
+        await repo.AddItemAsync(sword);
+
+        var items = await repo.GetItemsAsync();
+        var swordItem = items.First(item => item.Name == "Sword");
+
+        // Then: Sword 아이템 개수가 2여야 함
+        Assert.That(swordItem.Count, Is.EqualTo(2));
+    }
+    
 }
