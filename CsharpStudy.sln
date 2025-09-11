@@ -28,6 +28,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Asynchronous.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.DataSource", "CsharpStudy.DataSource\CsharpStudy.DataSource.csproj", "{86B8A05B-5375-44DC-AA82-44D96EABABC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Inventory", "CsharpStudy.Inventory\CsharpStudy.Inventory.csproj", "{35A1ED50-4D4E-4D44-827D-6918BB16D0C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Inventory.Tests", "CsharpStudy.Inventory.Tests\CsharpStudy.Inventory.Tests.csproj", "{83246F33-AB49-4A90-B79D-F74D3888EF5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,5 +94,13 @@ Global
 		{86B8A05B-5375-44DC-AA82-44D96EABABC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86B8A05B-5375-44DC-AA82-44D96EABABC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86B8A05B-5375-44DC-AA82-44D96EABABC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A1ED50-4D4E-4D44-827D-6918BB16D0C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A1ED50-4D4E-4D44-827D-6918BB16D0C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A1ED50-4D4E-4D44-827D-6918BB16D0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A1ED50-4D4E-4D44-827D-6918BB16D0C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83246F33-AB49-4A90-B79D-F74D3888EF5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83246F33-AB49-4A90-B79D-F74D3888EF5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83246F33-AB49-4A90-B79D-F74D3888EF5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83246F33-AB49-4A90-B79D-F74D3888EF5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
