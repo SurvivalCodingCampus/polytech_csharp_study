@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.DataResource", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Repository", "CsharpStudy.Repository\CsharpStudy.Repository.csproj", "{16CDF00F-C696-4F9D-B7C4-3EF11308115D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Repository.Tests", "CsharpStudy.Repository.Tests\CsharpStudy.Repository.Tests.csproj", "{976F2874-07EA-455B-8A06-D90F93C6F54C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,5 +86,9 @@ Global
 		{16CDF00F-C696-4F9D-B7C4-3EF11308115D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16CDF00F-C696-4F9D-B7C4-3EF11308115D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16CDF00F-C696-4F9D-B7C4-3EF11308115D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{976F2874-07EA-455B-8A06-D90F93C6F54C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{976F2874-07EA-455B-8A06-D90F93C6F54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{976F2874-07EA-455B-8A06-D90F93C6F54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{976F2874-07EA-455B-8A06-D90F93C6F54C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

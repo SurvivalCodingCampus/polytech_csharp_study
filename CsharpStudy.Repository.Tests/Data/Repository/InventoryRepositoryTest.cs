@@ -63,5 +63,29 @@ public class InventoryRepositoryTest
         Assert.That(potion, Is.Not.Null);
     }
 
+    [Test]
+    public async Task Add_Existing_Items()
+    {
+        // Given: "Sword" 아이템이 인벤토리에 1개 있습니다. "Sword"의 maxStack은 20입니다.
+        var mockDataSource = new MockItemDataSource();
+        var initialItems = new List<Item>
+        {
+            new Item(1, "Sword", 1),
+        };
+        await mockDataSource.SaveAllItemsAsync(initialItems);
+        InventoryRepository repository = new InventoryRepository(mockDataSource, 10, 20);
+        
+        // When: "Sword" 아이템을 다시 1개 추가합니다.
+        Item additem = new Item(1, "Sword", 1);
+        var result = await repository.AddItemAsync(additem);
+        
+        // Then: "Sword" 아이템의 개수가 2개로 증가해야 합니다.
+        Assert.That(result, Is.True);
+        
+        var sword = await repository.GetItemByIdAsync(1);
+        Assert.That(sword, Is.Not.Null);
+        Assert.That(sword.Count, Is.EqualTo(2));
+        
+    }
 
 }
