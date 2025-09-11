@@ -75,6 +75,29 @@ public class JsonFileDataSource : IDataSource
         
         // JSON 역직렬화
         return JsonSerializer.Deserialize<List<Person>>(jsonString) ?? new List<Person>();
+        
+        // (파일읽기 - 역직렬화) 풀어쓴 거
+        // List<Person> people = JsonSerializer.Deserialize<List<Person>>(jsonString);
+        // List<Person> result = [];
+        // if (people == null)
+        // {
+        //     result = new List<Person>();
+        // }
+        // return result;
+        // return JsonSerializer.Deserialize<List<Person>>(jsonString) ?? [];
+        
+        /*---- 교수님 코드 -----*/
+        // try
+        // {
+        //     string jsonString2 = await File.ReadAllTextAsync(_filePath);
+        //
+        //     // JSON 역직렬화
+        //     return JsonSerializer.Deserialize<List<Person>>(jsonString) ?? new List<Person>();
+        // }
+        // catch (FileNotFoundException e)
+        // {
+        //     return [];
+        // }
     }
     
     public async Task SavePeopleAsync(List<Person> people)
