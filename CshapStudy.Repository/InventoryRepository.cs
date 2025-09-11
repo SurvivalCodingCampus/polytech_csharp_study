@@ -31,6 +31,8 @@ public class InventoryRepository : IInventoryRepository
 
     public async Task<bool> AddItemAsync(Item item)
     {
+        // 최신 상태 보장
+        await GetItemsAsync();
         // 반환값이 Task일 때 await를 해서 비동기작동되게 해야함
         // 비동기 call 비동기 
         Item tmpItem = await GetItemByIdAsync(item.Id);
@@ -55,9 +57,7 @@ public class InventoryRepository : IInventoryRepository
             if (item.Count > MaxStock)
             {
                 item.Count = MaxStock;
-                
             }
-
             _items.Insert(_items.IndexOf(tmpItem), item);
         }
         
