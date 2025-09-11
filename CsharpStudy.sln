@@ -28,6 +28,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Async", "Csharp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.DataSource", "CsharpStudy.DataSource\CsharpStudy.DataSource.csproj", "{C89CD583-D550-4DFB-A4AE-DDBC652BC954}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model_Repo", "Model_Repo\Model_Repo.csproj", "{B0B0F3BB-2230-4B26-891C-D5701B2F930C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model_Repo.Test", "Model_Repo.Test\Model_Repo.Test.csproj", "{55D9BA14-54CF-466F-AF30-9814670394CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,5 +94,13 @@ Global
 		{C89CD583-D550-4DFB-A4AE-DDBC652BC954}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C89CD583-D550-4DFB-A4AE-DDBC652BC954}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C89CD583-D550-4DFB-A4AE-DDBC652BC954}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0B0F3BB-2230-4B26-891C-D5701B2F930C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B0F3BB-2230-4B26-891C-D5701B2F930C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B0F3BB-2230-4B26-891C-D5701B2F930C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B0F3BB-2230-4B26-891C-D5701B2F930C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55D9BA14-54CF-466F-AF30-9814670394CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55D9BA14-54CF-466F-AF30-9814670394CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55D9BA14-54CF-466F-AF30-9814670394CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55D9BA14-54CF-466F-AF30-9814670394CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
