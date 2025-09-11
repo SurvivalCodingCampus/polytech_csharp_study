@@ -24,7 +24,7 @@ public class InventoryRepository : IInventoryRepository
     }
     
     // async : 비동기
-    public async Task<Item?> GetItemByldAsync(int itemId)
+    public async Task<Item?> GetItemByIdAsync(int itemId)
     {
         return _items.Find(i => i.Id == itemId);
     }
@@ -33,7 +33,7 @@ public class InventoryRepository : IInventoryRepository
     {
         // 반환값이 Task일 때 await를 해서 비동기작동되게 해야함
         // 비동기 call 비동기 
-        Item tmpItem = await GetItemByldAsync(item.Id);
+        Item tmpItem = await GetItemByIdAsync(item.Id);
         if (tmpItem == null)
         {
             // 슬롯의 크기 확인
@@ -57,7 +57,7 @@ public class InventoryRepository : IInventoryRepository
                 item.Count = MaxStock;
                 
             }
-            _items.Insert(item.Id, item);
+            _items.Insert(_items.IndexOf(tmpItem), item);
         }
         
         await itemDataSource.SaveAllItemsAsync(_items);
