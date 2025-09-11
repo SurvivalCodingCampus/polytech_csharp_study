@@ -30,4 +30,30 @@ public class InventoryRepositoryTest
         Assert.That(items.Any(item => item.Name == "Sword"));
         Assert.That(items.Any(item => item.Name == "Shield"));
     }
+
+    
+    [Test] //Test02
+    public async Task NewItemAdd()
+    {
+        // Given: 인벤토리 Potion은 없음
+        var ds = new MockItemDataSource();
+        await ds.SaveAllItemsAsync(new List<Item>
+        {
+            new Item { Id = 1, Name = "Sword",  Count = 1 },
+            new Item { Id = 2, Name = "Shield", Count = 1 }
+        });
+
+        var repo = new InventoryRepository(ds, maxSlot: 10, maxStack: 100);
+
+        // When: 새로운 아이템 추가
+        var potion = new Item { Id = 3, Name = "Potion", Count = 1 };
+        await repo.AddItemAsync(potion); // 메서드명이 다르면 맞게 수정 (ex: AddAsync)
+
+        var items = await repo.GetItemsAsync();
+
+        // Then: 기존 아이템 개수 증가
+        Assert.That(items.Count, Is.EqualTo(3));
+        Assert.That(items.Any(item => item.Name == "Potion"));
+    }
+    
 }
