@@ -85,7 +85,30 @@ public class InventoryRepositoryTest
         var sword = await repository.GetItemByIdAsync(1);
         Assert.That(sword, Is.Not.Null);
         Assert.That(sword.Count, Is.EqualTo(2));
+    }
+
+    [Test]
+    public async Task Test_Add_New_Item_Fail()
+    {
+        // 인벤토리의 maxSlot이 2이며, 현재 "Sword"와 "Shield" 두 아이템이 있습니다.
+        var mockDataSource = new MockItemDataSource();
+        var initialItems = new List<Item>
+        {
+            new Item(1, "Sword", 1),
+            new Item(2, "Shield", 1)
+        };
+        await mockDataSource.SaveAllItemsAsync(initialItems);
+        InventoryRepository repository = new InventoryRepository(mockDataSource, 2, 10);
         
+        // When: "Potion" 아이템을 인벤토리에 추가하려 시도합니다.
+        Item additem = new Item(3, "Potion", 2);
+        var result = await repository.AddItemAsync(additem);
+        
+        // Then: AddItemAsync 메서드는 false를 반환해야 하며, "Potion"은 인벤토리 목록에 추가되지 않아야 합니다.
+        Assert.That(result, Is.False);
+        
+        var potion = await repository.GetItemByIdAsync(3);
+        Assert.That(potion, Is.Null);
     }
 
 }
