@@ -1,5 +1,7 @@
 ### 모든 posts
 GET https://jsonplaceholder.typicode.com/posts
+###
+GET https://pokeapi.co/api/v2/pokemon/
 
 ### posts 특정 id
 GET https://jsonplaceholder.typicode.com/posts?id=1
