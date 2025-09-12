@@ -3,3 +3,14 @@ GET https://jsonplaceholder.typicode.com/posts
 
 ### posts 특정 id 
 GET https://jsonplaceholder.typicode.com/posts?id=1
+
+### POST 쓰기
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json 
+
+{
+  "userId": 1,
+  "title": "test",
+  "body": "test"
+}
+
