@@ -1,0 +1,5 @@
+### 모든 posts
+GET https://jsonplaceholder.typicode.com/posts
+
+### posts 특정 id 
+GET https://jsonplaceholder.typicode.com/posts?id=1
