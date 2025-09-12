@@ -4,7 +4,7 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        IDataSource dataSource = new JsonFileDataSource("people.json");
+        IDataSource dataSource = new JsonFileItemDataSource("people.json");
         
         //1. 데이터를 불러와 필터링하는 로직
         var people = await dataSource.GetPeopleAsync();
@@ -29,7 +29,7 @@ class Program
 
     static async Task InitializeData()
     {
-        IDataSource dataSource = new JsonFileDataSource("people.json");
+        IDataSource dataSource = new JsonFileItemDataSource("people.json");
 
         List<Person> people = new List<Person>();
         
