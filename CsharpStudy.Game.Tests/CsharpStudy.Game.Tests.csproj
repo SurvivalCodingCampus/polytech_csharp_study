@@ -18,6 +18,7 @@
     <ProjectReference Include="..\CsharpStudy.Data\CsharpStudy.Data.csproj" />
     <ProjectReference Include="..\CsharpStudy.Game\CsharpStudy.Game.csproj" />
     <ProjectReference Include="..\FileSystem\FileSystem.csproj" />
+    <ProjectReference Include="..\RepositoryStudy\RepositoryStudy.csproj" />
   </ItemGroup>
   
 </Project>
