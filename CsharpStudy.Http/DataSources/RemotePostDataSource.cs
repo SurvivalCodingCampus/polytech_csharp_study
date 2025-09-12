@@ -6,6 +6,7 @@ namespace CsharpStudy.Http.DataSources;
 public class RemotePostDataSource : IDataSource<Post>
 {
     private const string BaseUrl = "https://jsonplaceholder.typicode.com";
+    
     private HttpClient _httpClient;
 
     public RemotePostDataSource(HttpClient httpClient)
