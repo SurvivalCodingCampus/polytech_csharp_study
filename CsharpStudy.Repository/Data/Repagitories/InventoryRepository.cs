@@ -1,7 +1,8 @@
 using Csharp.Repository.Data.DataSources;
+using Csharp.Repository.Data.Repagitories;
 using Csharp.Repository.Models;
 
-namespace Csharp.Repository.Data.Repagitories;
+namespace CsharpStudy.Repository.Data.Repagitories;
 
 public class InventoryRepository: IInventoryRepository
 {
@@ -10,7 +11,7 @@ public class InventoryRepository: IInventoryRepository
     public int MaxStack { get; set; }   // 아이템당 최대 갯수
     private List<Item> _items = new List<Item>();
 
-    public InventoryRepository(IItemDataSource dataSource, int maxSlot, int maxStack)
+    public InventoryRepository(MockItemDataSource dataSource, int maxSlot, int maxStack)
     {
         ItemDataSource = dataSource;
         MaxSlot = maxSlot;
@@ -23,7 +24,7 @@ public class InventoryRepository: IInventoryRepository
         return await ItemDataSource.LoadAllItemsAsync();
     }
 
-    public async Task<Item?> GetItemByIdAsync(int itemId)
+    public async Task<Item> GetItemByIdAsync(int itemId)
     {
         // 특정 아이템을 비동기적으로 검색하는 메서드.
         return _items.Find(item => item.ItemId == itemId);
@@ -43,10 +44,7 @@ public class InventoryRepository: IInventoryRepository
             if (_items.Count >= MaxSlot) return false;
             // 규칙2. 하나의 아이템당 총 갯수(count)는 maxStack을 초과할 수 없음(기존 아이템 추가에도 적용)
             //          * 총 갯수가 maxStack을 초과하는 경우 MaxStack까지만 허용하기
-            if (item.ItemCount > MaxStack)
-            {
-                item.ItemCount = MaxStack;
-            }
+            if (item.ItemCount > MaxStack) return false;
             // 인벤토리에 추가
             _items.Add(item);
         }
@@ -56,10 +54,7 @@ public class InventoryRepository: IInventoryRepository
             // 규칙2. 하나의 아이템당 총 갯수(count)는 maxStack을 초과할 수 없음(기존 아이템 추가에도 적용)
             //          * 총 갯수가 maxStack을 초과하는 경우 MaxStack까지만 허용하기
             item.ItemCount += tempItem.ItemCount;
-            if (item.ItemCount > MaxStack)
-            {
-                item.ItemCount = MaxStack;
-            }
+            if (item.ItemCount > MaxStack) return false;
             
             // 규칙3. 위 조건을 모두 충족할 때만 아이템 추가, 성공시 True 실패시 False 반환 
             // 원래 있는 아이템 자리에 새로운 아이템 추가하기
