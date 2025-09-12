@@ -1,6 +1,6 @@
 ﻿namespace Asynchronous;
 
-class Program
+class Bird
 {
 // 한 새는 1초마다, 다른 새는 2초마다, 마지막 새는 3초마다 소리를 냅니다.
 //요구사항 : 각 새의 소리 타이밍을 재현하되, 각 새마다 하나의 비동기 함수를 사용하세요.
