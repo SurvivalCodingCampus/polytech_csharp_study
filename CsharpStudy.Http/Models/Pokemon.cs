@@ -5,7 +5,7 @@ namespace CsharpStudy.Http.Models;
 public class Pokemon
 {
     [JsonProperty("name")] // 어트리뷰트 변경
-    private string? Name { get; set; }
+    public string? Name { get; set; }
 
     [JsonProperty("sprites")] // 어트리뷰트 변경
     public OtherSprites? Sprites { get; set; }
