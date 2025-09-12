@@ -1,0 +1,27 @@
+### GET, /posts, userId == 1 && id == 1
+GET https://jsonplaceholder.typicode.com/posts?userId=1&id=1
+
+
+### POST, /posts
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "title": "testTitle",
+  "body": "testBody"
+}
+
+
+### DELETE, /posts/10
+DELETE https://jsonplaceholder.typicode.com/posts/9
+
+
+### PUT(Modify all), /posts/1
+PUT https://jsonplaceholder.typicode.com/posts/1
+
+{
+  "userId": 200,
+  "title": "바보",
+  "body": "정말 바보"
+}
