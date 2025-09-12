@@ -8,13 +8,19 @@ public class PokemonSprites
     public string? OfficialArtWorkUrl {get; set;}
 }
 
-public class OtherSprites
+public class Other
 {
     [JsonProperty("official-artwork")]
     public PokemonSprites? OfficialArtWork {get; set;}
 }
+
+public class Sprites
+{
+    [JsonProperty("other")]
+    public Other? Other {get; set;}
+}
 public class Pokemon
 {
     [JsonProperty("name")] public string? Name { get; set; }
-    [JsonProperty("sprites")] public OtherSprites? Sprites { get; set; }
+    [JsonProperty("sprites")] public Sprites? Sprites { get; set; }
 }
