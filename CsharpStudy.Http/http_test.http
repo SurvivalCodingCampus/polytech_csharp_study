@@ -16,3 +16,21 @@ Content-Type: application/json
 
 ### POST 삭제
 DELETE https://jsonplaceholder.typicode.com/posts/10
+
+### POST 전체 수정
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "userId": 200,
+  "title": "one",
+  "body": "one"
+}
+
+### POST 일부 수정
+PATCH https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "title": "test"
+}
