@@ -2,8 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net8.0</TargetFrameworks>
-    <RootNamespace>CsharpStudy._2hakgi.Tests</RootNamespace>
-
+    
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -14,7 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CsharpStudy.2hakgi\CsharpStudy.2hakgi.csproj" />
     <ProjectReference Include="..\CsharpStudy.Repository\CsharpStudy.Repository.csproj" />
   </ItemGroup>
   
