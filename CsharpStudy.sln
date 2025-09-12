@@ -28,9 +28,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Async", "Csharp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.DataSource", "CsharpStudy.DataSource\CsharpStudy.DataSource.csproj", "{C89CD583-D550-4DFB-A4AE-DDBC652BC954}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model_Repo", "Model_Repo\Model_Repo.csproj", "{B0B0F3BB-2230-4B26-891C-D5701B2F930C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Model_Repo", "CsharpStudy.Model_Repo\CsharpStudy.Model_Repo.csproj", "{B0B0F3BB-2230-4B26-891C-D5701B2F930C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model_Repo.Test", "Model_Repo.Test\Model_Repo.Test.csproj", "{55D9BA14-54CF-466F-AF30-9814670394CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Model_Repo.Test", "CsharpStudy.Model_Repo.Test\CsharpStudy.Model_Repo.Test.csproj", "{55D9BA14-54CF-466F-AF30-9814670394CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Network", "CsharpStudy.Network\CsharpStudy.Network.csproj", "{F28AE81A-3544-4B89-B0DC-BD71507FF8C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Network.Test", "CsharpStudy.Network.Test\CsharpStudy.Network.Test.csproj", "{3EAE6BEC-21A3-4B2C-9AC7-1E4492586A96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,5 +106,13 @@ Global
 		{55D9BA14-54CF-466F-AF30-9814670394CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55D9BA14-54CF-466F-AF30-9814670394CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55D9BA14-54CF-466F-AF30-9814670394CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F28AE81A-3544-4B89-B0DC-BD71507FF8C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F28AE81A-3544-4B89-B0DC-BD71507FF8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F28AE81A-3544-4B89-B0DC-BD71507FF8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F28AE81A-3544-4B89-B0DC-BD71507FF8C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EAE6BEC-21A3-4B2C-9AC7-1E4492586A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAE6BEC-21A3-4B2C-9AC7-1E4492586A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAE6BEC-21A3-4B2C-9AC7-1E4492586A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAE6BEC-21A3-4B2C-9AC7-1E4492586A96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
