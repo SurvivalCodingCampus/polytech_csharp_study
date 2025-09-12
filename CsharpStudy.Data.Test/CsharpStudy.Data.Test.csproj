@@ -14,7 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CsharpStudy.DataSource\CsharpStudy.DataSource.csproj" />
     <ProjectReference Include="..\CsharpStudy.Data\CsharpStudy.Data.csproj" />
-    <ProjectReference Include="..\Model_Repo\Model_Repo.csproj" />
+    <ProjectReference Include="..\CsharpStudy.Model_Repo\CsharpStudy.Model_Repo.csproj" />
   </ItemGroup>
 
   <ItemGroup>

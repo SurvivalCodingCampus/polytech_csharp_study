@@ -97,6 +97,7 @@ public class InventoryRepositoryTest
         var result = await _repository.AddItemAsync(mouse);
         var resultItems = await _repository.GetItemsAsync();
         
+        //then
         Assert.False(result);
         Assert.False(resultItems.Exists(it => it.Name.Equals("Mouse")));
     }
@@ -122,6 +123,7 @@ public class InventoryRepositoryTest
         var resultItems = await _repository.GetItemsAsync();
         var shieldCount = resultItems.First(it => it.Name.Equals("Shield")).Count;
 
+        //then
         Assert.False(result);
         Assert.True(shieldCount == 4);
     }
