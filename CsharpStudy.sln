@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FP2", "FP2\FP2.csproj", "{5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asynchronous", "Asynchronous\Asynchronous.csproj", "{2FD09890-9688-4A3E-B51A-964C910AD860}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csharp_study.http", "Csharp_study.http\Csharp_study.http.csproj", "{F90EAE52-BD43-4DF3-98F6-487D3541EC2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{2FD09890-9688-4A3E-B51A-964C910AD860}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FD09890-9688-4A3E-B51A-964C910AD860}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FD09890-9688-4A3E-B51A-964C910AD860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F90EAE52-BD43-4DF3-98F6-487D3541EC2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F90EAE52-BD43-4DF3-98F6-487D3541EC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F90EAE52-BD43-4DF3-98F6-487D3541EC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F90EAE52-BD43-4DF3-98F6-487D3541EC2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
