@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Async", "Csharp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CshapStudy.DataSource", "CshapStudy.DataSource\CshapStudy.DataSource.csproj", "{1BCDD403-BB6A-4CEA-9FDE-35F23CBB1A75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CshapStudy.DataSource0911", "CshapStudy.DataSource0911\CshapStudy.DataSource0911.csproj", "{9F2D2CB0-F606-4651-9F4A-6FC5A4B7A484}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,5 +86,9 @@ Global
 		{1BCDD403-BB6A-4CEA-9FDE-35F23CBB1A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BCDD403-BB6A-4CEA-9FDE-35F23CBB1A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BCDD403-BB6A-4CEA-9FDE-35F23CBB1A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F2D2CB0-F606-4651-9F4A-6FC5A4B7A484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2D2CB0-F606-4651-9F4A-6FC5A4B7A484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2D2CB0-F606-4651-9F4A-6FC5A4B7A484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2D2CB0-F606-4651-9F4A-6FC5A4B7A484}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
