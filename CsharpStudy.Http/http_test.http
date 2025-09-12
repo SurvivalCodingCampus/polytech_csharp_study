@@ -1,0 +1,40 @@
+### 모든 posts
+GET https://jsonplaceholder.typicode.com/posts
+
+### posts 특정 id
+GET https://jsonplaceholder.typicode.com/posts?id=1
+
+### posts 쓰기
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json  // 일반인지 json인지 알려줌
+
+{
+  "userId": 1,
+  "title": "test",
+  "body": "test"
+}
+
+### posts 삭제
+DELETE https://jsonplaceholder.typicode.com/posts/10
+
+### posts 전체수정
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json  // 일반인지 json인지 알려줌
+
+{
+  "userId": 200,
+  "title": "바보",
+  "body": "test"
+}
+
+### posts 일부수정
+PATCH https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json  // 일반인지 json인지 알려줌
+
+{
+  "userId": 200,
+  "title": "바보",
+  "body": "test"
+}
+  
+
