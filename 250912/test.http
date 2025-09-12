@@ -1,0 +1,40 @@
+### 모든 posts
+GET https://jsonplaceholder.typicode.com/posts
+
+### 특정 posts/ID
+GET https://jsonplaceholder.typicode.com/posts?id=1
+
+### post 쓰기
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "title": "test",
+  "body": "test"
+}
+
+
+###DELEET POST 삭제
+
+DELETE https://jsonplaceholder.typicode.com/posts/10
+
+
+###수정
+PUT https://jsonplaceholder.typicode.com/posts//1
+Content-Type: application/json
+
+{
+  "userId": 200,
+  "title": "Cyphers",
+  "body": "test"
+}
+
+### 일부 수정
+PATCH https://jsonplaceholder.typicode.com/posts//1
+Content-Type: application/json
+
+{
+  "title": "Cyphers"
+}
+
