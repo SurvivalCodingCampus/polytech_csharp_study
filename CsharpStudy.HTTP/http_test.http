@@ -1,0 +1,33 @@
+###모든 posts
+GET https://jsonplaceholder.typicode.com/posts
+
+
+### posts 특정 id
+GET https://jsonplaceholder.typicode.com/posts?id=1
+
+### POST 쓰기
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "id": 1,
+  "title": "test",
+  "body": "test"
+}
+
+### POST 삭제
+DELETE https://jsonplaceholder.typicode.com/posts/10
+
+### 전체 수정
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+{
+  "userId": 1,
+  "title": "바보",
+  "body": "바보"
+}
+
+### 일부 수정 
+
+### 상태코드 중요
