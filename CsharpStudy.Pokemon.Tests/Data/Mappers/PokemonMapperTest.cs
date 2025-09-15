@@ -13,7 +13,7 @@ namespace CsharpStudy.Pokemon.Tests.Data.Mappers
     {
 
         [Test]
-        public async Task IS_NAME_LITERALLY_MISSING()
+        public async Task IS_NAME_LITERALLY_MISSING_ASYNC()
         {
             HttpClient httpClient = new HttpClient();
             MockPokemonDataSource mock = new MockPokemonDataSource(httpClient);

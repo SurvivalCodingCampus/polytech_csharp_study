@@ -13,7 +13,7 @@ public class PokemonDataSourceTest
 {
 
     [Test]
-    public async Task GET_A_POKEMON()
+    public async Task GET_A_POKEMON_ASYNC()
     {
         PokemonDataSource dataSource = new PokemonDataSource(new HttpClient());
         Response<PokemonDto> response = await dataSource.GetPokemonAsync("caterpie");
