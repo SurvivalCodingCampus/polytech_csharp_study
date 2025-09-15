@@ -1,4 +1,4 @@
-using CsharpStudy.DTO.DTO;
+using CsharpStudy.DTO.DTOs;
 using CsharpStudy.DTO.Mapper;
 using NUnit.Framework;
 

@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace CsharpStudy.DTO.DTO;
+namespace CsharpStudy.DTO.DTOs;
 
 public class PokemonDto
 {
