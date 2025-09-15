@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using CsharpStudy.DtoMapper.DTOs;
 using CsharpStudy.DtoMapper.Mappers;
 using NUnit.Framework;
@@ -74,4 +75,36 @@ public class MappersTest
         Assert.That("", Is.EqualTo(model.Name));
     }
     
+    private MockPokemon _mockDataSource = new MockPokemon();
+    [Test]
+    public async Task ToModel_WithPikachuData_ReturnsCorrectPokemonModel()
+    {
+        // Arrange (준비)
+        var dtoResponse = await _mockDataSource.GetPokemonAsync("Pikachu");
+        var dto = dtoResponse.Body;
+
+        // Act (실행)
+        // 매퍼를 사용하여 DTO를 모델로 변환합니다.
+        var model = dto.ToModel();
+
+        // Assert (단언)
+        Assert.That(model, Is.Not.Null);
+        Assert.That(model.Name, Is.EqualTo("Pikachu"));
+        Assert.That(model.Id, Is.EqualTo(25));
+    }
+    
+    [Test]
+    public async Task GetPokemonAsync_ReturnsNullResponse()
+    {
+        // Arrange
+        string pokemonName = "  ";
+
+        // Act
+        var response = await _mockDataSource.GetPokemonAsync(pokemonName);
+
+        // Assert
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response.Body, Is.Null);
+        Assert.That(response.StatusCode, Is.EqualTo(404));
+    }
 }
