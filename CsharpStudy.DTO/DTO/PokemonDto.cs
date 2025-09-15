@@ -59,6 +59,7 @@ public class PokemonDto
         public int? Weight { get; set; }
     }
 
+    // Ability 정보를 담는 DTO
     public class AbilitySlotDto
     {
         [JsonProperty("is_hidden")]
@@ -71,6 +72,7 @@ public class PokemonDto
         public NamedResourceDto? Ability { get; set; }
     }
 
+    // 이름과 URL을 가진 리소스 DTO
     public class NamedResourceDto
     {
         [JsonProperty("name")]
@@ -80,6 +82,7 @@ public class PokemonDto
         public string? Url { get; set; }
     }
 
+    // 게임 인덱스 정보를 담는 DTO
     public class GameIndexDto
     {
         [JsonProperty("game_index")]
@@ -89,6 +92,7 @@ public class PokemonDto
         public NamedResourceDto? Version { get; set; }
     }
 
+    // 소지 아이템 정보를 담는 DTO
     public class HeldItemDto
     {
         [JsonProperty("item")]
@@ -98,6 +102,7 @@ public class PokemonDto
         public List<HeldItemVersionDetailDto>? VersionDetails { get; set; }
     }
 
+    // 소지 아이템 버전 상세 DTO
     public class HeldItemVersionDetailDto
     {
         [JsonProperty("rarity")]
@@ -107,6 +112,7 @@ public class PokemonDto
         public NamedResourceDto? Version { get; set; }
     }
 
+    // Moves 정보를 담는 DTO
     public class MoveSlotDto
     {
         [JsonProperty("move")]
@@ -116,6 +122,7 @@ public class PokemonDto
         public List<MoveVersionDetailDto>? VersionGroupDetails { get; set; }
     }
 
+    // Moves 버전 상세 DTO
     public class MoveVersionDetailDto
     {
         [JsonProperty("level_learned_at")]
@@ -128,6 +135,30 @@ public class PokemonDto
         public NamedResourceDto? MoveLearnMethod { get; set; }
     }
 
+    // Stat 정보를 담는 DTO
+    public class StatSlotDto
+    {
+        [JsonProperty("base_stat")]
+        public int? BaseStat { get; set; }
+
+        [JsonProperty("effort")]
+        public int? Effort { get; set; }
+
+        [JsonProperty("stat")]
+        public NamedResourceDto? Stat { get; set; }
+    }
+
+    // Type 정보를 담는 DTO
+    public class TypeSlotDto
+    {
+        [JsonProperty("slot")]
+        public int? Slot { get; set; }
+
+        [JsonProperty("type")]
+        public NamedResourceDto? Type { get; set; }
+    }
+
+    // Sprites 정보를 담는 DTO
     public class SpritesDto
     {
         [JsonProperty("back_default")]
@@ -154,34 +185,88 @@ public class PokemonDto
         [JsonProperty("front_shiny_female")]
         public string? FrontShinyFemale { get; set; }
 
-        // "other" contains nested named maps (e.g. "official-artwork")
         [JsonProperty("other")]
-        public Dictionary<string, object>? Other { get; set; }
+        public OtherDto? Other { get; set; }
 
-        // "versions" contains a complex nested object keyed by generation/version.
-        // If you need exact versioned sprite DTOs, we can expand this into typed classes.
         [JsonProperty("versions")]
-        public Dictionary<string, object>? Versions { get; set; }
+        public VersionsDto? Versions { get; set; }
     }
 
-    public class StatSlotDto
+    // Other 스프라이트 정보를 담는 DTO
+    public class OtherDto
     {
-        [JsonProperty("base_stat")]
-        public int? BaseStat { get; set; }
+        [JsonProperty("dream_world")]
+        public DreamWorldDto? DreamWorld { get; set; }
 
-        [JsonProperty("effort")]
-        public int? Effort { get; set; }
-
-        [JsonProperty("stat")]
-        public NamedResourceDto? Stat { get; set; }
+        [JsonProperty("official-artwork")]
+        public OfficialArtworkDto? OfficialArtwork { get; set; }
     }
 
-    public class TypeSlotDto
+    // 드림 월드 스프라이트 DTO
+    public class DreamWorldDto
     {
-        [JsonProperty("slot")]
-        public int? Slot { get; set; }
+        [JsonProperty("front_default")]
+        public string? FrontDefault { get; set; }
 
-        [JsonProperty("type")]
-        public NamedResourceDto? Type { get; set; }
+        [JsonProperty("front_female")]
+        public string? FrontFemale { get; set; }
+    }
+
+    // Official Artwork 스프라이트 DTO
+    public class OfficialArtworkDto
+    {
+        [JsonProperty("front_default")]
+        public string? FrontDefault { get; set; }
+    }
+
+    // Versions 스프라이트 정보를 담는 DTO
+    public class VersionsDto
+    {
+        [JsonProperty("generation-i")]
+        public GenerationIDto? GenerationI { get; set; }
+        
+        // 여기에 다른 세대(generation) DTO를 추가할 수 있습니다.
+    }
+
+    // Generation I DTO
+    public class GenerationIDto
+    {
+        [JsonProperty("red-blue")]
+        public RedBlueDto? RedBlue { get; set; }
+
+        [JsonProperty("yellow")]
+        public YellowDto? Yellow { get; set; }
+    }
+
+    // Red/Blue DTO
+    public class RedBlueDto
+    {
+        [JsonProperty("back_default")]
+        public string? BackDefault { get; set; }
+        
+        [JsonProperty("back_gray")]
+        public string? BackGray { get; set; }
+        
+        [JsonProperty("front_default")]
+        public string? FrontDefault { get; set; }
+        
+        [JsonProperty("front_gray")]
+        public string? FrontGray { get; set; }
+    }
+
+    // Yellow DTO
+    public class YellowDto
+    {
+        [JsonProperty("back_default")]
+        public string? BackDefault { get; set; }
+        
+        [JsonProperty("back_gray")]
+        public string? BackGray { get; set; }
+        
+        [JsonProperty("front_default")]
+        public string? FrontDefault { get; set; }
+        
+        [JsonProperty("front_gray")]
+        public string? FrontGray { get; set; }
     }
     
