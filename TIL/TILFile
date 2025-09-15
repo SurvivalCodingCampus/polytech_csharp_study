@@ -200,3 +200,16 @@ String은 변경 불가능한 자료형이고, StringBuilder는 변경 가능한
   ** 동기 / 비동기 _25/09/08 cf>
   - 동기(Synchronous): 순차 실행, 앞이 끝날 때까지 뒤가 기다림 (ex. 1차선 도로)
   - 비동기(Asynchronous): 기다리지 않고 다음 작업 처리 (ex. 여러 차선 도로)
+  
+  
+  ---------------
+  25/09/12 _Network
+  
+  * HTTP: 문서 전송에서 시작해 지금은 텍스트/이미지/동영상 등 다양한 데이터 교환에 쓰는 상태 비저장 프로토콜. 
+  * JSON: 가볍고 읽기 쉬운, 서버-클라이언트 표준 형식. 직렬화/파싱이 쉽다. 
+  
+  Repository 기능 정의 → DataSource 작성 → Response 작성 → Repository 구현의 단계로 설계
+  DataSource: CRUD 메서드를 제공하고 응답 객체(Response)를 돌려준다. 
+  
+  Response: HTTP 통신에서 필요한 정보(상태코드/헤더/본문)를 캡슐화
+  제네릭 Response로 여러 타입의 응답을 동일 패턴으로 다룬다.
