@@ -14,7 +14,12 @@ public class PokemonRepository : IPokemonRepository
 
     public async Task<Pokemon> GetPokemonByNameAsync(string pokemonName)
     {
+        if (string.IsNullOrWhiteSpace(pokemonName))
+            throw new ArgumentException("pokemonName is required.", nameof(pokemonName));
+
         var response = await _pokemonApi.GetPokemonAsync(pokemonName);
+        if (response.StatusCode != 200 || response.Body is null)
+            throw new KeyNotFoundException($"Pokemon '{pokemonName}' not found. (StatusCode: {response.StatusCode})");
         return response.Body;
     }
 }
