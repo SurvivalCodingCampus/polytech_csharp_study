@@ -42,19 +42,33 @@ public class PokemonRepositoryTest
         Assert.AreEqual(pokemon.Id, pokemonDto.Id);
         Assert.AreEqual(pokemon.Name, pokemonDto.Name);
         Assert.AreEqual(pokemon.Image, pokemonDto.Sprites.FrontDefault);
-
     }
-    
+
+
     [Test]
-    [DisplayName("포켓몬 정보를 가지고 온다.")]
+    [DisplayName("API 통신 성공하여 200 코드가 반환된다.")]
+    public async Task Method_3()
+    {
+        //given
+        string name = "pikachu";
+
+        //when
+        var response = await _dataSource.GetNameAsync(name);
+
+        //then
+        Assert.IsNotNull(response);
+        Assert.AreEqual(response.Status, 200);
+    }
+
+    [Test]
+    [DisplayName("포켓몬 정보를 Repository에서 온다.")]
     public async Task Method_1()
     {
         string name = "pikachu";
 
         var pikachu = await _repository.GetByNameAsync(name);
-        
+
         Assert.IsNotNull(pikachu);
         Assert.True(pikachu.Name != null && pikachu.Name.Equals(name));
     }
-
 }

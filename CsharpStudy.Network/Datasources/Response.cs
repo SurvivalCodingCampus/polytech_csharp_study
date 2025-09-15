@@ -2,13 +2,13 @@ namespace CsharpStudy.Network.Interfaces;
 
 public class Response <T>
 {
-    public int Statuts {get;}
+    public int Status {get;}
     public IReadOnlyDictionary<string, string> Headers {get;}
     public T Body { get; }
 
-    public Response(int statuts, IReadOnlyDictionary<string, string> headers, T body)
+    public Response(int status, IReadOnlyDictionary<string, string> headers, T body)
     {
-        Statuts = statuts;
+        Status = status;
         Headers = headers;
         Body = body;
     }
