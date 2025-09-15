@@ -20,10 +20,11 @@ public class PokemonDataSourceTest
         PokemonDto dto = response.Body;
         DTO.Data.Models.Pokemon pokemon = dto.ToPokemon();
         
+        Console.WriteLine(pokemon.ToString());
+        
         Assert.That(pokemon.Name, Is.EqualTo("caterpie"));
         Assert.That(pokemon.Abilities.Exists(a => a == "shield-dust"), Is.True);
         Assert.That(pokemon.Abilities.Exists(a => a == "run-away"), Is.True);
 
-        Console.WriteLine(pokemon.ToString());
     }
 }
