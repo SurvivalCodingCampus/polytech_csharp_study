@@ -4,13 +4,21 @@ namespace CsharpStudy.DtoMapper.Models;
 
 public class Pokemon
 {
+    public int Id { get; }
     public string Name { get; }
-    public string ImageUrl { get; }
-    
-    public List<AbilityWrapperDto>  Abilities { get; }
+    public string ImageUrl { get; } = null!;
 
-    public Pokemon(string name, string imageUrl,  List<AbilityWrapperDto> abilities)
+    public List<AbilityWrapperDto>  Abilities { get; } = null!;
+
+    public Pokemon(int id, string name)
     {
+        Id = id;
+        Name = name;
+    }
+
+    public Pokemon(int id, string name, string imageUrl,  List<AbilityWrapperDto> abilities)
+    {
+        Id = id;
         Name = name;
         ImageUrl = imageUrl;
         Abilities = abilities;
@@ -18,7 +26,7 @@ public class Pokemon
 
     protected bool Equals(Pokemon other)
     {
-        return Name == other.Name && ImageUrl == other.ImageUrl && Abilities.SequenceEqual(other.Abilities);;
+        return Id == other.Id && Name == other.Name && ImageUrl == other.ImageUrl && Abilities.SequenceEqual(other.Abilities);;
     }
 
     public override bool Equals(object? obj)
@@ -31,11 +39,11 @@ public class Pokemon
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(Name, ImageUrl,  Abilities);
+        return HashCode.Combine(Id, Name, ImageUrl,  Abilities);
     }
 
     public override string ToString()
     {
-        return $"{nameof(Name)}: {Name}, {nameof(ImageUrl)}: {ImageUrl},  {nameof(Abilities)}: {Abilities}";
+        return $"{nameof(Id)}: {Id}, {nameof(Name)}: {Name}, {nameof(ImageUrl)}: {ImageUrl},  {nameof(Abilities)}: {Abilities}";
     }
 }

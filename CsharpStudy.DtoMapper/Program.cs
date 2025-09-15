@@ -1,4 +1,6 @@
-﻿namespace CsharpStudy.DtoMapper;
+﻿using System.Text.Json.Serialization;
+
+namespace CsharpStudy.DtoMapper;
 
 class Program
 {
@@ -7,3 +9,5 @@ class Program
         Console.WriteLine("Hello, World!");
     }
 }
+
+
