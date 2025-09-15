@@ -1,32 +1,33 @@
 using Newtonsoft.Json;
 
-namespace CsharpStudy.Http.Models;
+    namespace CsharpStudy.Http.Models;
 
-public class Pokemon
+    public class Pokemon
 {
-    [JsonProperty("name")] // 어트리뷰트 변경
-    public string? Name { get; set; }
+        [JsonProperty("name")]
+            public string? Name { get; set; }
 
-    [JsonProperty("sprites")] // 어트리뷰트 변경
-    public OtherSprites? Sprites { get; set; }
-
-    public Pokemon(string? name, OtherSprites? sprites)
-    {
-        Name = name;
-        Sprites = sprites;
-    }
+            // sprites.other.official-artwork.front_default
+                [JsonProperty("sprites")]
+        public Sprites? Sprites { get; set; }
 }
 
-public class OtherSprites
+public class Sprites
 {
-    [JsonProperty("official-artwork")] // 어트리뷰트 변경
-    public PokemonSprites? OfficialArtwork { get; set; }
+        [JsonProperty("other")]
+            public Other? Other { get; set; }
 }
 
-public class PokemonSprites
+public class Other
 {
-    [JsonProperty("front_default")] // 어트리뷰트 변경
-    public string? OfficialArtworkUrl { get; set; }
+        [JsonProperty("official-artwork")]
+            public OfficialArtwork? OfficialArtwork { get; set; }
+}
+
+public class OfficialArtwork
+{
+        [JsonProperty("front_default")]
+            public string? FrontDefault { get; set; }
 }
     
     
