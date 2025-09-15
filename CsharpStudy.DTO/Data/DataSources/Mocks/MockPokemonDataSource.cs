@@ -10,9 +10,9 @@ public class MockPokemonDataSource : IPokemonDataSource
         _httpClient = httpClient;
     }
 
-    public async Task<Response<PokemonDto>> GetPokemonAsync(string name)
+    public async Task<Response<PokemonDto>> GetPokemonAsync(string pokemonName)
     {
-        HttpResponseMessage response = await _httpClient.GetAsync($"{baseUrl}{name}");
+        HttpResponseMessage response = await _httpClient.GetAsync($"{baseUrl}{pokemonName}");
         
         return new Response<PokemonDto>(
             statusCode: 404,

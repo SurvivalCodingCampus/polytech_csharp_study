@@ -9,7 +9,7 @@ public static class PokemonMapper
     {
         List<string> stringifiedList = new List<string>();
 
-        if (dto.Abilities.Count > 0)
+        if (dto.Abilities != null)
         {
             foreach (var ability in dto.Abilities)
             {
@@ -19,7 +19,7 @@ public static class PokemonMapper
 
         Pokemon pokemon = new Pokemon(
             name: dto.Name ?? "Missing",
-            officialArtFront: dto.Sprites.Other.OfficialArtwork.FrontDefault ?? "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+            officialArtFront: dto.Sprites?.Other?.OfficialArtwork?.FrontDefault ?? "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
             abilities: stringifiedList
         );
 
