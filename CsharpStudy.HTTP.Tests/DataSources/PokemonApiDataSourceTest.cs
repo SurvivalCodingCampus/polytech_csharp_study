@@ -18,8 +18,8 @@ public class PokemonApiDataSourceTest
         IPokemonApiDataSource<Pokemon> dataSource = new PokemonApiDataSource(new HttpClient());
         Response<Pokemon> response = await dataSource.GetPokemonAsync("charizard");
 
-        Console.WriteLine(response.Body.Sprites.OfficialArtwork);
-        Console.WriteLine(response.Body.Sprites.OfficialArtwork.OfficialArtworkUrl);
+        Console.WriteLine(response.Body);
+        // Console.WriteLine(response.Body.Sprites.OfficialArtwork.OfficialArtworkUrl);
         
         Assert.That(response.StatusCode, Is.EqualTo(200));
         Assert.That(response.Body.Name, Is.EqualTo("charizard"));
