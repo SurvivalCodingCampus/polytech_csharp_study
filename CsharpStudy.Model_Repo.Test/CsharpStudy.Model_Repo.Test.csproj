@@ -4,6 +4,8 @@
     <TargetFrameworks>net8.0</TargetFrameworks>
     
     <IsPackable>false</IsPackable>
+    
+    <RootNamespace>Model_Repo.Test</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Model_Repo\Model_Repo.csproj" />
+    <ProjectReference Include="..\CsharpStudy.Model_Repo\CsharpStudy.Model_Repo.csproj" />
   </ItemGroup>
   
 </Project>

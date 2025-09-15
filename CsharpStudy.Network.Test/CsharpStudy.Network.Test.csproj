@@ -12,13 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CsharpStudy.DataSource\CsharpStudy.DataSource.csproj" />
-    <ProjectReference Include="..\CsharpStudy.Data\CsharpStudy.Data.csproj" />
-    <ProjectReference Include="..\CsharpStudy.Model_Repo\CsharpStudy.Model_Repo.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="DataSources\" />
+    <ProjectReference Include="..\CsharpStudy.Network\CsharpStudy.Network.csproj" />
   </ItemGroup>
   
 </Project>
