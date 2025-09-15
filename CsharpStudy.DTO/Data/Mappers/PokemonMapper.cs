@@ -8,18 +8,21 @@ public static class PokemonMapper
     public static Pokemon ToPokemon(this PokemonDto dto)
     {
         List<string> stringifiedList = new List<string>();
-        
-        foreach (var ability in dto.Abilities)
+
+        if (dto.Abilities.Count > 0)
         {
-            stringifiedList.Add(ability.Ability.Name);
+            foreach (var ability in dto.Abilities)
+            {
+                stringifiedList.Add(ability.Ability.Name);
+            }
         }
 
         Pokemon pokemon = new Pokemon(
-            name: dto.Name!,
-            officialArtFront: dto.Sprites.Other.OfficialArtwork.FrontDefault!,
-            abilities: stringifiedList!
+            name: dto.Name ?? "Missing",
+            officialArtFront: dto.Sprites.Other.OfficialArtwork.FrontDefault ?? "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+            abilities: stringifiedList
         );
-        
+
         return pokemon;
     }
 }

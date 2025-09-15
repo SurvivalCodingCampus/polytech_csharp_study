@@ -15,7 +15,7 @@ public class PokemonDataSource : IPokemonDataSource
     
     public async Task<Response<PokemonDto>> GetPokemonAsync(string pokemonName)
     {
-        HttpResponseMessage response = await _httpClient.GetAsync($"{_baseUrl}/{pokemonName}");
+        HttpResponseMessage response = await _httpClient.GetAsync($"{_baseUrl}{pokemonName}");
 
         string dataStringForm = await response.Content.ReadAsStringAsync();
 
