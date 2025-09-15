@@ -17,6 +17,8 @@
     <ProjectReference Include="..\CsharpStudy.2hakgi\CsharpStudy.2hakgi.csproj" />
     <ProjectReference Include="..\CsharpStudy.Data\CsharpStudy.Data.csproj" />
     <ProjectReference Include="..\CsharpStudy.Game\CsharpStudy.Game.csproj" />
+    <ProjectReference Include="..\CsharpStudy.HttpStudy\CsharpStudy.HttpStudy.csproj" />
+    <ProjectReference Include="..\CsharpStudy.Http\CsharpStudy.Http.csproj" />
     <ProjectReference Include="..\FileSystem\FileSystem.csproj" />
     <ProjectReference Include="..\RepositoryStudy\RepositoryStudy.csproj" />
   </ItemGroup>
