@@ -1,12 +1,12 @@
-﻿using CsharpStudy.HTTP.Mapping;  
-using CsharpStudy.HTTP.Models;
+﻿using CsharpStudy.HTTP.Models;
+using CsharpStudy.HTTP.Mapping;
 using CsharpStudy.DtoMapper;
 
 namespace CsharpStudy.HTTP.Repositories
 {
     public class PokemonRepository : IPokemonRepository
     {
-        private IPokemonApiDataSource _api;
+        private readonly IPokemonApiDataSource _api;
         public PokemonRepository(IPokemonApiDataSource api) => _api = api;
 
         public async Task<Pokemon> GetPokemonByNameAsync(string nameOrId)

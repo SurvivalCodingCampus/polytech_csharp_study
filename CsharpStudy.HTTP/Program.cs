@@ -7,15 +7,11 @@ namespace CsharpStudy.HTTP
         static async Task Main()
         {
             using var http = new HttpClient { BaseAddress = new Uri("https://pokeapi.co") };
+            var dataSource = new RemotePokemonDataSource(http);
+            var repo = new PokemonRepository(dataSource);
 
-            var ds   = new RemotePokemonDataSource(http);
-            var repo = new PokemonRepository(ds);
-
-            var p1 = await repo.GetPokemonByNameAsync("pikachu");
-
-            Console.WriteLine(p1 == null
-                ? "Not Found"
-                : $"{p1.Name} / {p1.SpriteUrl}");  
+            var pikachu = await repo.GetPokemonByNameAsync("pikachu");
+            Console.WriteLine($"{pikachu.Name} / {pikachu.SpriteUrl}");
         }
     }
 }
