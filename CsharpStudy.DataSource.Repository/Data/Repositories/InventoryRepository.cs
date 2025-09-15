@@ -26,8 +26,8 @@ public class InventoryRepository : IInventoryRepository
 
     public async Task<Item?> GetItemByIdAsync(int itemId) // 특정 아이템을 비동기적으로 검색하는 메서드 
     {
-        var items = await GetItemsAsync();
-        Item? item = items.FirstOrDefault(item => item.Id == itemId);
+        List<Item> allItems = await GetItemsAsync();
+        Item? item = allItems.FirstOrDefault(item => item.Id == itemId);
         return item;
     }
 
