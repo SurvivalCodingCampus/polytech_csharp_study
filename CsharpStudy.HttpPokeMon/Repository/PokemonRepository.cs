@@ -1,21 +1,29 @@
 ﻿using CsharpStudy.HttpPokeMon.DataSources;
+using CsharpStudy.HttpPokeMon.Mapper;
 using CsharpStudy.HttpPokeMon.Models;
 
 namespace CsharpStudy.HttpPokeMon.Repository;
 
-public class PokemonRepository<Pokemon>
+public class PokemonRepository<PokemonDTO>
 {
-    private IPokemonApiDataSource<Pokemon> _apiDataSource;
-
+    private IPokemonApiDataSource<PokemonDTO> _apiDataSource;
+    
     // 생성자
-    public PokemonRepository(IPokemonApiDataSource<Pokemon> pokemonRepository)
+    public PokemonRepository(IPokemonApiDataSource<PokemonDTO> pokemonRepository)
     {
         _apiDataSource = pokemonRepository;
     }
 
     public async Task<Pokemon?> GetPokemonByNameAsync(string pokemonName)
     {
-        var response = await _apiDataSource.GetPokemonAsync(pokemonName);
-        return response.Body ;
+        try
+        {
+            var response = await _apiDataSource.GetPokemonAsync(pokemonName);
+            return PokemonMapper.ToPokemon(response.Body);
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
     }
 }
