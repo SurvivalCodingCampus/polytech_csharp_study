@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Csharp_study.http", "Csharp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.DTO", "CsharpStudy.DTO\CsharpStudy.DTO.csproj", "{E47688D4-111C-46FB-8E5F-E247DF33CB13}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Game.MapperTests", "CsharpStudy.Game.MapperTests\CsharpStudy.Game.MapperTests.csproj", "{EF2EDBF8-85BF-4385-A4AB-7F18FB472FE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +62,9 @@ Global
 		{E47688D4-111C-46FB-8E5F-E247DF33CB13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E47688D4-111C-46FB-8E5F-E247DF33CB13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E47688D4-111C-46FB-8E5F-E247DF33CB13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF2EDBF8-85BF-4385-A4AB-7F18FB472FE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF2EDBF8-85BF-4385-A4AB-7F18FB472FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF2EDBF8-85BF-4385-A4AB-7F18FB472FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF2EDBF8-85BF-4385-A4AB-7F18FB472FE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
