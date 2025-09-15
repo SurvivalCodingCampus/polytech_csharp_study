@@ -28,6 +28,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Http", "CsharpS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Http.Test", "CsharpStudy.Http.Test\CsharpStudy.Http.Test.csproj", "{182011BB-75C1-41F7-B17C-F02727F6194F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.DTO_Mapper", "CsharpStudy.DTO_Mapper\CsharpStudy.DTO_Mapper.csproj", "{3A97FEB6-2E80-4116-9E3C-A393144C1D86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.DTO_Mapper.Tests", "CsharpStudy.DTO_Mapper.Tests\CsharpStudy.DTO_Mapper.Tests.csproj", "{826BD733-F32D-4F9E-8FAA-A01DF3AF8E09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,5 +94,13 @@ Global
 		{182011BB-75C1-41F7-B17C-F02727F6194F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{182011BB-75C1-41F7-B17C-F02727F6194F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{182011BB-75C1-41F7-B17C-F02727F6194F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A97FEB6-2E80-4116-9E3C-A393144C1D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A97FEB6-2E80-4116-9E3C-A393144C1D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A97FEB6-2E80-4116-9E3C-A393144C1D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A97FEB6-2E80-4116-9E3C-A393144C1D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{826BD733-F32D-4F9E-8FAA-A01DF3AF8E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{826BD733-F32D-4F9E-8FAA-A01DF3AF8E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{826BD733-F32D-4F9E-8FAA-A01DF3AF8E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{826BD733-F32D-4F9E-8FAA-A01DF3AF8E09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
