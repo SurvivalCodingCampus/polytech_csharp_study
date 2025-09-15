@@ -1,0 +1,39 @@
+### 모든 posts
+GET https://jsonplaceholder.typicode.com/posts
+### 특정 posts/id 주석을 달수 있고 샾으로 구분이 가능
+GET https://jsonplaceholder.typicode.com/posts?id=1
+
+### Post 쓰기
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+//json 방식으로 작성해서 정보를 전달 id는 자동으로 부여
+
+{
+  "userId": 1,
+  "title": "test",
+  "body": "test"
+}
+
+### Post 삭제 뒤에 id를 작성하면 해당 id를 삭제해줌
+DELETE https://jsonplaceholder.typicode.com/posts/10
+
+### Post 수정 put은 전체
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+//json 방식으로 작성해서 정보를 전달 id는 자동으로 부여
+
+{
+  "userId": 200,
+  "title": "바보",
+  "body": "바보"
+}
+
+### Post 수정 일부수정
+PATCH https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+//json 방식으로 작성해서 정보를 전달 id는 자동으로 부여
+
+{
+  "title": "바보"
+}
+
