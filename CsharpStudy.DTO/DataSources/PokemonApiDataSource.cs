@@ -1,0 +1,35 @@
+using System.Diagnostics;
+using CsharpStudy.DTO.DataSources;
+using CsharpStudy.DTO.Model;
+using Newtonsoft.Json;
+
+namespace CsharpStudy.DTO.DTOs;
+
+public class PokemonApiDataSource : IPokemonApiDataSource<Pokemon>
+{
+    private const string BaseUrl = "https://pokeapi.co/api/v2/pokemon";
+    private HttpClient _httpClient;
+
+    public PokemonApiDataSource(HttpClient httpClient)
+    {
+        _httpClient = httpClient;
+    }
+
+    public async Task<Response> GetPokemonAsync(string pokemonName)
+    {
+        var response = await _httpClient.GetAsync($"{BaseUrl}/{pokemonName}");
+
+        var jsonString = await response.Content.ReadAsStringAsync();
+
+        var headers = response.Headers.ToDictionary(
+            header => header.Key,
+            header => string.Join(", ", header.Value)
+        );
+
+        return new Response(
+            statusCode: (int)response.StatusCode,
+            headers: headers,
+            body: JsonConvert.DeserializeObject<PokemonDto>(jsonString)!
+        );
+    }
+}
