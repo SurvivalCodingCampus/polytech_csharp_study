@@ -2,25 +2,35 @@ using Newtonsoft.Json;
 
 namespace CsharpStudy.Network.Models;
 
-public class PokemonSprites
-{
-    [JsonProperty("front_default")]
-    public string? OfficialArtWorkUrl {get; set;}
-}
-
-public class Other
-{
-    [JsonProperty("official-artwork")]
-    public PokemonSprites? OfficialArtWork {get; set;}
-}
-
-public class Sprites
-{
-    [JsonProperty("other")]
-    public Other? Other {get; set;}
-}
 public class Pokemon
 {
-    [JsonProperty("name")] public string? Name { get; set; }
-    [JsonProperty("sprites")] public Sprites? Sprites { get; set; }
+    public int Id { get; }
+    public string Name { get; }
+    public string Image { get; }
+
+
+    protected bool Equals(Pokemon other)
+    {
+        return Id == other.Id && Name == other.Name;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj is null) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != GetType()) return false;
+        return Equals((Pokemon)obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Id, Name);
+    }
+
+    public Pokemon(int id, string name, string image)
+    {
+        Id = id;
+        Name = name;
+        Image = image;
+    }
 }

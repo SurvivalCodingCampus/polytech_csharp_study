@@ -1,6 +1,8 @@
 using System.ComponentModel;
 using System.Threading.Tasks;
+using CsharpStudy.Network.DTOs;
 using CsharpStudy.Network.Interfaces;
+using CsharpStudy.Network.Mappers;
 using CsharpStudy.Network.Models;
 using CsharpStudy.Network.Repositories;
 using NUnit.Framework;
@@ -11,7 +13,7 @@ namespace CsharpStudy.Network.Test.Repositories;
 [TestOf(typeof(PokemonRepository))]
 public class PokemonRepositoryTest
 {
-    private IDataSource<Pokemon> _dataSource;
+    private IDataSource<PokemonDto> _dataSource;
     private IRepository<Pokemon> _repository;
 
     [SetUp]
@@ -22,6 +24,27 @@ public class PokemonRepositoryTest
     }
 
 
+    [Test]
+    [DisplayName("PokemonDto -> Pokemon 변환 테스트")]
+    public void Method_2()
+    {
+        //given
+        PokemonDto pokemonDto = new PokemonDto();
+        pokemonDto.Id = 1;
+        pokemonDto.Name = "picachu";
+        pokemonDto.Sprites = new Sprites();
+        pokemonDto.Sprites.FrontDefault = "picachuImg";
+        //when
+
+        var pokemon = Mapper.ToModel(pokemonDto);
+
+        //then
+        Assert.AreEqual(pokemon.Id, pokemonDto.Id);
+        Assert.AreEqual(pokemon.Name, pokemonDto.Name);
+        Assert.AreEqual(pokemon.Image, pokemonDto.Sprites.FrontDefault);
+
+    }
+    
     [Test]
     [DisplayName("포켓몬 정보를 가지고 온다.")]
     public async Task Method_1()
