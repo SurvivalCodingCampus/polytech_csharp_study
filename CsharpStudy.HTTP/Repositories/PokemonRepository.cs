@@ -1,22 +1,19 @@
-﻿using System.Threading.Tasks;
+﻿using CsharpStudy.HTTP.Mapping;  
 using CsharpStudy.HTTP.Models;
+using CsharpStudy.DtoMapper;
 
 namespace CsharpStudy.HTTP.Repositories
 {
     public class PokemonRepository : IPokemonRepository
     {
-        private IPokemonApiDataSource _dataSource;
+        private IPokemonApiDataSource _api;
+        public PokemonRepository(IPokemonApiDataSource api) => _api = api;
 
-        public PokemonRepository(IPokemonApiDataSource dataSource)
+        public async Task<Pokemon> GetPokemonByNameAsync(string nameOrId)
         {
-            _dataSource = dataSource;
-        }
-
-        public async Task<Pokemon?> GetPokemonByNameAsync(string pokemonName)
-        {
-            var res = await _dataSource.GetPokemonAsync(pokemonName);
-            // 200~299만 유효, 아니면 null
-            return (res.StatusCode >= 200 && res.StatusCode < 300) ? res.Body : null;
+            var res = await _api.GetPokemonAsync(nameOrId);
+            var dto = res.Body ?? new PokemonDto();   
+            return dto.ToModel();                    
         }
     }
 }

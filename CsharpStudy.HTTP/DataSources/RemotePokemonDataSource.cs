@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
-using CsharpStudy.HTTP.Models;
+﻿using Newtonsoft.Json;
+using CsharpStudy.DtoMapper;
 
 namespace CsharpStudy.HTTP
 {
@@ -8,63 +8,21 @@ namespace CsharpStudy.HTTP
         private const string BaseUrl = "https://pokeapi.co";
         private readonly HttpClient _httpClient;
 
-        public RemotePokemonDataSource(HttpClient httpClient)
-        {
-            _httpClient = httpClient;
-        }
+        public RemotePokemonDataSource(HttpClient httpClient) => _httpClient = httpClient;
 
-        public async Task<Response<Pokemon>> GetPokemonAsync(string pokemonName)
+        public async Task<Response<PokemonDto>> GetPokemonAsync(string nameOrId)
         {
-            // API 호출 URL
-            var url = $"{BaseUrl}/api/v2/pokemon/{pokemonName.ToLowerInvariant()}";
-
-            // HTTP 요청/응답
-            var response   = await _httpClient.GetAsync(url);
+            var url = $"{BaseUrl}/api/v2/pokemon/{nameOrId.ToLowerInvariant()}";
+            var response = await _httpClient.GetAsync(url);
             var jsonString = await response.Content.ReadAsStringAsync();
 
-            // 응답 헤더 -> Dictionary 변환
-            var headers = response.Headers.ToDictionary(
-                h => h.Key,
-                h => string.Join(", ", h.Value)
-            );
+            var headers = response.Headers.ToDictionary(h => h.Key, h => string.Join(", ", h.Value));
+            var dto = JsonConvert.DeserializeObject<PokemonDto>(jsonString) ?? new PokemonDto();
 
-            // JSON 파싱
-            var jo = JObject.Parse(jsonString);
-            
-            
-            int id = 1;
-            var idToken = jo["id"];
-            if (idToken != null)
-            {
-                id = int.Parse(idToken.ToString());
-            }
-
-            string name = "unknown";
-            var nameToken = jo["name"];
-            if (nameToken != null)
-            {
-                name = nameToken.ToString();
-            }
-
-            string spriteUrl = "https://placehold.co/128";
-            var spritesToken = jo["sprites"];
-            if (spritesToken != null)
-            {
-                var frontToken = spritesToken["front_default"];
-                if (frontToken != null)
-                {
-                    spriteUrl = frontToken.ToString();
-                }
-            }
-
-            // Pokemon record 생성
-            var body = new Pokemon(id, name, spriteUrl);
-
-            // Response<T> 반환
-            return new Response<Pokemon>(
+            return new Response<PokemonDto>(
                 statusCode: (int)response.StatusCode,
                 headers: headers,
-                body: body
+                body: dto
             );
         }
     }
