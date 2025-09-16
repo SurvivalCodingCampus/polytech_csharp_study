@@ -1,11 +1,12 @@
 using System.Text.Json.Serialization;
+using CsharpStudy.Network.DTOs;
 using CsharpStudy.Network.Models;
 using Newtonsoft.Json;
 using JsonConverter = Newtonsoft.Json.JsonConverter;
 
 namespace CsharpStudy.Network.Interfaces;
 
-public class PokemonApiDatasource : IDataSource<Pokemon>
+public class PokemonApiDatasource : IDataSource<PokemonDto>
 {
     private readonly HttpClient _httpClient = new HttpClient();
     private const string BaseUrl = "https://pokeapi.co";
@@ -15,7 +16,7 @@ public class PokemonApiDatasource : IDataSource<Pokemon>
         _httpClient.BaseAddress = new Uri(BaseUrl);
     }
 
-    public async Task<Response<Pokemon>> GetNameAsync(string name)
+    public async Task<Response<PokemonDto>> GetNameAsync(string name)
     {
         var request = new HttpRequestMessage(HttpMethod.Get, $"/api/v2/pokemon/{name}");
 
@@ -28,8 +29,8 @@ public class PokemonApiDatasource : IDataSource<Pokemon>
                 header => string.Join(", ", header.Value)
             );
         
-        var pokemon = JsonConvert.DeserializeObject<Pokemon>(jsonString) ?? new Pokemon();
+        var pokemon = JsonConvert.DeserializeObject<PokemonDto>(jsonString) ?? new PokemonDto();
         
-        return new Response<Pokemon>((int)response.StatusCode, headers, pokemon);
+        return new Response<PokemonDto>((int)response.StatusCode, headers, pokemon);
     }
 }

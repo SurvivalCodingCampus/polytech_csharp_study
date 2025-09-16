@@ -4,5 +4,5 @@ namespace CsharpStudy.Network.Interfaces;
 
 public interface IRepository<T>
 {
-    Task<Pokemon?> GetByNameAsync(string name);
+    Task<T> GetByNameAsync(string name);
 }
