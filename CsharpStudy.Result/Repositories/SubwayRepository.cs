@@ -5,6 +5,7 @@ using CsharpStudy.Result.Mappers;
 using Newtonsoft.Json;
 
 
+
 namespace CsharpStudy.Result.Repositories;
 
 public class SubwayRepository: ISubwayRepository
@@ -17,37 +18,36 @@ public class SubwayRepository: ISubwayRepository
     }
     
     
-    public async Task<Result<Subway, SubwayError>> GetSubwayByNameAsync(string stationName)
+    public async Task<Result<List<Subway>, SubwayError>> GetSubwayByNameAsync(string stationName)
     {
-        try // 에러타입 받아주기
+        try
         {
-            Response<SubwayDto> response = await _dataSource.GetSubwayAsync(stationName);
+            Response<ApiResponseDto> response = await _dataSource.GetSubwayAsync(stationName);
 
             switch (response.StatusCode)
             {
                 case 200:
-                    return new Result<Subway, SubwayError>.Success(response.Body.ToModel());
+                    var subwayList = response.Body.ToModels();
+                    return new Result<List<Subway>, SubwayError>.Success(subwayList);
                 case 404:
-                    return new Result<Subway, SubwayError>.Error(SubwayError.NotFound);
+                    return new Result<List<Subway>, SubwayError>.Error(SubwayError.NotFound);
                 default:
-                    return new Result<Subway, SubwayError>.Error(SubwayError.UnknownError);
-
+                    return new Result<List<Subway>, SubwayError>.Error(SubwayError.UnknownError);
             }
         }
         catch (TimeoutException e)
         {
-            return new Result<Subway, SubwayError>.Error(SubwayError.Timeout);
+            return new Result<List<Subway>, SubwayError>.Error(SubwayError.Timeout);
         }
         
         catch (JsonSerializationException e)
         {
-            return new Result<Subway, SubwayError>.Error(SubwayError.Timeout);
+            return new Result<List<Subway>, SubwayError>.Error(SubwayError.Timeout);
         }
         
         catch (Exception e)
         {
-            return new Result<Subway, SubwayError>.Error(SubwayError.NetworkError);
+            return new Result<List<Subway>, SubwayError>.Error(SubwayError.NetworkError);
         }
     }
-    
 }

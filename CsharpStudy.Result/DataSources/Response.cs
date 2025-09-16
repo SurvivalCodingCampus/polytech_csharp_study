@@ -1,4 +1,4 @@
-namespace CsharpStudy.Result.Dtos;
+namespace CsharpStudy.Result.DataSources;
 
 public class Response<T>
 {

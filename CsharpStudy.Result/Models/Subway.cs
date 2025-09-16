@@ -1,3 +1,5 @@
+using CsharpStudy.Result.Dtos;
+
 namespace CsharpStudy.Result.Models;
 
 public class Subway
@@ -6,6 +8,8 @@ public class Subway
     public string TrainLineNm { get; }
     public string BtrainSttus { get; }
     public string ArvlMsg2 { get; }
+    
+    public List<SubwayDto?>? RealtimeArrivalList { get; set; }
 
     public Subway(int subwayId, string trainLineNm, string btrainSttus, string arvlMsg2)
     {

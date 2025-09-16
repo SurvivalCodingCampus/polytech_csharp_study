@@ -4,5 +4,5 @@ namespace CsharpStudy.Result.DataSources;
 
 public interface ISubwayApiDataSource
 {
-    Task<Response<SubwayDto>> GetSubwayAsync(string  stationName);
+    Task<Response<ApiResponseDto>> GetSubwayAsync(string  stationName);
 }

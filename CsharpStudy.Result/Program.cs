@@ -3,40 +3,34 @@ using System.Collections.Generic;
 using System.Web;
 using CsharpStudy.Result.Dtos;
 using CsharpStudy.Result.Mappers;
+using CsharpStudy.Result.DataSources;
+using CsharpStudy.Result.Repositories;
 using Newtonsoft.Json;
 
 class Program
 {
     static async Task Main(string[] args)
     {
-        var stationName = "서울";
-        
-        try
+        var httpClient = new HttpClient();
+        ISubwayApiDataSource dataSource = new SubwayApiDataSource(httpClient);
+        ISubwayRepository repository = new SubwayRepository(dataSource);
+
+       var stationName = "서울";
+        var result = await repository.GetSubwayByNameAsync(stationName);
+
+        if (result is Result<List<Subway>, SubwayError>.Success successResult)
         {
-            // 1. API 호출
-            var client = new HttpClient();
-            string encodedStationName = HttpUtility.UrlEncode(stationName);
-            string url = $"http://swopenAPI.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/{encodedStationName}";
+            Console.WriteLine($"Status: 성공");
 
-            var response = await client.GetStringAsync(url);
-
-            // 2. JSON Deserialization (DTOs 사용)
-            var apiResponse = JsonConvert.DeserializeObject<ApiResponseDto>(response);
-
-            // 3. 모델로 매핑 및 출력
-            Console.WriteLine($"'{stationName}'역 실시간 도착 정보:");
-            
-            if (apiResponse?.RealtimeArrivalList != null)
+            if (successResult.data.Count > 0)
             {
-                foreach (var dto in apiResponse.RealtimeArrivalList)
+                foreach (var subway in successResult.data)
                 {
-                    var subwayModel = dto.ToModel(); // DTO를 모델로 변환
-                    
                     Console.WriteLine("-----------------------------");
-                    Console.WriteLine($"지하철 ID: {subwayModel.SubwayId}");
-                    Console.WriteLine($"열차 노선: {subwayModel.TrainLineNm}");
-                    Console.WriteLine($"열차 상태: {subwayModel.BtrainSttus}");
-                    Console.WriteLine($"도착 메시지: {subwayModel.ArvlMsg2}");
+                    Console.WriteLine($"지하철 ID: {subway.SubwayId}");
+                    Console.WriteLine($"열차 노선: {subway.TrainLineNm}");
+                    Console.WriteLine($"열차 상태: {subway.BtrainSttus}");
+                    Console.WriteLine($"도착 메시지: {subway.ArvlMsg2}");
                 }
             }
             else
@@ -44,9 +38,10 @@ class Program
                 Console.WriteLine("도착 정보가 없습니다.");
             }
         }
-        catch (Exception ex)
+        else if (result is Result<List<Subway>, SubwayError>.Error errorResult)
         {
-            Console.WriteLine($"오류 발생: {ex.Message}");
+            Console.WriteLine($"오류 발생: {errorResult.error}");
         }
     }
 }
+
