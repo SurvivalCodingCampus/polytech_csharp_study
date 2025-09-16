@@ -1,5 +1,7 @@
+using CsharpStudy.DtoMapper.Common;
 using CsharpStudy.DtoMapper.DataSources;
-using CsharpStudy.DtoMapper.Mappers; // ToModel() 확장 메서드를 사용하기 위해 추가
+using CsharpStudy.DtoMapper.Mappers;
+using CsharpStudy.DtoMapper.Models; // ToModel() 확장 메서드를 사용하기 위해 추가
 
 namespace CsharpStudy.DtoMapper.Repositories;
 
@@ -15,23 +17,40 @@ public class PokemonRepository : IPokemonRepository // 비즈니스 로직 처�
     }
 
     /// 데이터 소스로부터 DTO를 가져와 Model로 변환하여 반환하는 전체 과정을 담당합니다.
-    public async Task<Models.Pokemon?> GetPokemonByNameAsync(string pokemonName)
+    public async Task<Result<Pokemon, PokemonError>> GetPokemonByNameAsync(string pokemonName)
     {
+        if (string.IsNullOrWhiteSpace(pokemonName)) // null, "", " "/"\t/"\n"
+        {
+            return new Result<Pokemon, PokemonError>.Error(PokemonError.InvalidInput);
+        }
+
         try
         {
             // 1. DataSource를 통해 API로부터 데이터를 가져옵니다. 결과는 Response<PokemonDto> 형태입니다.
             var response = await _dataSource.GetPokemonAsync(pokemonName);
+            switch (response.StatusCode)
+            {
+                case 200:
+                    var dto = response.Body;
+                    Pokemon pokemon = dto.ToModel();
+                    return new Result<Pokemon, PokemonError>.Success(pokemon);
+                case 404:
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.NotFound);
+                default:
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.UnknownError);
+            }
+
             // 2. 응답의 Body에서 실제 PokemonDto를 추출합니다.
-            var dto = response.Body;
-            // 3. Mapper(확장 메서드)를 사용하여 DTO를 애플리케이션 Model로 변환합니다.
-            return dto.ToModel();
+            // var dto = response.Body;
+            // // 3. Mapper(확장 메서드)를 사용하여 DTO를 애플리케이션 Model로 변환합니다.
+            // return dto.ToModel();
         }
         catch (Exception e)
         {
             // 네트워크 오류, JSON 파싱 오류 등 어떤 예외가 발생하더라도
             // 프로그램이 중단되지 않고 null을 반환하여 안정성을 확보합니다.
             // 실제 서비스에서는 여기에 로깅(logging) 코드를 추가하는 것이 좋습니다.
-            return null;
+            return new Result<Pokemon, PokemonError>.Error(PokemonError.NetworkError);
         }
     }
 }

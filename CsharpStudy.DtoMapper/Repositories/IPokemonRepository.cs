@@ -1,4 +1,4 @@
-using CsharpStudy.DtoMapper.Models;
+using CsharpStudy.DtoMapper.Common;
 
 namespace CsharpStudy.DtoMapper.Repositories;
 
@@ -7,5 +7,5 @@ namespace CsharpStudy.DtoMapper.Repositories;
 /// 결과물로 DTO가 아닌, 바로 사용할 수 있는 Pokemon '모델'을 반환하는 것이 특징입니다.
 public interface IPokemonRepository
 {
-    Task<DtoMapper.Models.Pokemon?> GetPokemonByNameAsync(string pokemonName);
+    Task<Result<Models.Pokemon, PokemonError>> GetPokemonByNameAsync(string pokemonName);
 }

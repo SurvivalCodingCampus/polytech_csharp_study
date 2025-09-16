@@ -1,4 +1,4 @@
-// using CsharpStudy.DtoMapper.DTO;
+//using CsharpStudy.DtoMapper.DTO;
 
 namespace CsharpStudy.DtoMapper.Mappers;
 
@@ -19,12 +19,14 @@ public static class PokemonMapper // DTO를 Model로 변환
 
             // dto.Name이 null이면 빈 문자열("")을 사용합니다. (Null-coalescing operator)
             // 이를 통해 NullReferenceException을 방지하고 non-nullable인 Model의 요구사항을 충족시킵니다.
-            name: dto.Name ?? "",
+            //name: dto.Name ?? "",
+            Name: dto.Name ?? "",
 
             // DTO의 속성이 중첩되어 있고 각 단계가 null일 수 있으므로,
             // '?'(Null-conditional operator)를 사용하여 안전하게 접근합니다.
             // 최종적으로 FrontDefault가 null이면 빈 문자열("")을 사용합니다.
-            imageUrl: dto.Sprites?.Other?.OfficialArtwork?.FrontDefault ?? ""
+            //imageUrl: dto.Sprites?.Other?.OfficialArtwork?.FrontDefault ?? ""
+            ImageUrl: dto.Sprites?.Other?.OfficialArtwork?.FrontDefault ?? ""
         );
     }
 }
