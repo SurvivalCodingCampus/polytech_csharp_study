@@ -16,10 +16,12 @@ public class PokemonRepository : IPokemonRepository
     
     public async Task<Result<Pokemon?, PokemonError>> GetPokemonByNameAsync(string pokemonName)
     {
+        Response<PokemonDto> response = await _dataSource.GetPokemonAsync(pokemonName);
+        
+        Console.WriteLine($"statusCode is {response.StatusCode}");
         try
         {
-            Response<PokemonDto> response = await _dataSource.GetPokemonAsync(pokemonName);
-
+            
             switch (response.StatusCode)
             {
                 case 200:
@@ -28,7 +30,7 @@ public class PokemonRepository : IPokemonRepository
                     return new Result<Pokemon?, PokemonError>.Error(PokemonError.AuthenticationFailed);
                 case 404:
                     return new Result<Pokemon?, PokemonError>.Error(PokemonError.NotFound);
-                case -1:
+                case 408:
                     return new Result<Pokemon?, PokemonError>.Error(PokemonError.NetworkTimeout);
                 default:
                     return new Result<Pokemon?, PokemonError>.Error(PokemonError.Unknown);

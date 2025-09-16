@@ -18,6 +18,16 @@ public class PokemonDataSource : IPokemonDataSource
         HttpResponseMessage response = await _httpClient.GetAsync($"{_baseUrl}{pokemonName}");
 
         string dataStringForm = await response.Content.ReadAsStringAsync();
+        
+        PokemonDto pokemonDto;
+        try
+        {
+            pokemonDto = JsonConvert.DeserializeObject<PokemonDto>(dataStringForm);
+        }
+        catch
+        {
+            pokemonDto = new PokemonDto();
+        }
 
         Dictionary<string, string> headers = response.Headers.ToDictionary(
             header => header.Key,
@@ -27,7 +37,7 @@ public class PokemonDataSource : IPokemonDataSource
         return new Response<PokemonDto>(
             statusCode: (int)response.StatusCode,
             headers: headers,
-            body: JsonConvert.DeserializeObject<PokemonDto>(dataStringForm)
+            body: pokemonDto
         );
     }
 }
