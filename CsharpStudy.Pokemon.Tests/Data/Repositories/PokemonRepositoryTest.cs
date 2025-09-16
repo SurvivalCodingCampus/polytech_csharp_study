@@ -18,9 +18,7 @@ public class PokemonRepositoryTest
     {
         PokemonRepository repository = new PokemonRepository(new PokemonDataSource(new HttpClient()));
         
-        Result<DTO.Data.Models.Pokemon, PokemonError> result = await repository.GetPokemonByNameAsync("dittooo");
-
-        Console.WriteLine(result);
+        Result<DTO.Data.Models.Pokemon, PokemonError> result = await repository.GetPokemonByNameAsync("caterpie");
         
         switch (result)
         {

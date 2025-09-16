@@ -18,10 +18,8 @@ public class PokemonRepository : IPokemonRepository
     {
         Response<PokemonDto> response = await _dataSource.GetPokemonAsync(pokemonName);
         
-        Console.WriteLine($"statusCode is {response.StatusCode}");
         try
         {
-            
             switch (response.StatusCode)
             {
                 case 200:
@@ -32,6 +30,8 @@ public class PokemonRepository : IPokemonRepository
                     return new Result<Pokemon?, PokemonError>.Error(PokemonError.NotFound);
                 case 408:
                     return new Result<Pokemon?, PokemonError>.Error(PokemonError.NetworkTimeout);
+                case -1:
+                    return new Result<Pokemon?, PokemonError>.Error(PokemonError.JsonSerializationFailed);
                 default:
                     return new Result<Pokemon?, PokemonError>.Error(PokemonError.Unknown);
             }
