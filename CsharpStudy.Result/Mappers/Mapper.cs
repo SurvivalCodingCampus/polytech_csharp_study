@@ -8,10 +8,6 @@ public static class Mapper
 {
     public static Models.Subway ToModel(this SubwayDto dto)
     {
-        if (dto == null)
-        {
-            return new Models.Subway(0, "", "", "");
-        }
         return new Models.Subway(
             subwayId: dto.SubwayId ?? 0,
             trainLineNm: dto.TrainLineNm ?? "", 
