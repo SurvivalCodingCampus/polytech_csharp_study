@@ -30,6 +30,17 @@ public class SubwayRepositoryTest
         List<Subway> subway = (subwayResult as Result<List<Subway>, SubwayError>.Success)!.data;
         Assert.That(subway[0].EndStationName, Is.EqualTo("광운대"));
     }
+    
+    [Test]
+    public async Task Result_서울역_Test()
+    {
+        //ISubwayRepository repository = new SubwayRepository(new SubwayApiDataSource(new HttpClient()));
+        ISubwayRepository repository = new SubwayRepository(new MockErrorDataSource());
+
+        Result<List<Subway>, SubwayError> subwayResult = await repository.GetSubwayByEndStationNameAsync("서울역");
+        Assert.That(subwayResult is Result<List<Subway>, SubwayError>.Success, Is.False);
+
+    }
 
 
     [Test]
