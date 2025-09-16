@@ -8,10 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="DataSources\" />
-      <Folder Include="Dtos\" />
-      <Folder Include="Mappers\" />
-      <Folder Include="Repositories\" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>
