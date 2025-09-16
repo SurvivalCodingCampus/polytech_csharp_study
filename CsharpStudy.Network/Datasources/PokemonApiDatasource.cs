@@ -1,3 +1,4 @@
+using System.Net;
 using System.Text.Json.Serialization;
 using CsharpStudy.Network.DTOs;
 using CsharpStudy.Network.Models;
@@ -32,12 +33,19 @@ public class PokemonApiDatasource : IDataSource<PokemonDto>
         return TryDeserializeJson(jsonString, response, headers);
     }
 
-    private static Response<PokemonDto> TryDeserializeJson(string jsonString, HttpResponseMessage response, Dictionary<string, string> headers)
+    private static Response<PokemonDto> TryDeserializeJson(string jsonString, HttpResponseMessage response,
+        Dictionary<string, string> headers)
     {
         try
         {
             var pokemon = JsonConvert.DeserializeObject<PokemonDto>(jsonString) ?? new PokemonDto();
             return new Response<PokemonDto>((int)response.StatusCode, headers, pokemon);
+        }
+        catch (JsonSerializationException e)
+        {
+            if ((int)response.StatusCode != 200)
+                return new Response<PokemonDto>((int)response.StatusCode, headers, new PokemonDto());
+            throw;
         }
         catch (Exception e)
         {

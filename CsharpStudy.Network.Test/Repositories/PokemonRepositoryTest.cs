@@ -65,12 +65,13 @@ public class PokemonRepositoryTest
     [DisplayName("포켓몬 정상적인 정보를 Repository에서 가지고 온다.")]
     public async Task Method_1()
     {
+        //given
         string name = "pikachu";
 
+        //when
         Result<Pokemon, Error> result = await _repository.GetByNameAsync(name);
-
-        ValidateError(result);
-
+        
+        //then
         Assert.IsNotNull(result);
         Assert.That(result is Result<Pokemon, Error>.Success);
         Result<Pokemon, Error>.Success success = (Result<Pokemon, Error>.Success)result;
@@ -82,15 +83,57 @@ public class PokemonRepositoryTest
     [DisplayName("포켓몬 잘못된 정보를 Repository에서 가지고 온다.")]
     public async Task Method_4()
     {
+        //given
         string name = "dittooo";
 
+        //when
         Result<Pokemon, Error> result = await _repository.GetByNameAsync(name);
         
+        //then
         Assert.IsNotNull(result);
         Assert.That(result is Result<Pokemon, Error>.Error);
         Result<Pokemon, Error>.Error error = (Result<Pokemon, Error>.Error)result;
         Assert.That(error.data is Error.NotFound);
     }
+    
+        
+    [Test]
+    [DisplayName("타임아웃 발생")]
+    public async Task Method_5()
+    {
+        //given
+        string name = "test";
+        _dataSource = new BeTimeoutDataSource();
+        _repository = new PokemonRepository(_dataSource);
+        
+        //when
+        Result<Pokemon, Error> result = await _repository.GetByNameAsync(name);
+        
+        //then
+        Assert.IsNotNull(result);
+        Assert.That(result is Result<Pokemon, Error>.Error);
+        Result<Pokemon, Error>.Error error = (Result<Pokemon, Error>.Error)result;
+        Assert.That(error.data is Error.NetworkTimeout);
+    }
+    [Test]
+    [DisplayName("역직렬화 예외 발생")]
+    public async Task Method_6()
+    {
+        //given
+        string name = "test";
+        _dataSource = new BeJsonSerializationExceptionDataSource();
+        _repository = new PokemonRepository(_dataSource);
+
+        //when
+        Result<Pokemon, Error> result = await _repository.GetByNameAsync(name);
+        
+        //then
+        Assert.IsNotNull(result);
+        Assert.That(result is Result<Pokemon, Error>.Error);
+        Result<Pokemon, Error>.Error error = (Result<Pokemon, Error>.Error)result;
+        Assert.That(error.data is Error.JsonSerialization);
+    }
+
 
     private static void ValidateError(Result<Pokemon, Error> result)
     {

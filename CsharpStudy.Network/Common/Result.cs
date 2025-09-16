@@ -6,6 +6,8 @@ public enum Error
     NotFound,
     Unknown,
     AuthenticationFailed,
+    JsonSerialization,
+    BadRequest,
 }
 
 public record Result<TData, TError>
