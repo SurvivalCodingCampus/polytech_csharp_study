@@ -61,7 +61,7 @@ public class PokemonRepositoryTest
     }
 
     [Test]
-    [DisplayName("포켓몬 정보를 Repository에서 온다.")]
+    [DisplayName("포켓몬 정보를 Repository에서 가지고 온다.")]
     public async Task Method_1()
     {
         string name = "pikachu";
