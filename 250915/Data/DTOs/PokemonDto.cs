@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 public sealed class PokemonDto
 {
-    [JsonProperty("id")]                 public int? Id { get; set; }
+    [JsonProperty("id")]                 public int Id { get; set; }
     [JsonProperty("name")]               public string? Name { get; set; }
     [JsonProperty("base_experience")]    public int? BaseExperience { get; set; }
     [JsonProperty("height")]             public int? Height { get; set; }
