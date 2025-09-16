@@ -6,11 +6,21 @@ using Newtonsoft.Json;
 
 namespace CsharpStudy.Network.Repositories;
 
-public class PokemonRepository(IDataSource<PokemonDto> dataSource) : IRepository<Result<Pokemon, Error>>
+public enum PokemonApiError
+{
+    NetworkTimeout,
+    NotFound,
+    Unknown,
+    AuthenticationFailed,
+    JsonSerialization,
+    BadRequest,
+}
+
+public class PokemonRepository(IDataSource<PokemonDto> dataSource) : IRepository<Result<Pokemon, PokemonApiError>>
 {
     private IDataSource<PokemonDto> _dataSource = dataSource;
 
-    public async Task<Result<Pokemon, Error>> GetByNameAsync(string name)
+    public async Task<Result<Pokemon, PokemonApiError>> GetByNameAsync(string name)
     {
         try
         {
@@ -19,24 +29,24 @@ public class PokemonRepository(IDataSource<PokemonDto> dataSource) : IRepository
             switch (response.StatusCode)
             {
                 case 200:
-                    return new Result<Pokemon, Error>.Success(Mapper.ToModel(response.Body));
+                    return new Result<Pokemon, PokemonApiError>.Success(PokemonMapper.ToModel(response.Body));
                 case 400:
-                    return new Result<Pokemon, Error>.Error(Error.BadRequest);
+                    return new Result<Pokemon, PokemonApiError>.Error(PokemonApiError.BadRequest);
                 case 404:
-                    return new Result<Pokemon, Error>.Error(Error.NotFound);
+                    return new Result<Pokemon, PokemonApiError>.Error(PokemonApiError.NotFound);
                 case 408:
-                    return new Result<Pokemon, Error>.Error(Error.NetworkTimeout);
+                    return new Result<Pokemon, PokemonApiError>.Error(PokemonApiError.NetworkTimeout);
                 default:
-                    return new Result<Pokemon, Error>.Error(Error.Unknown);
+                    return new Result<Pokemon, PokemonApiError>.Error(PokemonApiError.Unknown);
             }
         }
         catch (JsonSerializationException e)
         {
-            return new Result<Pokemon, Error>.Error(Error.JsonSerialization);
+            return new Result<Pokemon, PokemonApiError>.Error(PokemonApiError.JsonSerialization);
         }
         catch (Exception e)
         {
-            return new Result<Pokemon, Error>.Error(Error.Unknown);
+            return new Result<Pokemon, PokemonApiError>.Error(PokemonApiError.Unknown);
         }
     }
 }

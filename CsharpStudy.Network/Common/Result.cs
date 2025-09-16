@@ -1,14 +1,5 @@
 namespace CsharpStudy.Network.Repositories;
 
-public enum Error
-{
-    NetworkTimeout,
-    NotFound,
-    Unknown,
-    AuthenticationFailed,
-    JsonSerialization,
-    BadRequest,
-}
 
 public record Result<TData, TError>
 {

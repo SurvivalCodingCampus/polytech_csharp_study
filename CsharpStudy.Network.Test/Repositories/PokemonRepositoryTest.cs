@@ -15,7 +15,7 @@ namespace CsharpStudy.Network.Test.Repositories;
 public class PokemonRepositoryTest
 {
     private IDataSource<PokemonDto> _dataSource;
-    private IRepository<Result<Pokemon, Error>> _repository;
+    private IRepository<Result<Pokemon, PokemonApiError>> _repository;
 
     [SetUp]
     protected void Setup()
@@ -37,7 +37,7 @@ public class PokemonRepositoryTest
         pokemonDto.Sprites.FrontDefault = "picachuImg";
         //when
 
-        var pokemon = Mapper.ToModel(pokemonDto);
+        var pokemon = PokemonMapper.ToModel(pokemonDto);
 
         //then
         Assert.AreEqual(pokemon.Id, pokemonDto.Id);
@@ -69,12 +69,12 @@ public class PokemonRepositoryTest
         string name = "pikachu";
 
         //when
-        Result<Pokemon, Error> result = await _repository.GetByNameAsync(name);
+        Result<Pokemon, PokemonApiError> result = await _repository.GetByNameAsync(name);
         
         //then
         Assert.IsNotNull(result);
-        Assert.That(result is Result<Pokemon, Error>.Success);
-        Result<Pokemon, Error>.Success success = (Result<Pokemon, Error>.Success)result;
+        Assert.That(result is Result<Pokemon, PokemonApiError>.Success);
+        Result<Pokemon, PokemonApiError>.Success success = (Result<Pokemon, PokemonApiError>.Success)result;
         Assert.That(success.data.Name, Is.EqualTo(name));
     }
     
@@ -87,18 +87,18 @@ public class PokemonRepositoryTest
         string name = "dittooo";
 
         //when
-        Result<Pokemon, Error> result = await _repository.GetByNameAsync(name);
+        Result<Pokemon, PokemonApiError> result = await _repository.GetByNameAsync(name);
         
         //then
         Assert.IsNotNull(result);
-        Assert.That(result is Result<Pokemon, Error>.Error);
-        Result<Pokemon, Error>.Error error = (Result<Pokemon, Error>.Error)result;
-        Assert.That(error.data is Error.NotFound);
+        Assert.That(result is Result<Pokemon, PokemonApiError>.Error);
+        Result<Pokemon, PokemonApiError>.Error error = (Result<Pokemon, PokemonApiError>.Error)result;
+        Assert.That(error.data is PokemonApiError.NotFound);
     }
     
         
     [Test]
-    [DisplayName("타임아웃 발생")]
+    [DisplayName("타임아웃 발생 NetworkTimeout Error 반환 ")]
     public async Task Method_5()
     {
         //given
@@ -107,16 +107,16 @@ public class PokemonRepositoryTest
         _repository = new PokemonRepository(_dataSource);
         
         //when
-        Result<Pokemon, Error> result = await _repository.GetByNameAsync(name);
+        Result<Pokemon, PokemonApiError> result = await _repository.GetByNameAsync(name);
         
         //then
         Assert.IsNotNull(result);
-        Assert.That(result is Result<Pokemon, Error>.Error);
-        Result<Pokemon, Error>.Error error = (Result<Pokemon, Error>.Error)result;
-        Assert.That(error.data is Error.NetworkTimeout);
+        Assert.That(result is Result<Pokemon, PokemonApiError>.Error);
+        Result<Pokemon, PokemonApiError>.Error error = (Result<Pokemon, PokemonApiError>.Error)result;
+        Assert.That(error.data is PokemonApiError.NetworkTimeout);
     }
     [Test]
-    [DisplayName("역직렬화 예외 발생")]
+    [DisplayName("역직렬화 예외 발생 -> JsonSerialization Error 반환 ")]
     public async Task Method_6()
     {
         //given
@@ -125,34 +125,34 @@ public class PokemonRepositoryTest
         _repository = new PokemonRepository(_dataSource);
 
         //when
-        Result<Pokemon, Error> result = await _repository.GetByNameAsync(name);
+        Result<Pokemon, PokemonApiError> result = await _repository.GetByNameAsync(name);
         
         //then
         Assert.IsNotNull(result);
-        Assert.That(result is Result<Pokemon, Error>.Error);
-        Result<Pokemon, Error>.Error error = (Result<Pokemon, Error>.Error)result;
-        Assert.That(error.data is Error.JsonSerialization);
+        Assert.That(result is Result<Pokemon, PokemonApiError>.Error);
+        Result<Pokemon, PokemonApiError>.Error error = (Result<Pokemon, PokemonApiError>.Error)result;
+        Assert.That(error.data is PokemonApiError.JsonSerialization);
     }
 
 
-    private static void ValidateError(Result<Pokemon, Error> result)
+    private static void ValidateError(Result<Pokemon, PokemonApiError> result)
     {
         switch (result)
         {
-            case Result<Pokemon, Error>.Success success:
+            case Result<Pokemon, PokemonApiError>.Success success:
                 Console.WriteLine($"포켓몬 이름 : {success.data.Name}");
                 Console.WriteLine($"이미지 URI : {success.data.Image}");
                 break;
-            case Result<Pokemon, Error>.Error error:
+            case Result<Pokemon, PokemonApiError>.Error error:
                 switch (error.data)
                 {
-                    case Error.NotFound:
+                    case PokemonApiError.NotFound:
                         Console.WriteLine("오류: 찾을 수 없습니다.");
                         break;
-                    case Error.NetworkTimeout:
+                    case PokemonApiError.NetworkTimeout:
                         Console.WriteLine("오류: 네트워크 연결 초과.");
                         break;
-                    case Error.AuthenticationFailed:
+                    case PokemonApiError.AuthenticationFailed:
                         Console.WriteLine("오류: 권한이 없습니다.");
                         break;
                     default:
