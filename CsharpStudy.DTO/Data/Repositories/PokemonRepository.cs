@@ -30,6 +30,8 @@ public class PokemonRepository : IPokemonRepository
                     return new Result<Pokemon?, PokemonError>.Error(PokemonError.NotFound);
                 case -1:
                     return new Result<Pokemon?, PokemonError>.Error(PokemonError.NetworkTimeout);
+                default:
+                    return new Result<Pokemon?, PokemonError>.Error(PokemonError.Unknown);
             }
         }
         catch (Exception e)
