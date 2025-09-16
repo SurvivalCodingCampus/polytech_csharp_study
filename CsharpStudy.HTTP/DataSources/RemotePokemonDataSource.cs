@@ -1,45 +1,28 @@
-﻿using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;    
-using CsharpStudy.HTTP.Models;
+﻿using Newtonsoft.Json;
+using CsharpStudy.DtoMapper;
 
 namespace CsharpStudy.HTTP
 {
     public class RemotePokemonDataSource : IPokemonApiDataSource
     {
         private const string BaseUrl = "https://pokeapi.co";
-        private HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
 
-        public RemotePokemonDataSource(HttpClient httpClient)
+        public RemotePokemonDataSource(HttpClient httpClient) => _httpClient = httpClient;
+
+        public async Task<Response<PokemonDto>> GetPokemonAsync(string nameOrId)
         {
-            _httpClient = httpClient;
-        }
-
-        public async Task<Response<Pokemon>> GetPokemonAsync(string pokemonName)
-        {
-            var url = $"{BaseUrl}/api/v2/pokemon/{pokemonName.ToLowerInvariant()}";
-
-            var response   = await _httpClient.GetAsync(url);
+            var url = $"{BaseUrl}/api/v2/pokemon/{nameOrId.ToLowerInvariant()}";
+            var response = await _httpClient.GetAsync(url);
             var jsonString = await response.Content.ReadAsStringAsync();
 
-            var headers = response.Headers.ToDictionary(
-                h => h.Key,
-                h => string.Join(", ", h.Value)
-            );
-            
-            
-            var jo = JObject.Parse(jsonString);
-            var body = new Pokemon
-            {
-                name     = (string?)jo["name"],
-                imageUrl = (string?)jo["sprites"]?["front_default"]
-            };
+            var headers = response.Headers.ToDictionary(h => h.Key, h => string.Join(", ", h.Value));
+            var dto = JsonConvert.DeserializeObject<PokemonDto>(jsonString) ?? new PokemonDto();
 
-            return new Response<Pokemon>(
+            return new Response<PokemonDto>(
                 statusCode: (int)response.StatusCode,
                 headers: headers,
-                body: body
+                body: dto
             );
         }
     }

@@ -1,8 +1,11 @@
 ﻿namespace CsharpStudy.HTTP.Models
 {
-    public class Pokemon
+    public sealed record Pokemon(
+        int Id,           // 식별자
+        string Name,   
+        string SpriteUrl  // 대표 이미지 URL
+    )
     {
-        public string? name { get; set; }
-        public string? imageUrl { get; set; } 
+        public override string ToString() => $"{Name} (#{Id})";
     }
 }

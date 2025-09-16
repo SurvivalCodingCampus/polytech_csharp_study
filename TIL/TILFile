@@ -213,3 +213,27 @@ String은 변경 불가능한 자료형이고, StringBuilder는 변경 가능한
   
   Response: HTTP 통신에서 필요한 정보(상태코드/헤더/본문)를 캡슐화
   제네릭 Response로 여러 타입의 응답을 동일 패턴으로 다룬다.
+  
+  
+  ------------------
+  25/09/15 _Dto.Mapper
+  
+  * DTO (Data Transfer Object)
+  - 외부 소스(JSON 등)에서 들어오는 데이터를 안전하게 담는 그릇. 직렬화/역직렬화 전용.
+  - 모든 필드를 nullable로 선언해 누락·형식 오류·불완전 데이터에 방어적으로 대응.
+  
+  * Model (Domain Model)
+  - 앱이 실제 로직에서 사용하는 도메인 객체.
+  - 모든 필드를 non-nullable로 선언하여 “항상 유효한 값”을 보장.
+  
+  * Mapper
+  - DTO → Model 변환을 담당하는 순수 변환 계층.
+  - 음수/0·공백·누락 값에 대해 기본값을 채워 Model의 non-null 계약을 충족.
+  
+  * DataSource (데이터 통신)
+  - 외부 I/O(HTTP 등)와 통신하는 계층.
+  - 요청을 보내고 응답을 DTO로 역직렬화하여 상위 계층에 전달.
+  
+  * Repository (비즈니스 로직)
+  - 애플리케이션이 사용하는 도메인 접근점. DataSource에서 받은 DTO를 Mapper로 Model로 변환해 제공.
+  - 호출자는 항상 유효한 Model을 받는다는 기대를 가질 수 있도록, 내부에서 기본값 정책을 통해 null-free를 보장(반환형 Task<Pokemon> 권장).

@@ -1,10 +1,9 @@
-﻿using System.Threading.Tasks;
-using CsharpStudy.HTTP.Models;
+﻿using CsharpStudy.DtoMapper;
 
 namespace CsharpStudy.HTTP
 {
     public interface IPokemonApiDataSource
     {
-        Task<Response<Pokemon>> GetPokemonAsync(string pokemonName);
+        Task<Response<PokemonDto>> GetPokemonAsync(string nameOrId);
     }
 }
