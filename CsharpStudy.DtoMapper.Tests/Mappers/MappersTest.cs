@@ -6,6 +6,7 @@ using CsharpStudy.DtoMapper.DTOs;
 using CsharpStudy.DtoMapper.Mappers;
 using CsharpStudy.DtoMapper.Models;
 using CsharpStudy.DtoMapper.Repositories;
+using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace CsharpStudy.DtoMapper.Tests.Mappers;
@@ -116,24 +117,12 @@ public class MappersTest
     { 
         public async Task<Response<PokemonDto>> GetPokemonAsync(string pokemonName)
         {
-            return new Response<PokemonDto>(
-                408,
-                new Dictionary<string, string>(),
-                new PokemonDto()
-            );
+            throw new TimeoutException("JSON 역직렬화 오류 발생");
         }
-    }
-
-    [Test]
-    public async Task ProcessDataAsync_ShouldHandleTimeoutException()
-    {
-        var mockDataSource = new MockTimeoutDataSource();
-        var result = await mockDataSource.GetPokemonAsync("dittooo");
-        Assert.That(result.StatusCode, Is.EqualTo(408));
     }
     
     [Test]
-    public async Task GetPokemonByNameAsync_WhenApiReturns408_ShouldReturnTimeoutError()
+    public async Task ShouldReturnTimeoutError()
     {
         // Arrange
         var mockDataSource = new MockTimeoutDataSource();
@@ -157,8 +146,35 @@ public class MappersTest
         }
     }
 
+    public class MockSerializationExceptionDataSource : IPokemonApiDataSource
+    {
+        public async Task<Response<PokemonDto>> GetPokemonAsync(string pokemonName)
+        {
+            throw new JsonSerializationException("JSON 역직렬화 오류 발생");
+        }
+    }
 
+    [Test]
+    public async Task ShouldReturnSerializationException()
+    {
+        // Arrange
+        var mockDataSource = new MockSerializationExceptionDataSource();
+        var repository = new PokemonRepository(mockDataSource); 
 
+        // Act
+        var result = await repository.GetPokemonByNameAsync("ditto");
+
+        // Assert
+        // 패턴 매칭으로 결과가 Error 타입인지 확인하고, 에러 값이 PokemonError.Timeout과 일치하는지 검증합니다.
+        if (result is Result<Pokemon, PokemonError>.Error errorResult)
+        {
+            Assert.That(errorResult.error, Is.EqualTo(PokemonError.Timeout));
+        }
+        else
+        {
+            Assert.Fail("예상치 못한 결과가 반환되었습니다. Timeout 에러여야 합니다.");
+        }
+    }
 
 
 }
