@@ -1,7 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CsharpStudy.DtoMapper.DataSources;
 using CsharpStudy.DtoMapper.DTOs;
 using CsharpStudy.DtoMapper.Mappers;
+using CsharpStudy.DtoMapper.Models;
+using CsharpStudy.DtoMapper.Repositories;
 using NUnit.Framework;
 
 namespace CsharpStudy.DtoMapper.Tests.Mappers;
@@ -107,4 +111,54 @@ public class MappersTest
         Assert.That(response.Body, Is.Null);
         Assert.That(response.StatusCode, Is.EqualTo(404));
     }
+    
+    public class MockTimeoutDataSource : IPokemonApiDataSource
+    { 
+        public async Task<Response<PokemonDto>> GetPokemonAsync(string pokemonName)
+        {
+            return new Response<PokemonDto>(
+                408,
+                new Dictionary<string, string>(),
+                new PokemonDto()
+            );
+        }
+    }
+
+    [Test]
+    public async Task ProcessDataAsync_ShouldHandleTimeoutException()
+    {
+        var mockDataSource = new MockTimeoutDataSource();
+        var result = await mockDataSource.GetPokemonAsync("dittooo");
+        Assert.That(result.StatusCode, Is.EqualTo(408));
+    }
+    
+    [Test]
+    public async Task GetPokemonByNameAsync_WhenApiReturns408_ShouldReturnTimeoutError()
+    {
+        // Arrange
+        var mockDataSource = new MockTimeoutDataSource();
+        var repository = new PokemonRepository(mockDataSource); // 레포지토리 클래스명을 가정함
+
+        // Act
+        var result = await repository.GetPokemonByNameAsync("dittooo");
+
+        // Assert
+        // 패턴 매칭을 사용하여 result가 Error 레코드인지 확인하고
+        // errorResult 변수에 바인딩합니다.
+        if (result is Result<Pokemon, PokemonError>.Error errorResult)
+        {
+            // 'error' 속성에 접근하여 PokemonError.Timeout과 비교합니다.
+            Assert.That(errorResult.error, Is.EqualTo(PokemonError.Timeout));
+        }
+        else
+        {
+            // 예상치 못한 결과가 나오면 테스트를 실패시킵니다.
+            Assert.Fail("The result was not an error as expected.");
+        }
+    }
+
+
+
+
+
 }

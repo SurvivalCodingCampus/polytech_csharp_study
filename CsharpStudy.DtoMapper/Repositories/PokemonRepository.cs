@@ -26,6 +26,8 @@ public class PokemonRepository : IPokemonRepository
                     return new Result<Pokemon, PokemonError>.Success(response.Body.ToModel());
                 case 404:
                     return new Result<Pokemon, PokemonError>.Error(PokemonError.NotFound);
+                case 408:
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.Timeout);
                 default:
                     return new Result<Pokemon, PokemonError>.Error(PokemonError.UnknownError);
 
