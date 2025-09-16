@@ -1,6 +1,8 @@
+using CsharpStudy.DtoMapper.Common;
+
 namespace CsharpStudy.DtoMapper.Repositories;
 
 public interface IPokemonRepository
 {
-    Task<DtoMapper.Models.Pokemon?> GetPokemonByNameAsync(string pokemonName);
+    Task<Result<Models.Pokemon, PokemonError>> GetPokemonByNameAsync(string pokemonName);
 }
