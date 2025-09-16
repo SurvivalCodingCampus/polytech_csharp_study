@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.HTTP", "CsharpS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.DTO", "CsharpStudy.DTO\CsharpStudy.DTO.csproj", "{2CC8423A-5869-40E3-8B08-1F1101E2CBF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.HTTP.Tests", "CsharpStudy.HTTP.Tests\CsharpStudy.HTTP.Tests.csproj", "{34C43C5E-7714-4B2F-A6DB-0FD4A38A91C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,5 +92,9 @@ Global
 		{2CC8423A-5869-40E3-8B08-1F1101E2CBF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CC8423A-5869-40E3-8B08-1F1101E2CBF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CC8423A-5869-40E3-8B08-1F1101E2CBF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34C43C5E-7714-4B2F-A6DB-0FD4A38A91C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34C43C5E-7714-4B2F-A6DB-0FD4A38A91C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34C43C5E-7714-4B2F-A6DB-0FD4A38A91C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34C43C5E-7714-4B2F-A6DB-0FD4A38A91C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
