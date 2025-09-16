@@ -6,7 +6,7 @@ namespace CsharpStudy.ResultExam.SubwayExam.DataSource;
 public class SubwayApiDataSource : ISubwayApiDataSource
 {
     private const string BaseUrl =
-        "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/"; // PokeAPI의 기본 URL을 상수로 정의합니다.
+        "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/"; // PokeAPI의 기본 URL을 상수로 정의합니다. > "서울", "ditto" 등은 뺀 BaseUrl
 
     private HttpClient _httpClient; // HTTP 요청을 보내기 위한 HttpClient 인스턴스입니다.
 
