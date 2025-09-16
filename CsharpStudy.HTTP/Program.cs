@@ -1,17 +1,33 @@
-﻿using CsharpStudy.HTTP.Repositories;
+﻿using CsharpStudy.HTTP.Common;
+using CsharpStudy.HTTP.DataSources;
+using CsharpStudy.HTTP.Repositories;
 
-namespace CsharpStudy.HTTP
+class Program
 {
-    class Program
+    static async Task Main()
     {
-        static async Task Main()
-        {
-            using var http = new HttpClient { BaseAddress = new Uri("https://pokeapi.co") };
-            var dataSource = new RemotePokemonDataSource(http);
-            var repo = new PokemonRepository(dataSource);
+        var http = new HttpClient { Timeout = TimeSpan.FromSeconds(5) };
+        var dataSource = new RemotePokemonDataSource(http);
+        var repo = new PokemonRepository(dataSource);
 
-            var pikachu = await repo.GetPokemonByNameAsync("pikachu");
-            Console.WriteLine($"{pikachu.Name} / {pikachu.SpriteUrl}");
+        var (result, data) = await repo.GetByNameAsync("dittooo");
+
+        switch (result)
+        {
+            case Result.Success:
+                break;
+
+            case Result.Failure f when f.Error.Kind == PokemonError.NotFound:
+                break;
+
+            case Result.Failure f when f.Error.Kind == PokemonError.Timeout:
+                break;
+
+            case Result.Failure f when f.Error.Kind == PokemonError.Network:
+                break;
+
+            case Result.Failure f:
+                break;
         }
     }
 }

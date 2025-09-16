@@ -1,19 +1,36 @@
-﻿using CsharpStudy.HTTP.Models;
-using CsharpStudy.HTTP.Mapping;
-using CsharpStudy.DtoMapper;
+﻿using CsharpStudy.HTTP.Common;
+using CsharpStudy.HTTP.DTOs;
+using CsharpStudy.HTTP.DataSources;
 
-namespace CsharpStudy.HTTP.Repositories
+namespace CsharpStudy.HTTP.Repositories;
+
+public sealed class PokemonRepository(IPokemonApiDataSource api) : IPokemonRepository
 {
-    public class PokemonRepository : IPokemonRepository
+    public async Task<(Result result, PokemonDto? data)> GetByNameAsync(string name)
     {
-        private readonly IPokemonApiDataSource _api;
-        public PokemonRepository(IPokemonApiDataSource api) => _api = api;
-
-        public async Task<Pokemon> GetPokemonByNameAsync(string nameOrId)
+        try
         {
-            var res = await _api.GetPokemonAsync(nameOrId);
-            var dto = res.Body ?? new PokemonDto();   
-            return dto.ToModel();                    
+            var dto = await api.GetPokemonAsync(name);
+            if (dto is null)
+                return (Result.Fail(new Error(PokemonError.Unknown, "Empty response")), null);
+
+            return (Result.Ok(), dto);
+        }
+        catch (TaskCanceledException ex)
+        {
+            return (Result.Fail(new Error(PokemonError.Timeout, ex.Message, ex)), null);
+        }
+        catch (HttpRequestException ex)
+        {
+            var kind = ex.StatusCode == System.Net.HttpStatusCode.NotFound
+                ? PokemonError.NotFound
+                : PokemonError.Network;
+
+            return (Result.Fail(new Error(kind, ex.Message, ex)), null);
+        }
+        catch (Exception ex)
+        {
+            return (Result.Fail(new Error(PokemonError.Unknown, ex.Message, ex)), null);
         }
     }
 }

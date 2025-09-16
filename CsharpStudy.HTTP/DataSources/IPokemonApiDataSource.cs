@@ -1,9 +1,8 @@
-﻿using CsharpStudy.DtoMapper;
+﻿using CsharpStudy.HTTP.DTOs;
 
-namespace CsharpStudy.HTTP
+namespace CsharpStudy.HTTP.DataSources;
+
+public interface IPokemonApiDataSource
 {
-    public interface IPokemonApiDataSource
-    {
-        Task<Response<PokemonDto>> GetPokemonAsync(string nameOrId);
-    }
+    Task<PokemonDto?> GetPokemonAsync(string name);
 }

@@ -1,9 +1,9 @@
-﻿using CsharpStudy.HTTP.Models;
+﻿using CsharpStudy.HTTP.Common;
+using CsharpStudy.HTTP.DTOs;
 
-namespace CsharpStudy.HTTP.Repositories
+namespace CsharpStudy.HTTP.Repositories;
+
+public interface IPokemonRepository
 {
-    public interface IPokemonRepository
-    {
-        Task<Pokemon> GetPokemonByNameAsync(string pokemonName);
-    }
+    Task<(Result result, PokemonDto? data)> GetByNameAsync(string name);
 }
