@@ -91,4 +91,7 @@ public class RealtimeStationArrivalDto
 
     [JsonProperty("statnTid")]
     public string StatnTid { get; set; }
+    
+    [JsonProperty("lstcarAt")]
+    public string LstcarAt { get; set; }
 }
