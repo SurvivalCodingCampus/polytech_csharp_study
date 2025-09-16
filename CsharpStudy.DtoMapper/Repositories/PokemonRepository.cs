@@ -1,5 +1,7 @@
 using CsharpStudy.DtoMapper.DataSources;
+using CsharpStudy.DtoMapper.DTOs;
 using CsharpStudy.DtoMapper.Mappers;
+using CsharpStudy.DtoMapper.Models;
 
 namespace CsharpStudy.DtoMapper.Repositories;
 
@@ -12,17 +14,26 @@ public class PokemonRepository : IPokemonRepository
         _dataSource = dataSource;
     }
 
-    public async Task<Models.Pokemon?> GetPokemonByNameAsync(string pokemonName)
+    public async Task<Result<Pokemon, PokemonError>> GetPokemonByNameAsync(string pokemonName)
     {
-        try
+        try  // 에러타입 받아주기
         {
-            var response = await _dataSource.GetPokemonAsync(pokemonName);
-            var dto = response.Body;
-            return dto.ToModel();
+            Response<PokemonDto> response = await _dataSource.GetPokemonAsync(pokemonName);
+
+            switch (response.StatusCode)
+            {
+                case 200:
+                    return new Result<Pokemon, PokemonError>.Success(response.Body.ToModel());
+                case 404:
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.NotFound);
+                default:
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.UnknownError);
+
+            }
         }
         catch (Exception e)
         {
-            return null;
+            return new Result<Pokemon, PokemonError>.Error(PokemonError.NetworkError);
         }
     }
 }
