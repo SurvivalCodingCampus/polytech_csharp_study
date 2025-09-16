@@ -15,5 +15,5 @@ public record Result<TData, TError>
     }
     
     public sealed record Success(TData data) : Result<TData, TError>;
-    public sealed record Error(TError error) : Result<TData, TError>;
+    public sealed record Error(TError data) : Result<TData, TError>;
 };

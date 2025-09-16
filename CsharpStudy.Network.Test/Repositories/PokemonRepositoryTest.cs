@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
 using CsharpStudy.Network.DTOs;
@@ -14,7 +15,7 @@ namespace CsharpStudy.Network.Test.Repositories;
 public class PokemonRepositoryTest
 {
     private IDataSource<PokemonDto> _dataSource;
-    private IRepository<Pokemon> _repository;
+    private IRepository<Result<Pokemon, Error>> _repository;
 
     [SetUp]
     protected void Setup()
@@ -26,7 +27,7 @@ public class PokemonRepositoryTest
 
     [Test]
     [DisplayName("PokemonDto -> Pokemon 변환 테스트")]
-    public void Method_2()
+    public void Method_3()
     {
         //given
         PokemonDto pokemonDto = new PokemonDto();
@@ -47,7 +48,7 @@ public class PokemonRepositoryTest
 
     [Test]
     [DisplayName("API 통신 성공하여 200 코드가 반환된다.")]
-    public async Task Method_3()
+    public async Task Method_2()
     {
         //given
         string name = "pikachu";
@@ -57,18 +58,66 @@ public class PokemonRepositoryTest
 
         //then
         Assert.IsNotNull(response);
-        Assert.AreEqual(response.Status, 200);
+        Assert.AreEqual(response.StatusCode, 200);
     }
 
     [Test]
-    [DisplayName("포켓몬 정보를 Repository에서 가지고 온다.")]
+    [DisplayName("포켓몬 정상적인 정보를 Repository에서 가지고 온다.")]
     public async Task Method_1()
     {
         string name = "pikachu";
 
-        var pikachu = await _repository.GetByNameAsync(name);
+        Result<Pokemon, Error> result = await _repository.GetByNameAsync(name);
 
-        Assert.IsNotNull(pikachu);
-        Assert.True(pikachu.Name != null && pikachu.Name.Equals(name));
+        ValidateError(result);
+
+        Assert.IsNotNull(result);
+        Assert.That(result is Result<Pokemon, Error>.Success);
+        Result<Pokemon, Error>.Success success = (Result<Pokemon, Error>.Success)result;
+        Assert.That(success.data.Name, Is.EqualTo(name));
+    }
+    
+    
+    [Test]
+    [DisplayName("포켓몬 잘못된 정보를 Repository에서 가지고 온다.")]
+    public async Task Method_4()
+    {
+        string name = "dittooo";
+
+        Result<Pokemon, Error> result = await _repository.GetByNameAsync(name);
+        
+        Assert.IsNotNull(result);
+        Assert.That(result is Result<Pokemon, Error>.Error);
+        Result<Pokemon, Error>.Error error = (Result<Pokemon, Error>.Error)result;
+        Assert.That(error.data is Error.NotFound);
+    }
+
+    private static void ValidateError(Result<Pokemon, Error> result)
+    {
+        switch (result)
+        {
+            case Result<Pokemon, Error>.Success success:
+                Console.WriteLine($"포켓몬 이름 : {success.data.Name}");
+                Console.WriteLine($"이미지 URI : {success.data.Image}");
+                break;
+            case Result<Pokemon, Error>.Error error:
+                switch (error.data)
+                {
+                    case Error.NotFound:
+                        Console.WriteLine("오류: 찾을 수 없습니다.");
+                        break;
+                    case Error.NetworkTimeout:
+                        Console.WriteLine("오류: 네트워크 연결 초과.");
+                        break;
+                    case Error.AuthenticationFailed:
+                        Console.WriteLine("오류: 권한이 없습니다.");
+                        break;
+                    default:
+                        Console.WriteLine("오류: 알 수 없는 오류가 발생했습니다.");
+                        break;
+                }
+
+                break;
+        }
     }
 }

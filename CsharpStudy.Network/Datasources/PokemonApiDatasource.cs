@@ -28,9 +28,20 @@ public class PokemonApiDatasource : IDataSource<PokemonDto>
                 header => header.Key,
                 header => string.Join(", ", header.Value)
             );
-        
-        var pokemon = JsonConvert.DeserializeObject<PokemonDto>(jsonString) ?? new PokemonDto();
-        
-        return new Response<PokemonDto>((int)response.StatusCode, headers, pokemon);
+
+        return TryDeserializeJson(jsonString, response, headers);
+    }
+
+    private static Response<PokemonDto> TryDeserializeJson(string jsonString, HttpResponseMessage response, Dictionary<string, string> headers)
+    {
+        try
+        {
+            var pokemon = JsonConvert.DeserializeObject<PokemonDto>(jsonString) ?? new PokemonDto();
+            return new Response<PokemonDto>((int)response.StatusCode, headers, pokemon);
+        }
+        catch (Exception e)
+        {
+            return new Response<PokemonDto>((int)response.StatusCode, headers, new PokemonDto());
+        }
     }
 }
