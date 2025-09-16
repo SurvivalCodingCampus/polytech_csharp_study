@@ -1,9 +1,10 @@
-﻿using CsharpStudy.HttpPokeMon.Models;
+﻿using CsharpStudy.HttpPokeMon.DTO;
+using CsharpStudy.HttpPokeMon.Models;
 
 namespace CsharpStudy.HttpPokeMon.Repository;
 
 public interface IPokemonRepository
 {
     // Task<List<Pokemon>> GetPostsAsync();
-    Task<Pokemon> GetPokemonByNameAsync(string pokemonName);
+    Task<PokemonDTO> GetPokemonByNameAsync(string pokemonName);
 }

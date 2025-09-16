@@ -1,6 +1,10 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
+using CsharpStudy.HttpPokeMon;
 using CsharpStudy.HttpPokeMon.DataSources;
+using CsharpStudy.HttpPokeMon.DTO;
 using CsharpStudy.HttpPokeMon.Models;
 using CsharpStudy.HttpPokeMon.Repository;
 using NUnit.Framework;
@@ -11,15 +15,87 @@ namespace CsharpStudy.Game.Tests.Repository;
 [TestOf(typeof(PokemonRepository<>))]
 public class PokemonRepositoryTest
 {
-
-
     [Test]
     public async Task test()
     {
-        IPokemonApiDataSource<Pokemon> dataSource = new RemotPokemonDataSource(new HttpClient());
-        var response = await dataSource.GetPokemonAsync("ditto");
+        // RemotPokemonDataSource dataSource = new RemotPokemonDataSource(new HttpClient());
+        // var response = await dataSource.GetPokemonAsync("ditto");
+        //
+        // Assert.That(response.Body, Is.Not.Null);
+        // Assert.That(response.Body.Name, Is.EqualTo("ditto"));
+        //
+        IPokemonApiDataSource<PokemonDTO> dataSource = new RemotPokemonDataSource(new HttpClient());
+        PokemonRepository<PokemonDTO> pokemonRepository = new PokemonRepository<PokemonDTO>(dataSource);
 
-        Assert.That(response.Body, Is.Not.Null);
-        Assert.That(response.Body.Name, Is.EqualTo("ditto"));
+        var result = await pokemonRepository.GetPokemonByNameAsync("ditto");
+        
+        Assert.That(result, Is.Not.Null);
+        Assert.That(result.Name ,Is.EqualTo("ditto"));
+        Assert.That(result.ImageUrl ,Is.Not.Null);
+    }
+    
+    // 오류 해결을 위함 test코드
+    // 중첩 클래스로 인한 오류... 
+    // 속성을 반환하는 코드에서도 중첩 클래스는 xx null 값이 들어가게 됨
+    [Test]
+    public async Task TestDataSourceDirectly()
+    {
+        IPokemonApiDataSource<PokemonDTO> dataSource = new RemotPokemonDataSource(new HttpClient());
+        var response = await dataSource.GetPokemonAsync("ditto");
+    
+        Console.WriteLine($"Response is null: {response == null}");
+        Console.WriteLine($"Response.Body is null: {response?.Body == null}");
+        Console.WriteLine($"Name: {response?.Body?.Name}");
+        Console.WriteLine($"Sprites: {response?.Body?.Sprites}");
+    }
+    
+    [Test]
+    public async Task TestSpritesContent()
+    {
+        RemotPokemonDataSource dataSource = new RemotPokemonDataSource(new HttpClient());
+        var response = await dataSource.GetPokemonAsync("ditto");
+    
+        var sprites = response.Body.Sprites;
+        Console.WriteLine($"Sprites.FrontDefault: {sprites?.FrontDefault}");
+        Console.WriteLine($"Sprites.Other is null: {sprites?.Other == null}");
+    
+        if (sprites?.Other != null)
+        {
+            Console.WriteLine($"Other.OfficialArtwork is null: {sprites.Other.OfficialArtwork == null}");
+            if (sprites.Other.OfficialArtwork != null)
+            {
+                Console.WriteLine($"OfficialArtwork.FrontDefault: {sprites.Other.OfficialArtwork.FrontDefault}");
+            }
+        }
+    }
+    [Test] 
+    public async Task DebugOtherSprites()
+    {
+        RemotPokemonDataSource dataSource = new RemotPokemonDataSource(new HttpClient());
+        var response = await dataSource.GetPokemonAsync("ditto");
+    
+        // Other 객체를 JsonElement로 확인
+        var sprites = response.Body.Sprites;
+        Console.WriteLine($"Other type: {sprites?.Other?.GetType()}");
+    
+        // 또는 이렇게 확인
+        Console.WriteLine("=== Sprites JSON 구조 확인 ===");
+        Console.WriteLine(JsonSerializer.Serialize(sprites, new JsonSerializerOptions { WriteIndented = true }));
+    }
+    [Test]
+    public async Task CheckRawApiResponse()
+    {
+        var httpClient = new HttpClient();
+        var response = await httpClient.GetAsync("https://pokeapi.co/api/v2/pokemon/ditto");
+        var jsonString = await response.Content.ReadAsStringAsync();
+    
+        Console.WriteLine("=== RAW API RESPONSE ===");
+        Console.WriteLine(jsonString);
+    
+        // 또는 sprites 부분만 확인
+        var jsonDoc = JsonDocument.Parse(jsonString);
+        if (jsonDoc.RootElement.TryGetProperty("sprites", out var spritesElement))
+        { Console.WriteLine(spritesElement.GetRawText());
+        }
     }
 }

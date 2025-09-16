@@ -4,22 +4,25 @@ namespace CsharpStudy.HttpPokeMon.Models;
 
 public class Pokemon
 {
-    [JsonPropertyName("name")]
+    public Pokemon(string? name, string? imageUrl)
+    {
+        Name = name;
+        ImageUrl = imageUrl;
+    }
+
     public string? Name {get; set;}
     
-    // 상위 폴더
-    [JsonPropertyName("sprites")]
-    public OtherSprites? Sprites {get; set;}
+    public string? ImageUrl {get; set;}
 }
 
-public class OtherSprites
-{
-    [JsonPropertyName("official-artwork")]
-    public PokemonSprites? OfficialArtwork {get; set;}
-}
-
-public class PokemonSprites
-{
-    [JsonPropertyName("front_default")]
-    public string? OfficialArtworkUrl {get; set;}
-}
+// public class OtherSprites
+// {
+//     [JsonPropertyName("official-artwork")]
+//     public PokemonSprites? OfficialArtwork {get; set;}
+// }
+//
+// public class PokemonSprites
+// {
+//     [JsonPropertyName("front_default")]
+//     public string? OfficialArtworkUrl {get; set;}
+// }
