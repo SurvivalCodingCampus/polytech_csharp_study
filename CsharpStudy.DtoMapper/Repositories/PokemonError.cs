@@ -5,5 +5,7 @@ public enum PokemonError
     NetworkError,
     NotFound,
     InvalidInput,
-    UnknownError
+    UnknownError,
+    Timeout,
+    SerializationError
 }

@@ -2,6 +2,7 @@ using CsharpStudy.DtoMapper.Common;
 using CsharpStudy.DtoMapper.DataSources;
 using CsharpStudy.DtoMapper.Mappers;
 using CsharpStudy.DtoMapper.Models;
+using System.Text.Json;
 
 namespace CsharpStudy.DtoMapper.Repositories;
 
@@ -17,9 +18,7 @@ public class PokemonRepository : IPokemonRepository
     public async Task<Result<Pokemon, PokemonError>> GetPokemonByNameAsync(string pokemonName)
     {
         if (string.IsNullOrWhiteSpace(pokemonName))
-        {
             return new Result<Pokemon, PokemonError>.Error(PokemonError.InvalidInput);
-        }
 
         try
         {
@@ -37,7 +36,15 @@ public class PokemonRepository : IPokemonRepository
                     return new Result<Pokemon, PokemonError>.Error(PokemonError.UnknownError);
             }
         }
-        catch (Exception e)
+        catch (TimeoutException)
+        {
+            return new Result<Pokemon, PokemonError>.Error(PokemonError.Timeout); // ✅
+        }
+        catch (JsonException)
+        {
+            return new Result<Pokemon, PokemonError>.Error(PokemonError.SerializationError); // ✅
+        }
+        catch (Exception)
         {
             return new Result<Pokemon, PokemonError>.Error(PokemonError.NetworkError);
         }

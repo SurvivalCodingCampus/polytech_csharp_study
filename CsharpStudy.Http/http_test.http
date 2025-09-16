@@ -37,3 +37,12 @@ Content-Type: application/json
 {
   "title": "바보"
 }
+
+### 서울
+GET http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5
+
+### Result 패턴 작성 404 에러
+https://pokeapi.co/api/v2/pokemon/dittooo
+
+### 지하철 도착 정보
+http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/

@@ -83,4 +83,43 @@ public class PokemonRepositoryTest
             );
         }
     }
+    
+    class MockTimeoutDataSource : IPokemonApiDataSource
+    {
+        public Task<Response<PokemonDto>> GetPokemonAsync(string pokemonName)
+            => throw new TimeoutException("Simulated timeout");
+    }
+    
+    class MockJsonErrorDataSource : IPokemonApiDataSource
+    {
+        public Task<Response<PokemonDto>> GetPokemonAsync(string pokemonName)
+            => throw new System.Text.Json.JsonException("Simulated JSON error");
+    }
+    
+    [Test]
+    public async Task Result_Timeout_Test()
+    {
+        IPokemonRepository repository = new PokemonRepository(new MockTimeoutDataSource());
+
+        var result = await repository.GetPokemonByNameAsync("any");
+
+        Assert.That(result is Result<Pokemon, PokemonError>.Error, Is.True);
+
+        var error = (result as Result<Pokemon, PokemonError>.Error)!.error;
+        Assert.That(error, Is.EqualTo(PokemonError.Timeout));
+    }
+
+    [Test]
+    public async Task Result_SerializationError_Test()
+    {
+        IPokemonRepository repository = new PokemonRepository(new MockJsonErrorDataSource());
+
+        var result = await repository.GetPokemonByNameAsync("any");
+
+        Assert.That(result is Result<Pokemon, PokemonError>.Error, Is.True);
+
+        var error = (result as Result<Pokemon, PokemonError>.Error)!.error;
+        Assert.That(error, Is.EqualTo(PokemonError.SerializationError));
+    }
+
 }
