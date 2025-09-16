@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace CsharpStudy.Result.DataSources;
 
-public class SubwayApiDataSource : ISubwayApiDataSource
+public class SubwayApiDataSource : ISubwayApiDataSource<SubwayDto>
 {
     private const string BaseUrl = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/";
     private HttpClient _httpClient;

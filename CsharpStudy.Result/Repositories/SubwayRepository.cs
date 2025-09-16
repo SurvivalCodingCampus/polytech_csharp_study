@@ -1,15 +1,16 @@
 using CsharpStudy.Result.Common;
 using CsharpStudy.Result.DataSources;
+using CsharpStudy.Result.DTOs;
 using CsharpStudy.Result.Mappers;
 using CsharpStudy.Result.Models;
 
 namespace CsharpStudy.Result.Repositories;
 
-public class SubwayRepository : ISubwayRepository
+public class SubwayRepository<SubwayDto> : ISubwayRepository
 {
-    private ISubwayApiDataSource _dataSource;
+    private ISubwayApiDataSource<SubwayDto> _dataSource;
 
-    public SubwayRepository(ISubwayApiDataSource dataSource)
+    public SubwayRepository(ISubwayApiDataSource<SubwayDto> dataSource)
     {
         _dataSource = dataSource;
     }
