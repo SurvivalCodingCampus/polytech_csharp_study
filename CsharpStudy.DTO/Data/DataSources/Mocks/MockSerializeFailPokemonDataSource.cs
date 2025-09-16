@@ -1,6 +1,6 @@
 namespace CsharpStudy.DTO.Data.DataSources.Mocks;
 
-public class MockSerializeFailPokemonDataSource
+public class MockSerializeFailPokemonDataSource : IPokemonDataSource
 {
     private string baseUrl = "https://pokeapi.co/api/v2/pokemon/";
     HttpClient _httpClient;
