@@ -29,7 +29,7 @@ public class YukymController
             } else if (month == "11" || month == "12") {
                 return "경오6국";
             }
-            return timeDataOne.First().Ty1;
+            return nowTime;
         }
         else
         {

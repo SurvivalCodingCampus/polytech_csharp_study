@@ -8,8 +8,10 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        IDataSource dataSource = new JsonFileDataSource("people.json");
+        // IDataSource dataSource = new JsonFileDataSource("people.json");
+        IDataSource dataSource = new MockDataSource();
 
+        // 비지니스 로직
         // 읽기
         List<Person> people = await dataSource.GetPeopleAsync();
         List<Person> adults = people.Where(p => p.Age >= 19).ToList();

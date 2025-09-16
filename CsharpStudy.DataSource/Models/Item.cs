@@ -1,4 +1,4 @@
-namespace CsharpStudy.Repository.Models;
+namespace CsharpStudy.DataSource.Models;
 
 public class Item
 {
