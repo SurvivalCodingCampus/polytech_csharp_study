@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace CsharpStudy.DTO.DTOs;
 
-public class PokemonApiDataSource : IPokemonApiDataSource<Pokemon>
+public class PokemonApiDataSource : IPokemonApiDataSource
 {
     private const string BaseUrl = "https://pokeapi.co/api/v2/pokemon";
     private HttpClient _httpClient;
@@ -15,7 +15,7 @@ public class PokemonApiDataSource : IPokemonApiDataSource<Pokemon>
         _httpClient = httpClient;
     }
 
-    public async Task<Response> GetPokemonAsync(string pokemonName)
+    public async Task<Response<PokemonDto>> GetPokemonAsync(string pokemonName)
     {
         var response = await _httpClient.GetAsync($"{BaseUrl}/{pokemonName}");
 
@@ -26,7 +26,7 @@ public class PokemonApiDataSource : IPokemonApiDataSource<Pokemon>
             header => string.Join(", ", header.Value)
         );
 
-        return new Response(
+        return new Response<PokemonDto>(
             statusCode: (int)response.StatusCode,
             headers: headers,
             body: JsonConvert.DeserializeObject<PokemonDto>(jsonString)!
