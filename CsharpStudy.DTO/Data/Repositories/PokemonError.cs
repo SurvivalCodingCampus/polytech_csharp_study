@@ -2,9 +2,9 @@ namespace CsharpStudy.DTO.Data.Repositories;
 
 public enum PokemonError
 {
-    NetworkTimeout,
-    NotFound,
-    Unknown,
-    AuthenticationFailed,
-    JsonSerializationFailed
+    NetworkTimeout = 401,
+    NotFound = 404,
+    Unknown = -2,
+    AuthenticationFailed = 404,
+    JsonSerializationFailed = -1,
 }
