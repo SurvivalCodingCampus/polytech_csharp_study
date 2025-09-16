@@ -1,11 +1,8 @@
-using System.Net;
-using System.Text.Json.Serialization;
 using CsharpStudy.Network.DTOs;
-using CsharpStudy.Network.Models;
+using CsharpStudy.Network.Interfaces;
 using Newtonsoft.Json;
-using JsonConverter = Newtonsoft.Json.JsonConverter;
 
-namespace CsharpStudy.Network.Interfaces;
+namespace CsharpStudy.Network.Datasources;
 
 public class PokemonApiDatasource : IDataSource<PokemonDto>
 {

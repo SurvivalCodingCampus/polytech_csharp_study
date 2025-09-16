@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using CsharpStudy.Network.Datasources;
 using CsharpStudy.Network.DTOs;
 using CsharpStudy.Network.Interfaces;
 using CsharpStudy.Network.Mappers;
@@ -70,15 +71,15 @@ public class PokemonRepositoryTest
 
         //when
         Result<Pokemon, PokemonApiError> result = await _repository.GetByNameAsync(name);
-        
+
         //then
         Assert.IsNotNull(result);
         Assert.That(result is Result<Pokemon, PokemonApiError>.Success);
         Result<Pokemon, PokemonApiError>.Success success = (Result<Pokemon, PokemonApiError>.Success)result;
         Assert.That(success.data.Name, Is.EqualTo(name));
     }
-    
-    
+
+
     [Test]
     [DisplayName("포켓몬 잘못된 정보를 Repository에서 가지고 온다.")]
     public async Task Method_4()
@@ -88,15 +89,15 @@ public class PokemonRepositoryTest
 
         //when
         Result<Pokemon, PokemonApiError> result = await _repository.GetByNameAsync(name);
-        
+
         //then
         Assert.IsNotNull(result);
         Assert.That(result is Result<Pokemon, PokemonApiError>.Error);
         Result<Pokemon, PokemonApiError>.Error error = (Result<Pokemon, PokemonApiError>.Error)result;
         Assert.That(error.data is PokemonApiError.NotFound);
     }
-    
-        
+
+
     [Test]
     [DisplayName("타임아웃 발생 NetworkTimeout Error 반환 ")]
     public async Task Method_5()
@@ -105,16 +106,17 @@ public class PokemonRepositoryTest
         string name = "test";
         _dataSource = new BeTimeoutDataSource();
         _repository = new PokemonRepository(_dataSource);
-        
+
         //when
         Result<Pokemon, PokemonApiError> result = await _repository.GetByNameAsync(name);
-        
+
         //then
         Assert.IsNotNull(result);
         Assert.That(result is Result<Pokemon, PokemonApiError>.Error);
         Result<Pokemon, PokemonApiError>.Error error = (Result<Pokemon, PokemonApiError>.Error)result;
         Assert.That(error.data is PokemonApiError.NetworkTimeout);
     }
+
     [Test]
     [DisplayName("역직렬화 예외 발생 -> JsonSerialization Error 반환 ")]
     public async Task Method_6()
@@ -126,41 +128,11 @@ public class PokemonRepositoryTest
 
         //when
         Result<Pokemon, PokemonApiError> result = await _repository.GetByNameAsync(name);
-        
+
         //then
         Assert.IsNotNull(result);
         Assert.That(result is Result<Pokemon, PokemonApiError>.Error);
         Result<Pokemon, PokemonApiError>.Error error = (Result<Pokemon, PokemonApiError>.Error)result;
         Assert.That(error.data is PokemonApiError.JsonSerialization);
-    }
-
-
-    private static void ValidateError(Result<Pokemon, PokemonApiError> result)
-    {
-        switch (result)
-        {
-            case Result<Pokemon, PokemonApiError>.Success success:
-                Console.WriteLine($"포켓몬 이름 : {success.data.Name}");
-                Console.WriteLine($"이미지 URI : {success.data.Image}");
-                break;
-            case Result<Pokemon, PokemonApiError>.Error error:
-                switch (error.data)
-                {
-                    case PokemonApiError.NotFound:
-                        Console.WriteLine("오류: 찾을 수 없습니다.");
-                        break;
-                    case PokemonApiError.NetworkTimeout:
-                        Console.WriteLine("오류: 네트워크 연결 초과.");
-                        break;
-                    case PokemonApiError.AuthenticationFailed:
-                        Console.WriteLine("오류: 권한이 없습니다.");
-                        break;
-                    default:
-                        Console.WriteLine("오류: 알 수 없는 오류가 발생했습니다.");
-                        break;
-                }
-
-                break;
-        }
     }
 }

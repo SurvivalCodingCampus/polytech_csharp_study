@@ -1,11 +1,9 @@
 using System.Net;
-using System.Text.Json.Serialization;
 using CsharpStudy.Network.DTOs;
-using CsharpStudy.Network.Models;
+using CsharpStudy.Network.Interfaces;
 using Newtonsoft.Json;
-using JsonConverter = Newtonsoft.Json.JsonConverter;
 
-namespace CsharpStudy.Network.Interfaces;
+namespace CsharpStudy.Network.Datasources;
 
 public class SubwayApiDatasource : IDataSource<SubwayArrivalDto>
 {
@@ -40,19 +38,21 @@ public class SubwayApiDatasource : IDataSource<SubwayArrivalDto>
         try
         {
             var arrivalDto = JsonConvert.DeserializeObject<SubwayArrivalDto>(jsonString) ?? new SubwayArrivalDto();
-            
-            if(arrivalDto.ErrorMessage == null) 
-                return new Response<SubwayArrivalDto>(-1, headers, arrivalDto);
-            
-            switch (arrivalDto.ErrorMessage.Status)
+
+            if (arrivalDto.ErrorMessage != null)
+                return new Response<SubwayArrivalDto>((int)response.StatusCode, headers, arrivalDto);
+
+            Dictionary<string, string> fail =
+                JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonString) ??
+                new Dictionary<string, string>();
+            switch (int.Parse(fail["status"]))
             {
                 case 500:
                     return new Response<SubwayArrivalDto>((int)HttpStatusCode.NotFound, headers, arrivalDto);
                 case 600: case 601:
-                    return new Response<SubwayArrivalDto>((int)HttpStatusCode.NotFound, headers, arrivalDto);
+                    return new Response<SubwayArrivalDto>((int)HttpStatusCode.ServiceUnavailable, headers, arrivalDto);
             }
 
-            
             return new Response<SubwayArrivalDto>((int)response.StatusCode, headers, arrivalDto);
         }
         catch (JsonSerializationException e)
