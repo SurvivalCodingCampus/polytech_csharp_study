@@ -2,6 +2,40 @@ using Newtonsoft.Json;
 
 namespace Pokemon.DataSource;
 
+public class MockPokemonApiFailDataSource : IPokemonApiDataSource
+{
+    public async Task<Response<Pokemon>> GetPokemonAsync(string pokemonName)
+    {
+        Pokemon pokemon = new Pokemon();
+        pokemon.Name = pokemonName;
+        pokemon.Sprites.other.OfficialArtwork.front_default =
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png";
+
+        Response<Pokemon> response = new Response<Pokemon>(
+            400, new Dictionary<string, string>(), pokemon
+        );
+
+        return response;
+    }
+}
+
+public class MockPokemonApiSuccessDataSource : IPokemonApiDataSource
+{
+    public async Task<Response<Pokemon>> GetPokemonAsync(string pokemonName)
+    {
+        Pokemon pokemon = new Pokemon();
+        pokemon.Name = pokemonName;
+        pokemon.Sprites.other.OfficialArtwork.front_default =
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png";
+
+        Response<Pokemon> response = new Response<Pokemon>(
+            200, new Dictionary<string, string>(), pokemon
+        );
+
+        return response;
+    }
+}
+
 public class PokemonApiDataSource : IPokemonApiDataSource
 {
     private readonly HttpClient _httpClient;

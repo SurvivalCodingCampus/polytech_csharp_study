@@ -1,6 +1,7 @@
-using Pokemon.DataSource;
+using DtoMapper.DataSource;
+using DtoMapper.Mapper;
 
-namespace Pokemon.Repositories;
+namespace DtoMapper.Repositories;
 
 public class PokemonRepository : IPokemonRepository
 {
@@ -11,12 +12,13 @@ public class PokemonRepository : IPokemonRepository
         _dataSource = dataSource;
     }
 
-    public async Task<Pokemon?> GetPokemonByNameAsync(string pokemonName)
+    public async Task<Models.Pokemon?> GetPokemonByNameAsync(string pokemonName)
     {
         try
         {
             var response = await _dataSource.GetPokemonAsync(pokemonName);
-            return response.Body;
+            var dto = response.Body;
+            return dto.ToModel();
         }
         catch (Exception e)
         {

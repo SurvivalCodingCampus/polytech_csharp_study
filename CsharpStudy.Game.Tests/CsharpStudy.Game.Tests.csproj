@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CsharpStudy.Game\CsharpStudy.Game.csproj" />
+    <ProjectReference Include="..\DtoMapper\DtoMapper.csproj" />
   </ItemGroup>
   
 </Project>
