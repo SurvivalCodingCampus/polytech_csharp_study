@@ -21,6 +21,7 @@
     <ProjectReference Include="..\CsharpStudy.Http\CsharpStudy.Http.csproj" />
     <ProjectReference Include="..\FileSystem\FileSystem.csproj" />
     <ProjectReference Include="..\RepositoryStudy\RepositoryStudy.csproj" />
+    <ProjectReference Include="..\Subway\Subway.csproj" />
   </ItemGroup>
   
 </Project>

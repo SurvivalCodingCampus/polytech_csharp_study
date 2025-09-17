@@ -1,4 +1,4 @@
-namespace CsharpStudy.Http.DataSources;
+namespace CsharpStudy.HttpStudy.DataSources;
 // Response<포켓몬>
 public class Response<T>
 {

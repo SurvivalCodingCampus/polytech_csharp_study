@@ -1,8 +1,10 @@
+using CsharpStudy.HttpStudy.Common;
 using CsharpStudy.HttpStudy.Data;
 
 namespace CsharpStudy.HttpStudy.Repository;
 
 public interface IPokemonRepository
 {
-    Task<Pokemon?> GetPokemonByNameAsync(string pokemonName);
+    Task<Result<Pokemon, PokemonError>> GetPokemonByNameAsync(string pokemonName);
+
 }

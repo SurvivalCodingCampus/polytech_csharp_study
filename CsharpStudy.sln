@@ -28,6 +28,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Http", "CsharpS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.HttpStudy", "CsharpStudy.HttpStudy\CsharpStudy.HttpStudy.csproj", "{C04D3A1C-BEB9-4D27-9E10-53960E4B24A7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subway", "Subway\Subway.csproj", "{C7D88B57-FBBE-481E-BF79-E6C255669BD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -90,6 +92,10 @@ Global
 		{C04D3A1C-BEB9-4D27-9E10-53960E4B24A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C04D3A1C-BEB9-4D27-9E10-53960E4B24A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C04D3A1C-BEB9-4D27-9E10-53960E4B24A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7D88B57-FBBE-481E-BF79-E6C255669BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7D88B57-FBBE-481E-BF79-E6C255669BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7D88B57-FBBE-481E-BF79-E6C255669BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7D88B57-FBBE-481E-BF79-E6C255669BD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

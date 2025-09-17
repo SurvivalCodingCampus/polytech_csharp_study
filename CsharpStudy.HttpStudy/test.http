@@ -1,0 +1,4 @@
+### GET request to example server
+GET http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/%EC%9A%A9%EC%82%B0
+
+###
