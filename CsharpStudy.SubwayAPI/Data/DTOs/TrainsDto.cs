@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-public class StationDto
+public class TrainsDto
 {
     [JsonProperty("errorMessage")]
     public ErrorMessageDto ErrorMessage { get; set; }

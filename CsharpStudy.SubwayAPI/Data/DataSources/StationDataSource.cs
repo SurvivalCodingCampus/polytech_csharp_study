@@ -1,10 +1,9 @@
-using System.Runtime.Serialization;
-using CsharpStudy.StationAPI.Data.Common;
+using CsharpStudy.SubwayAPI.Data.Common;
 using Newtonsoft.Json;
 
-namespace CsharpStudy.StationAPI.Data.DataSources;
+namespace CsharpStudy.SubwayAPI.Data.DataSources;
 
-public class StationDataSource : IStationDataSource<StationDto>
+public class StationDataSource : IStationDataSource<TrainsDto>
 {
     private string baseUrl = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/";
     private HttpClient _httpClient;
@@ -15,12 +14,12 @@ public class StationDataSource : IStationDataSource<StationDto>
     }
 
     // Should check if parameter:stationName(Korean) automately converted into base64
-    public async Task<Response<StationDto>> GetStationInfoAsync(string stationName)
+    public async Task<Response<TrainsDto>> GetStationInfoAsync(string stationName)
     {
         // Response<T> parameters
         Dictionary<string, string> headers;
         int statusCode;
-        StationDto? contentBody;
+        TrainsDto? contentBody;
         
         // HTTP GET
         HttpResponseMessage response = await _httpClient.GetAsync($"{baseUrl}{stationName}");
@@ -40,15 +39,15 @@ public class StationDataSource : IStationDataSource<StationDto>
         // Is convertable to DTO?
         try
         {
-            contentBody = JsonConvert.DeserializeObject<StationDto>(stringifiedContentBody);
+            contentBody = JsonConvert.DeserializeObject<TrainsDto>(stringifiedContentBody);
         }
         catch
         {
-            contentBody = new StationDto();
+            contentBody = new TrainsDto();
             statusCode = -1;
         }
 
-        return new Response<StationDto>(
+        return new Response<TrainsDto>(
             statusCode: statusCode,
             header: headers,
             body: contentBody

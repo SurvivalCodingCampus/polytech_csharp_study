@@ -1,6 +1,11 @@
 namespace CsharpStudy.SubwayAPI.Data.Models;
 
-public class Station
+public class Trains
+{
+    public List<Train> TrainsList { get; set; }
+}
+
+public class Train
 {
     public int ArrivalCode { get; }
     // 0: Entering
@@ -12,7 +17,7 @@ public class Station
     // 99 : Driving
     public bool IsLastTrain { get; }
 
-    public Station(int arrivalCode, bool isLastTrain)
+    public Train(int arrivalCode, bool isLastTrain)
     {
         ArrivalCode = arrivalCode;
         IsLastTrain = isLastTrain;

@@ -1,8 +1,9 @@
-using CsharpStudy.StationAPI.Data.Common;
+using CsharpStudy.SubwayAPI.Data.Common;
+using CsharpStudy.SubwayAPI.Data.Models;
 
 namespace CsharpStudy.SubwayAPI.Data.Repositories;
 
 public interface IStationRepository
 {
-    Task<Result<StationDto?, StationError>> GetStationInfoByNameAsync(string stationName);
+    Task<Result<List<Train>, StationError>> GetStationInfoByNameAsync(string stationName);
 }

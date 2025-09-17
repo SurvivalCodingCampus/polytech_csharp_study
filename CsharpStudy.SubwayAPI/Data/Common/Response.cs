@@ -1,4 +1,4 @@
-namespace CsharpStudy.StationAPI.Data.Common;
+namespace CsharpStudy.SubwayAPI.Data.Common;
 
 public class Response<T>
 {

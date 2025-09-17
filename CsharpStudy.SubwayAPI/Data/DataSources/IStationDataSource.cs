@@ -1,6 +1,6 @@
-using CsharpStudy.StationAPI.Data.Common;
+using CsharpStudy.SubwayAPI.Data.Common;
 
-namespace CsharpStudy.StationAPI.Data.DataSources;
+namespace CsharpStudy.SubwayAPI.Data.DataSources;
 
 public interface IStationDataSource<T>
 {
