@@ -17,20 +17,19 @@ public class StationApiDataSource : IStationApiDataSource
 
     public async Task<Response<StationDto>> GetStationAsync(string stationName)
     {
-        var response = await _httpClient.GetAsync($"{BaseUrl}{stationName}");
+        var encodedStationName = System.Net.WebUtility.UrlEncode(stationName); // 이 줄을 추가합니다.
+        var response = await _httpClient.GetAsync($"{BaseUrl}{encodedStationName}"); // encodedStationName을 사용합니다.
         var jsonString = await response.Content.ReadAsStringAsync();
         var headers = response.Headers.ToDictionary(
             header => header.Key,
             header => string.Join(",", header.Value)
-            );
+        );
 
         return new Response<StationDto>(
             statusCode: (int)response.StatusCode,
             headers: headers,
             body: JsonConvert.DeserializeObject<StationDto>(jsonString)!
         );
-
     }
-
 }
 
