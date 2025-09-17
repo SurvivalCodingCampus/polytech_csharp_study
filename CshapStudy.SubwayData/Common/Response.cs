@@ -1,4 +1,4 @@
-﻿namespace CsharpStudy.HttpPokeMon.DataSources;
+﻿namespace CshapStudy.SubwayData.Common;
 
 
 public class Response<T>

@@ -1,4 +1,5 @@
-﻿using CsharpStudy.HttpPokeMon.DataSources;
+﻿using CsharpStudy.HttpPokeMon.Common;
+using CsharpStudy.HttpPokeMon.DataSources;
 using CsharpStudy.HttpPokeMon.Mapper;
 using CsharpStudy.HttpPokeMon.Models;
 
@@ -14,16 +15,28 @@ public class PokemonRepository<PokemonDTO>
         _apiDataSource = pokemonRepository;
     }
 
-    public async Task<Pokemon?> GetPokemonByNameAsync(string pokemonName)
+    public async Task<Result<Models.Pokemon, PokemonError>> GetPokemonByNameAsync(string pokemonName)
     {
+        
         try
         {
+            //Responese<PokemonDTO> response = await _apiDataSource.GetPokemonAsync(pokemonName);
             var response = await _apiDataSource.GetPokemonAsync(pokemonName);
-            return PokemonMapper.ToPokemon(response.Body);
+            switch (response.StatusCode)
+            {
+                case 200:
+                    return new Result<Models.Pokemon, PokemonError>.Success(PokemonMapper.ToPokemon(response.Body));
+                case 404:
+                    return new Result<Models.Pokemon, PokemonError>.Error(PokemonError.NotFound);
+                case -1:
+                    return new Result<Models.Pokemon, PokemonError>.Error(PokemonError.NetworkTimeout);
+                default:
+                    return new Result<Models.Pokemon, PokemonError>.Error(PokemonError.Unknown);
+            }
         }
         catch (Exception ex)
         {
-            return null;
+            return new Result<Models.Pokemon, PokemonError>.Error(PokemonError.Unknown);
         }
     }
 }
