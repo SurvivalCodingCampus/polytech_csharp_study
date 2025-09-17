@@ -2,6 +2,9 @@ using CsharpStudy.DtoMapper.DTOs;
 
 namespace CsharpStudy.DtoMapper.Models;
 
+//public record Pokemon(int id, string Name, string ImageUrl, List<AbilityWrapperDto> Abilities);
+
+
 public class Pokemon
 {
     public int Id { get; }
