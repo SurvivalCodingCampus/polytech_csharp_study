@@ -37,3 +37,9 @@ Content-Type: application/json
 {
   "title": "바보"
 }
+
+### 서울
+GET http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/%EC%84%9C%EC%9A%B8
+
+### 서울울
+GET http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/%EC%84%9C%EC%9A%B8%EC%9A%B8
