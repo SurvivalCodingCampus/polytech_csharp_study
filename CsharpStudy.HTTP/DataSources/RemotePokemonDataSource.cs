@@ -1,29 +1,14 @@
-﻿using Newtonsoft.Json;
-using CsharpStudy.DtoMapper;
+﻿using System.Net.Http.Json;
+using CsharpStudy.HTTP.DTOs;
 
-namespace CsharpStudy.HTTP
+namespace CsharpStudy.HTTP.DataSources;
+
+public sealed class RemotePokemonDataSource(HttpClient http) : IPokemonApiDataSource
 {
-    public class RemotePokemonDataSource : IPokemonApiDataSource
+    private const string Base = "https://pokeapi.co/api/v2/pokemon/";
+
+    public async Task<PokemonDto?> GetPokemonAsync(string name)
     {
-        private const string BaseUrl = "https://pokeapi.co";
-        private readonly HttpClient _httpClient;
-
-        public RemotePokemonDataSource(HttpClient httpClient) => _httpClient = httpClient;
-
-        public async Task<Response<PokemonDto>> GetPokemonAsync(string nameOrId)
-        {
-            var url = $"{BaseUrl}/api/v2/pokemon/{nameOrId.ToLowerInvariant()}";
-            var response = await _httpClient.GetAsync(url);
-            var jsonString = await response.Content.ReadAsStringAsync();
-
-            var headers = response.Headers.ToDictionary(h => h.Key, h => string.Join(", ", h.Value));
-            var dto = JsonConvert.DeserializeObject<PokemonDto>(jsonString) ?? new PokemonDto();
-
-            return new Response<PokemonDto>(
-                statusCode: (int)response.StatusCode,
-                headers: headers,
-                body: dto
-            );
-        }
+        return await http.GetFromJsonAsync<PokemonDto>($"{Base}{name}");
     }
 }
