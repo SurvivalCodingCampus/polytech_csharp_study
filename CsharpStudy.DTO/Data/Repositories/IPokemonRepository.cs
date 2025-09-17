@@ -5,5 +5,5 @@ namespace CsharpStudy.DTO.Data.Repositories;
 
 public interface IPokemonRepository
 {
-    Task<Result<Pokemon?, PokemonError>> GetPokemonByNameAsync(string pokemonName);
+    Task<Result<Pokemon, PokemonError>> GetPokemonByNameAsync(string pokemonName);
 }

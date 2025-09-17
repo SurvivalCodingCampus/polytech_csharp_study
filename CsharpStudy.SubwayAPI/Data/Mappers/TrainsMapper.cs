@@ -13,8 +13,9 @@ public static class TrainsMapper
 
         foreach (var trainArrival in dto.RealtimeStationArrival)
         {
-            int arrivalC = int.Parse(trainArrival.ArvlCd);
-            bool isLastT = (int.Parse(trainArrival.LstcarAt) == 1) ?  true : false;
+            // int arrivalC = int.Parse(trainArrival.ArvlCd);
+            int.TryParse(trainArrival.ArvlCd, out var arrivalC);
+            bool isLastT = (int.Parse(trainArrival.LstcarAt) == 1);
             
             trains.Add(new Train(arrivalC, isLastT));
         }

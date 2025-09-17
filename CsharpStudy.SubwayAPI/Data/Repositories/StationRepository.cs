@@ -16,7 +16,8 @@ public class StationRepository : IStationRepository
     
     public async Task<Result<List<Train>, StationError>> GetStationInfoByNameAsync(string stationName)
     {
-        Response<TrainsDto> response = await _dataSource.GetStationInfoAsync(stationName);
+        Response<TrainsDto> response;
+        response = await _dataSource.GetStationInfoAsync(stationName);
 
         try
         {

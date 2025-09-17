@@ -14,7 +14,7 @@ public class PokemonRepository : IPokemonRepository
         _dataSource = dataSource;
     }
     
-    public async Task<Result<Pokemon?, PokemonError>> GetPokemonByNameAsync(string pokemonName)
+    public async Task<Result<Pokemon, PokemonError>> GetPokemonByNameAsync(string pokemonName)
     {
         Response<PokemonDto> response = await _dataSource.GetPokemonAsync(pokemonName);
         
@@ -23,22 +23,22 @@ public class PokemonRepository : IPokemonRepository
             switch (response.StatusCode)
             {
                 case 200:
-                    return new Result<Pokemon?, PokemonError>.Success(response.Body.ToPokemon());
+                    return new Result<Pokemon, PokemonError>.Success(response.Body.ToPokemon());
                 case 401:
-                    return new Result<Pokemon?, PokemonError>.Error(PokemonError.AuthenticationFailed);
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.AuthenticationFailed);
                 case 404:
-                    return new Result<Pokemon?, PokemonError>.Error(PokemonError.NotFound);
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.NotFound);
                 case 408:
-                    return new Result<Pokemon?, PokemonError>.Error(PokemonError.NetworkTimeout);
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.NetworkTimeout);
                 case -1:
-                    return new Result<Pokemon?, PokemonError>.Error(PokemonError.JsonSerializationFailed);
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.JsonSerializationFailed);
                 default:
-                    return new Result<Pokemon?, PokemonError>.Error(PokemonError.Unknown);
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.Unknown);
             }
         }
         catch (Exception e)
         {
-            return new Result<Pokemon?, PokemonError>.Error(PokemonError.Unknown);
+            return new Result<Pokemon, PokemonError>.Error(PokemonError.Unknown);
         }
     }
 }
