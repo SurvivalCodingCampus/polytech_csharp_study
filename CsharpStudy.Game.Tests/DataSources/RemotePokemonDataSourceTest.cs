@@ -15,8 +15,8 @@ public class RemotePokemonDataSourceTest
     public async Task Post_GET_Test()
     {
         IPokemonApiDataSource<Pokemon> dataSource = new RemotePokemonDataSource(new HttpClient());
-        var response = await dataSource.GetPokemonAsync("ditto");
-        
+       //var response = await dataSource.GetPokemonAsync("ditto");
+       var response = await dataSource.GetPokemonAsync("ditto");
         Assert.That("ditto", Is.EqualTo("ditto"));
     }
 }

@@ -12,6 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\CsharpStudy.Subway\CsharpStudy.Subway.csproj" />
       <ProjectReference Include="..\Csharp_study.http\Csharp_study.http.csproj" />
     </ItemGroup>
 

@@ -3,7 +3,7 @@ using CsharpStudy.DTO.Model;
 
 namespace CsharpStudy.DTO.DTOs;
 
-public interface IPokemonApiDataSource<T>
-{
-   public Task<Response> GetPokemonAsync(string pokemonName);
+public interface IPokemonApiDataSource
+{ 
+    Task<Response<PokemonDto>> GetPokemonAsync(string pokemonName);
 }

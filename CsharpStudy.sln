@@ -20,6 +20,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.DTO", "CsharpSt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Game.MapperTests", "CsharpStudy.Game.MapperTests\CsharpStudy.Game.MapperTests.csproj", "{EF2EDBF8-85BF-4385-A4AB-7F18FB472FE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Subway", "CsharpStudy.Subway\CsharpStudy.Subway.csproj", "{D897979B-5CD0-48DE-A105-141CE43F36C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpStudy.Game.SubwayTests", "CsharpStudy.Game.SubwayTests\CsharpStudy.Game.SubwayTests.csproj", "{9A0EAA81-57D6-456A-8A9D-0A24E0E517EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +70,13 @@ Global
 		{EF2EDBF8-85BF-4385-A4AB-7F18FB472FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF2EDBF8-85BF-4385-A4AB-7F18FB472FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF2EDBF8-85BF-4385-A4AB-7F18FB472FE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D897979B-5CD0-48DE-A105-141CE43F36C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D897979B-5CD0-48DE-A105-141CE43F36C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D897979B-5CD0-48DE-A105-141CE43F36C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D897979B-5CD0-48DE-A105-141CE43F36C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A0EAA81-57D6-456A-8A9D-0A24E0E517EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A0EAA81-57D6-456A-8A9D-0A24E0E517EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A0EAA81-57D6-456A-8A9D-0A24E0E517EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A0EAA81-57D6-456A-8A9D-0A24E0E517EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

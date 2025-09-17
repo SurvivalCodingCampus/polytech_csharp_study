@@ -1,20 +1,47 @@
+using CsharpStudy.DTO.Common;
 using CsharpStudy.DTO.DTOs;
+using CsharpStudy.DTO.Mapper;
+using CsharpStudy.DTO.Model;
 
 namespace CsharpStudy.DTO.Repositories;
 
 public class PokemonRespository: IPokemonRepository
 {
-    private IPokemonApiDataSource<PokemonDto> _dataSource;
+    private IPokemonApiDataSource _dataSource;
 
-    public PokemonRespository(IPokemonApiDataSource<PokemonDto> dataSource)
+    public PokemonRespository(IPokemonApiDataSource dataSource)
     {
-        _dataSource = dataSource;
+        _dataSource =  dataSource;
     }
     
 
-    public async Task<PokemonDto?> GetPokemonAsync(string pokemonName)
+    public async Task<Result<Pokemon, PokemonError>> GetPokemonByNameAsync(string pokemonName)
     {
-        var response = await _dataSource.GetPokemonAsync(pokemonName);
-        return response.Body;
+        if (string.IsNullOrWhiteSpace(pokemonName))
+        {
+            return new Result<Pokemon, PokemonError>.Error(PokemonError.InvalidInput);
+        }
+
+        try
+        {
+            var response = await _dataSource.GetPokemonAsync(pokemonName);
+
+            switch (response.StatusCode)
+            {
+                case 200:
+                    var dto = response.Body;
+                    Pokemon pokemon = dto.ToModel();
+                    return new Result<Pokemon, PokemonError>.Success(pokemon);
+                case 404:
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.NotFound);
+                default:
+                    return new Result<Pokemon, PokemonError>.Error(PokemonError.UnkonwnError);
+            }
+
+        }
+        catch (Exception e)
+        {
+            return new Result<Pokemon, PokemonError>.Error(PokemonError.NetworkError);
+        }
     }
 }
