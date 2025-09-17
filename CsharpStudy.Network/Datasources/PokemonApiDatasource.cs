@@ -1,10 +1,8 @@
-using System.Text.Json.Serialization;
 using CsharpStudy.Network.DTOs;
-using CsharpStudy.Network.Models;
+using CsharpStudy.Network.Interfaces;
 using Newtonsoft.Json;
-using JsonConverter = Newtonsoft.Json.JsonConverter;
 
-namespace CsharpStudy.Network.Interfaces;
+namespace CsharpStudy.Network.Datasources;
 
 public class PokemonApiDatasource : IDataSource<PokemonDto>
 {
@@ -28,9 +26,27 @@ public class PokemonApiDatasource : IDataSource<PokemonDto>
                 header => header.Key,
                 header => string.Join(", ", header.Value)
             );
-        
-        var pokemon = JsonConvert.DeserializeObject<PokemonDto>(jsonString) ?? new PokemonDto();
-        
-        return new Response<PokemonDto>((int)response.StatusCode, headers, pokemon);
+
+        return TryDeserializeJson(jsonString, response, headers);
+    }
+
+    private static Response<PokemonDto> TryDeserializeJson(string jsonString, HttpResponseMessage response,
+        Dictionary<string, string> headers)
+    {
+        try
+        {
+            var pokemon = JsonConvert.DeserializeObject<PokemonDto>(jsonString) ?? new PokemonDto();
+            return new Response<PokemonDto>((int)response.StatusCode, headers, pokemon);
+        }
+        catch (JsonSerializationException e)
+        {
+            if ((int)response.StatusCode != 200)
+                return new Response<PokemonDto>((int)response.StatusCode, headers, new PokemonDto());
+            throw;
+        }
+        catch (Exception e)
+        {
+            return new Response<PokemonDto>((int)response.StatusCode, headers, new PokemonDto());
+        }
     }
 }
