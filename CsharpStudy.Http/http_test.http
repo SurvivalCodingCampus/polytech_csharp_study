@@ -1,0 +1,48 @@
+### 모든 posts
+GET https://jsonplaceholder.typicode.com/posts
+
+### posts 특정 id
+GET https://jsonplaceholder.typicode.com/posts?id=1
+
+
+### POST 쓰기
+POST https://jsonplaceholder.typicode.com/posts
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "title": "test",
+  "body": "test"
+}
+
+
+### POST 삭제
+DELETE https://jsonplaceholder.typicode.com/posts/1
+
+
+### 전체 수정
+PUT https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "userId": 200,
+  "title": "바보",
+  "body": "바보"
+}
+
+### 일부 수정
+PATCH https://jsonplaceholder.typicode.com/posts/1
+Content-Type: application/json
+
+{
+  "title": "바보"
+}
+
+### 서울
+GET http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5
+
+### Result 패턴 작성 404 에러
+https://pokeapi.co/api/v2/pokemon/dittooo
+
+### 지하철 도착 정보
+http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/0/5/
