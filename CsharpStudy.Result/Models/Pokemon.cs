@@ -1,4 +1,4 @@
-namespace CsharpStudy.DtoMapper.Models;
+namespace CsharpStudy.Result.Models;
 
 /// 애플리케이션 내부에서 사용할 포켓몬 '모델' 클래스입니다.
 /// DTO와 달리, 앱에 정말 필요한 데이터(이름, 이미지 URL)만 가집니다.

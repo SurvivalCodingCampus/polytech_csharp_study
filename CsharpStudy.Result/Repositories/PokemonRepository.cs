@@ -1,9 +1,12 @@
 using CsharpStudy.DtoMapper.Common;
-using CsharpStudy.DtoMapper.DataSources;
-using CsharpStudy.DtoMapper.Mappers;
-using CsharpStudy.DtoMapper.Models; // ToModel() 확장 메서드를 사용하기 위해 추가
+using CsharpStudy.DtoMapper.Repositories;
+using CsharpStudy.Result.DataSources;
+using CsharpStudy.Result.Mappers;
+using CsharpStudy.Result.Models;
 
-namespace CsharpStudy.DtoMapper.Repositories;
+// ToModel() 확장 메서드를 사용하기 위해 추가
+
+namespace CsharpStudy.Result.Repositories;
 
 /// IPokemonRepository 인터페이스의 실제 구현체입니다.
 public class PokemonRepository : IPokemonRepository // 비즈니스 로직 처리
@@ -44,6 +47,14 @@ public class PokemonRepository : IPokemonRepository // 비즈니스 로직 처�
             // var dto = response.Body;
             // // 3. Mapper(확장 메서드)를 사용하여 DTO를 애플리케이션 Model로 변환합니다.
             // return dto.ToModel();
+        }
+        catch (ArgumentException e)
+        {
+            return new Result<Pokemon, PokemonError>.Error(PokemonError.JsonSerializationException);
+        }
+        catch (InvalidOperationException e)
+        {
+            return new Result<Pokemon, PokemonError>.Error(PokemonError.TimeoutException);
         }
         catch (Exception e)
         {
